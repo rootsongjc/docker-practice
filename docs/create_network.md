@@ -57,7 +57,54 @@ Options:
       --subnet stringSlice     Subnet in CIDR format that represents a network segment
 ```
 
-TBD 创建网络的实例
+创建overlay模式的全局网络，我们可以看到新创建的mynet1的scope是swarm，即集群范围可见的。
+
+```shell
+172.18.0.1:root@sz-pg-oam-docker-test-001:/root]# docker network create -d overlay mynet1
+x81fu4ohqot2ufbpoa2u8vyx3
+172.18.0.1:root@sz-pg-oam-docker-test-001:/root]# docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+ad3023f6d324        bridge              bridge              local
+346c0fe30055        crane_default       bridge              local
+4da289d8e48a        docker_gwbridge     bridge              local
+3d636dff00da        host                host                local
+tx49ev228p5l        ingress             overlay             swarm
+x81fu4ohqot2        mynet1              overlay             swarm
+cc14ee093707        none                null                local
+172.18.0.1:root@sz-pg-oam-docker-test-001:/root]# docker network inspect mynet1
+[
+    {
+        "Name": "mynet1",
+        "Id": "x81fu4ohqot2ufbpoa2u8vyx3",
+        "Created": "0001-01-01T00:00:00Z",
+        "Scope": "swarm",
+        "Driver": "overlay",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": []
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Containers": null,
+        "Options": {
+            "com.docker.network.driver.overlay.vxlanid_list": "4097"
+        },
+        "Labels": null
+    }
+]
+
+```
+
+注意，overlay模式的网络只能在swarm的manager节点上创建，如果在work节点上创建overlay网络会报错：
+
+```shell
+172.18.0.1:root@sz-pg-oam-docker-test-002:/root]# docker network create -d overlay mynet1
+Error response from daemon: Cannot create a multi-host network from a worker node. Please create the network from a manager node.
+```
+
+如果不使用-d指定driver将默认创建本地bridge网络。
 
 ## 自定义网络##
 

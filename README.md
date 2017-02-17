@@ -29,6 +29,8 @@
 
 [如何创建docker network](docs/create_network.md)
 
+[一步步教你创建一个自定义网络](docs/create_network_step_by_step.md)
+
 ## 创建应用##
 
 使用docker-compose创建应用
@@ -48,6 +50,6 @@
 
 ## 关于##
 
-Jimmy Song 
+Author: Jimmy Song 
 
 rootsongjc@gmail.com
