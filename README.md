@@ -49,6 +49,10 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 ## 集群管理##
 
+我们使用docker内置的swarm来管理docker集群
+
+[swarm mode介绍](docs/swarm_mode.md)
+
 我们推荐使用开源的docker集群管理配置方案：
 
 - [Crane](https://github.com/Dataman-Cloud/crane)：由数人云开源的基于swarmkit的容器管理软件，可以作为docker和go语言开发的一个不错入门项目
