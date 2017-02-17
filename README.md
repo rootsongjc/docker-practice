@@ -42,3 +42,12 @@
 - [Crane](https://github.com/Dataman-Cloud/crane)：由数人云开源的基于swarmkit的容器管理软件，可以作为docker和go语言开发的一个不错入门项目
 - [Rancher](https://github.com/rancher/rancher):Rancher是一个企业级的容器管理平台，可以使用Kubernetes、swarm和rancher自研的cattle来管理集群。
 
+[Crane的部署和使用](docs/crane_usage.md)
+
+[Rancher的部署和使用](docs/rancher_usage.md)
+
+## 关于##
+
+Jimmy Song 
+
+rootsongjc@gmail.com
