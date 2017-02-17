@@ -37,6 +37,16 @@
 
 使用service创建应用
 
+## 存储管理##
+
+## 日志管理##
+
+Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/logging/overview/)，如fluentd、journald、syslog等。
+
+需要配置docker engine的启动参数。
+
+
+
 ## 集群管理##
 
 我们推荐使用开源的docker集群管理配置方案：
