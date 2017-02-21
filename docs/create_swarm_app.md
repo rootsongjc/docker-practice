@@ -140,3 +140,84 @@ volumes:
   db-data:
 ```
 
+## 部署##
+
+使用docker stack deploy命令部署vote应用。
+
+```
+$docker stack deploy -c docker-stack.yml vote
+Creating network vote_backend
+Creating network vote_frontend
+Creating network vote_default
+Creating service vote_db
+Creating service vote_vote
+Creating service vote_result
+Creating service vote_worker
+Creating service vote_visualizer
+Creating service vote_redis
+```
+
+使用``docker stack deploy``部署的应用中的images必须是已经在镜像仓库中存在的，而不能像之前的docker-compose up一样，可以通过本地构建镜像后启动。
+
+使用``docker stack service vote``查看应用状态
+
+```
+$docker stack services vote
+ID            NAME             MODE        REPLICAS  IMAGE
+5bte3o8e0ta9  vote_result      replicated  2/2       sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_result:before
+h65a6zakqgq3  vote_worker      replicated  1/1       sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_worker:latest
+k7xzd0adhh52  vote_db          replicated  1/1       sz-pg-oam-docker-hub-001.tendcloud.com/library/postgres:9.4
+pvvi5qqcsnag  vote_vote        replicated  2/2       sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_vote:before
+z4q2gnvoxtpj  vote_redis       replicated  2/2       sz-pg-oam-docker-hub-001.tendcloud.com/library/redis:alpine
+zgiuxazk4ssc  vote_visualizer  replicated  1/1       sz-pg-oam-docker-hub-001.tendcloud.com/library/visualizer:stable
+```
+
+使用``docker stack ls``和``docker stack ps vote``查看stack的状态
+
+```
+$docker stack ls
+NAME  SERVICES
+vote  6
+$docker stack ps vote
+ID            NAME               IMAGE                                                                          NODE                                     DESIRED STATE  CURRENT STATE          ERROR                      PORTS
+tcyy62bs26sp  vote_worker.1      sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_worker:latest  sz-pg-oam-docker-test-003.tendcloud.com  Running        Running 4 minutes ago                             
+tfa84y1yz00j  vote_redis.1       sz-pg-oam-docker-hub-001.tendcloud.com/library/redis:alpine                    sz-pg-oam-docker-test-002.tendcloud.com  Running        Running 5 minutes ago                             
+4yrp8e2pucnu  vote_visualizer.1  sz-pg-oam-docker-hub-001.tendcloud.com/library/visualizer:stable               sz-pg-oam-docker-test-001.tendcloud.com  Running        Running 5 minutes ago                             
+zv4dan0n9zo3  vote_worker.1      sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_worker:latest  sz-pg-oam-docker-test-003.tendcloud.com  Shutdown       Failed 4 minutes ago   "task: non-zero exit (1)"  
+mhbf683hiugr  vote_result.1      sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_result:before  sz-pg-oam-docker-test-001.tendcloud.com  Running        Running 5 minutes ago                             
+slf6je49r4v1  vote_vote.1        sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_vote:before    sz-pg-oam-docker-test-002.tendcloud.com  Running        Running 5 minutes ago                             
+mqypecrgriyq  vote_db.1          sz-pg-oam-docker-hub-001.tendcloud.com/library/postgres:9.4                    sz-pg-oam-docker-test-001.tendcloud.com  Running        Running 4 minutes ago                             
+6n7856nsvavn  vote_redis.2       sz-pg-oam-docker-hub-001.tendcloud.com/library/redis:alpine                    sz-pg-oam-docker-test-003.tendcloud.com  Running        Running 5 minutes ago                             
+pcrfnm20jf0r  vote_result.2      sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_result:before  sz-pg-oam-docker-test-002.tendcloud.com  Running        Running 4 minutes ago                             
+ydxurw1jnft6  vote_vote.2        sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_vote:before    sz-pg-oam-docker-test-003.tendcloud.com  Running        Running 5 minutes ago   
+```
+
+## 检查##
+
+当vote应用成功部署后，在浏览器中访问visualizer所部属到的主机的8080端口http://sz-pg-oam-docker-hub-001.tendcloud.com:8080可以看到如下画面：
+
+![visualizer.jpg](imgs/visualizer.jpg)
+
+Visualizer用于显示服务和主机的状态。
+
+**投票界面**
+
+在浏览器中访问``examplevotingapp_vote``所部属到的主机的5000端口http://sz-pg-oam-docker-hub-001.tendcloud.com:5000可以看到如下画面：
+
+![vote_web](imgs/vote_web.jpg)
+
+给猫投一票。![cat](imgs/cat.jpg)
+
+**结果界面**
+
+在浏览器中访问``examplevotingapp_result``所部属到的主机的5001端口http://sz-pg-oam-docker-hub-001.tendcloud.com:5001可以看到如下画面：
+
+![vote_result](imgs/vote_result.jpg)
+
+##总结##
+
+至此整个应用已经完整的部署在docker上了，并验证正常运行。
+
+怎么样，是用docker来部署一个应用是不是很简单？
+
+其实后期的维护、升级、扩展都很简单，后面会详细的说明。

@@ -19,4 +19,6 @@ v3 中引入了 `deploy` 指令，可对Swarm mode中服务部署的进行细�
 - `service`：定义服务的标签
 
 
+虽然 Docker CLI 已经提供了对Docker Compose v3模板的支持。但是 Docker Compose 依然可以作为一个开发工具独立使用，并同时继续支持v1/v2/v2.1等版本已有编排模板。但是当利用 `docker-compose up` 或 `docker-compose run` 来部署v3模板时，模板中的 `deploy` 指令将被忽略
 
+Docker CLI只支持v3模板，但是不支持模板中的 `build` 指令，只允许构建好的镜像来启动服务的容器。
