@@ -55,7 +55,7 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 ## 集群管理##
 
-我们使用docker内置的swarm来管理docker集群
+我们使用docker内置的swarm来管理docker集群。
 
 [swarm mode介绍](docs/swarm_mode.md)
 
@@ -67,6 +67,16 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 [Crane的部署和使用](docs/crane_usage.md)
 
 [Rancher的部署和使用](docs/rancher_usage.md)
+
+## 插件开发##
+
+网络插件
+
+存储插件
+
+## 相关资源##
+
+[容器技术工具与资源](docs/tech_resource.md)
 
 ## 关于##
 
