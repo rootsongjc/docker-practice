@@ -55,7 +55,7 @@ version: "3"
 services:
 
   redis:
-    image: redis:alpine
+    image: sz-pg-oam-docker-hub-001.tendcloud.com/library/redis:alpine
     ports:
       - "6379"
     networks:
@@ -68,7 +68,7 @@ services:
       restart_policy:
         condition: on-failure
   db:
-    image: postgres:9.4
+    image: sz-pg-oam-docker-hub-001.tendcloud.com/library/postgres:9.4
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
@@ -77,7 +77,7 @@ services:
       placement:
         constraints: [node.role == manager]
   vote:
-    image: dockersamples/examplevotingapp_vote:before
+    image: sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_vote:before
     ports:
       - 5000:80
     networks:
@@ -91,7 +91,7 @@ services:
       restart_policy:
         condition: on-failure
   result:
-    image: dockersamples/examplevotingapp_result:before
+    image: sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_result:before
     ports:
       - 5001:80
     networks:
@@ -107,7 +107,7 @@ services:
         condition: on-failure
 
   worker:
-    image: dockersamples/examplevotingapp_worker
+    image: sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_worker
     networks:
       - frontend
       - backend
@@ -122,7 +122,7 @@ services:
         window: 120s
 
   visualizer:
-    image: dockersamples/visualizer:stable
+    image: sz-pg-oam-docker-hub-001.tendcloud.com/library/visualizer:stable
     ports:
       - "8080:8080"
     stop_grace_period: 1m30s
