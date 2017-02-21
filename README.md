@@ -31,12 +31,6 @@
 
 [一步步教你创建一个自定义网络](docs/create_network_step_by_step.md)
 
-## 创建应用##
-
-使用docker-compose创建应用
-
-使用service创建应用
-
 ## 存储管理##
 
 ## 日志管理##
@@ -45,7 +39,15 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 需要配置docker engine的启动参数。
 
+## 创建应用
 
+官方文档：[Docker swarm sample app overview](https://docs.docker.com/engine/getstarted-voting-app/)
+
+[基于docker1.13手把手教你创建swarm app](docs/create_swarm_app.md)
+
+使用docker-compose创建应用
+
+使用service创建应用
 
 ## 集群管理##
 
