@@ -46,7 +46,7 @@ Network：一个endpoints的集合。该集合内的所有endpoints可以互联�
 
 最后，CNM还支持标签(labels)。Lable是以key-value对定义的元数据。用户可以通过定义label这样的元数据来自定义libnetwork和驱动的行为。
 
-### 1.2.2  CNI网络接口### 
+### 1.2.2  CNI网络接口
 
 CNI是由Google提出的一个容器网络规范。已采纳改规范的包括Apache Mesos, Cloud Foundry, Kubernetes, Kurma 和 rkt。另外 Contiv Networking, Project Calico 和 Weave这些项目也为CNI提供插件。
 
@@ -159,6 +159,6 @@ Drop ARP request for [10.43.0.2](10.43.0.2) on eth1
 
 ebtables -t nat -D POSTROUTING -p arp --arp-opcode 1 --arp-ip-dst [10.43.0.2](10.43.0.2)  -o eth1 -j DROP
 
-另外也可以在容器所在的主机上将Docker0的bridge和CNI的bridge做三层打通，并使用iptables来进行控制，目前这个方式还在测试中，如果可以采用我们会在下一次的交流中和大家分享。
+另外也可以在容器所在的主机上将Docker0的bridge和CNI的bridge做三层打通，并使用iptables来进行控制，目前这个方式还在测试中。
 
  
