@@ -1,8 +1,6 @@
 # 京东从OpenStack切换到Kubernetes的经验之谈
 
-```
-京东从2016年底启动从OpenStack切换到Kubernetes的工作，截止目前(2017年2月）已迁移完成20%，预计Q2可以完成全部切换工作。Kubernetes方案与OpenStack方案相比，架构更为简洁。在这个过程中，有这些经验可供业界借鉴。
-```
+***京东从2016年底启动从OpenStack切换到Kubernetes的工作，截止目前(2017年2月）已迁移完成20%，预计Q2可以完成全部切换工作。Kubernetes方案与OpenStack方案相比，架构更为简洁。在这个过程中，有这些经验可供业界借鉴。***
 
 ## 背景介绍
 
