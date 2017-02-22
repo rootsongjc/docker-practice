@@ -82,6 +82,10 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [美团点评容器平台介绍](docs/meituan_docker_platform.md)
 
+[阿里超大规模docker化之路](docs/ali_docker.md)
+
+
+
 ## 相关资源##
 
 [容器技术工具与资源](docs/tech_resource.md)
