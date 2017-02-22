@@ -82,7 +82,7 @@ JDOS 2.0继承了JDOS 1.0的方案，采用OpenStack-Neutron的VLAN模式，该�
 
 ![jd_tor](imgs/jd_tor.jpg)
 
-同时，Cane负责Kubernetes中service中的LoadBalancer的创建。当有LoadBalancer类型的service创建/删除/修改时，Cane将对应的调用Neutron中创建/删除/修改LBaaS的服务接口，从而实现外部服务负载均衡的管理。另外，Cane项目中的Hades([https://github.com/ipdcode/hades](undefined) 京东开源在GitHub上)组件为容器提供了内部的DNS解析服务。
+同时，Cane负责Kubernetes中service中的LoadBalancer的创建。当有LoadBalancer类型的service创建/删除/修改时，Cane将对应的调用Neutron中创建/删除/修改LBaaS的服务接口，从而实现外部服务负载均衡的管理。另外，Cane项目中的[Hades](https://github.com/ipdcode/hades)京东开源在GitHub上组件为容器提供了内部的DNS解析服务。
 
 ### 灵活调度
 
