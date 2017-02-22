@@ -76,6 +76,12 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 存储插件
 
+## 业界使用案例
+
+[京东从OpenStack切换到Kubernetes的经验之谈](docs/jd_transform_to_kubernetes.md)
+
+
+
 ## 相关资源##
 
 [容器技术工具与资源](docs/tech_resource.md)
