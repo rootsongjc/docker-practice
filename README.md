@@ -80,7 +80,7 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [京东从OpenStack切换到Kubernetes的经验之谈](docs/jd_transform_to_kubernetes.md)
 
-
+[美团点评容器平台介绍](docs/meituan_docker_platform.md)
 
 ## 相关资源##
 
