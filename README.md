@@ -51,6 +51,8 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [基于docker1.13手把手教你创建swarm app](docs/create_swarm_app.md)
 
+[swarm集群应用管理](docs/swarm_app_manage.md)
+
 使用docker-compose创建应用
 
 使用service创建应用
@@ -86,7 +88,7 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [TalkingData-容器技术在大数据场景下的应用Yarn on Docker](docs/td_yarn_on_docker.md)
 
-
+[乐视云基于Kubernetes的PaaS平台建设](docs/letv_docker.md)
 
 ## 相关资源##
 
