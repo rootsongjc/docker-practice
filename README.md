@@ -1,6 +1,8 @@
-# Docker实践教程#
+# Docker实践教程
 
 本文档旨在实验Docker1.13新特性和帮助大家了解docker集群的管理和使用。
+
+
 
 ## 环境配置##
 
@@ -27,6 +29,10 @@
 - Swarm内置的overlay网络，不需要单独安装
 - *mynet自定义网络(TBD)，目前没有在docker中使用*
 
+
+
+
+
 ## 网络配置##
 
 网络配置是容器使用中的的一个重点和难点，对比我们之前使用的docker版本是1.11.1，docker1.13中网络模式跟之前的变动比较大，我们会花大力气讲解。
@@ -37,13 +43,21 @@
 
 [Rancher网络探讨和扁平网络实现](docs/rancher_network.md)
 
+
+
 ## 存储管理##
+
+TODO
+
+
 
 ## 日志管理##
 
 Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/logging/overview/)，如fluentd、journald、syslog等。
 
 需要配置docker engine的启动参数。
+
+
 
 ## 创建应用
 
@@ -56,6 +70,8 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 使用docker-compose创建应用
 
 使用service创建应用
+
+
 
 ## 集群管理##
 
@@ -72,11 +88,15 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [Rancher的部署和使用](docs/rancher_usage.md)
 
+
+
 ## 插件开发##
 
 网络插件
 
 存储插件
+
+
 
 ## 业界使用案例
 
@@ -90,9 +110,13 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [乐视云基于Kubernetes的PaaS平台建设](docs/letv_docker.md)
 
+
+
 ## 相关资源##
 
 [容器技术工具与资源](docs/tech_resource.md)
+
+
 
 ## 关于##
 
