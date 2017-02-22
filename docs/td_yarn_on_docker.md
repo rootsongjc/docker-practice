@@ -148,7 +148,7 @@ docker-registry/library/hadoop-yarn:v0.1 resourcemanager
 
 ## 自定义网络
 
- Docker容器跨主机互访一直是一个问题，Docker官方为了避免网络上带来的诸多麻烦，故将跨主机网络开了比较大的口子，而由用户自己去实现。我们开发并开源了Shrike这个docker网络插件，大家可以在这里下载到：[https://github.com/talkingdata/shrike](https://github.com/talkingdata/shrike) 
+ Docker容器跨主机互访一直是一个问题，Docker官方为了避免网络上带来的诸多麻烦，故将跨主机网络开了比较大的口子，而由用户自己去实现。我们开发并开源了Shrike这个docker网络插件，大家可以在这里下载到：https://github.com/rootsongjc/docker-ipam-plugin
 
     目前Docker跨主机的网络实现方案也有很多种, 主要包括端口映射，ovs,fannel等。但是这些方案都无法满足我们的需求，端口映射服务内的内网IP会映射成外网的IP，这样会给开发带来困惑，因为他们往往在跨网络交互时是不需要内网IP的，而ovs与fannel则是在基础网络协议上又包装了一层自定义协议，这样当网络流量大时，却又无端的增加了网络负载，最后我们采取了自主研发扁平化网络插件，也就是说让所有的容器统统在大二层上互通。架构如下：
 
