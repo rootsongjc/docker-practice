@@ -210,11 +210,13 @@ Visualizer用于显示服务和主机的状态。
 
 **结果界面**
 
-在浏览器中访问``examplevotingapp_result``所部属到的主机的5001端口http://sz-pg-oam-docker-hub-001.tendcloud.com:5001可以看到如下画面：
+在浏览器中访问``examplevotingapp_result``所部属到的主机的5001端口http://sz-pg-oam-docker-hub-001.tendcloud.com:5001可以看到如下画面.
 
 ![vote_result](imgs/vote_result.jpg)
 
-##总结
+
+
+##总结##
 
 至此整个应用已经完整的部署在docker上了，并验证正常运行。
 
