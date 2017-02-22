@@ -84,6 +84,8 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [阿里超大规模docker化之路](docs/ali_docker.md)
 
+[TalkingData-容器技术在大数据场景下的应用Yarn on Docker](docs/td_yarn_on_docker.md)
+
 
 
 ## 相关资源##
