@@ -214,7 +214,7 @@ Visualizer用于显示服务和主机的状态。
 
 ![vote_result](imgs/vote_result.jpg)
 
-##总结##
+##总结
 
 至此整个应用已经完整的部署在docker上了，并验证正常运行。
 
