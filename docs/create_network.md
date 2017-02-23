@@ -116,5 +116,5 @@ TDB
 
 写一个创建自定义网络的例子
 
-[一步步教你创建一个自定义网络](docs/create_network_step_by_step.md)
+[一步步教你创建一个自定义网络](create_network_step_by_step.md)
 
