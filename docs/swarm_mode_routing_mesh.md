@@ -77,7 +77,9 @@ wbzzlq3ajyjq  my-web.1      sz-pg-oam-docker-hub-001.tendcloud.com/library/nginx
 w0y1l3x94ox3   \_ my-web.2  sz-pg-oam-docker-hub-001.tendcloud.com/library/nginx:1.9  sz-pg-oam-docker-test-003.tendcloud.com  Shutdown       Shutdown 39 minutes ago     
 ```
 
-## 是用外部Load Balancer
+
+
+## 使用外部Load Balancer
 
 可以使用HAProxy做nginx的负载均衡。
 

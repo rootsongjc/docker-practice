@@ -21,7 +21,7 @@
 
 [Rancher网络探讨和扁平网络实现](docs/rancher_network.md)
 
-[swarm mode的路有网络](docs/swarm_mode_routing_mesh.md)
+[swarm mode的路由网络](docs/swarm_mode_routing_mesh.md)
 
 ## 存储管理##
 
