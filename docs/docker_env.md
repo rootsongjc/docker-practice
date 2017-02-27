@@ -22,3 +22,21 @@
 
 - Swarm内置的overlay网络，不需要单独安装
 - *mynet自定义网络(TBD)，目前没有在docker中使用*
+
+**Docker配置文件修改**
+
+修改docke让配置文件``/usr/lib/systemd/system/docker.service``
+
+```
+ExecStart=/usr/bin/dockerd --insecure-registry=sz-pg-oam-docker-hub-001.tendcloud.com -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+```
+
+修改好后
+
+```
+systemctl daemon-reload
+systemctl restart docker
+```
+
+
+
