@@ -11,9 +11,9 @@
 
 
 
-## 网络配置##
+## 网络管理##
 
-网络配置是容器使用中的的一个重点和难点，对比我们之前使用的docker版本是1.11.1，docker1.13中网络模式跟之前的变动比较大，我们会花大力气讲解。
+网络配置和管理是容器使用中的的一个重点和难点，对比我们之前使用的docker版本是1.11.1，docker1.13中网络模式跟之前的变动比较大，我们会花大力气讲解。
 
 [如何创建docker network](docs/create_network.md)
 
@@ -23,14 +23,16 @@
 
 [swarm mode的路由网络](docs/swarm_mode_routing_mesh.md)
 
+[docker扁平化网络插件Shrike（基于docker1.11）](https://github.com/TalkingData/shrike)
+
 ## 存储管理##
 
 [Docker存储插件](docs/docker_storage_plugin.md)
 
-- [infinit](docs/infinit.md)
-- [convoy](docs/convoy.md)
+- [infinit](docs/infinit.md) 被docker公司收购的法国团队开发
+- [convoy](docs/convoy.md) rancher开发的docker volume plugin
 - [torus](docs/torus.md) **已废弃**
-- [flocker](docs/flocker.md)
+- [flocker](docs/flocker.md) ClusterHQ开发
 
 
 
@@ -51,8 +53,6 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 [swarm集群应用管理](docs/swarm_app_manage.md)
 
 使用docker-compose创建应用
-
-使用service创建应用
 
 
 
