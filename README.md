@@ -27,6 +27,11 @@
 
 [Docker存储插件](docs/docker_storage_plugin.md)
 
+- [infinit](docs/infinit.md)
+- [convoy](docs/convoy.md)
+- [torus](docs/torus.md) **已废弃**
+- [flocker](docs/flocker.md)
+
 
 
 ## 日志管理##
