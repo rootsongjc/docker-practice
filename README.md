@@ -42,7 +42,7 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 需要配置docker engine的启动参数。
 
-
+[docker logging driver](docs/docker_logging_driver.md)
 
 ## 创建应用
 
@@ -52,7 +52,7 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [swarm集群应用管理](docs/swarm_app_manage.md)
 
-使用docker-compose创建应用
+[使用docker-compose创建应用](docs/docker_compose.md)
 
 
 
