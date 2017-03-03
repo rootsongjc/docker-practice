@@ -3,15 +3,12 @@
 本文档旨在实验Docker1.13新特性和帮助大家了解docker集群的管理和使用。
 
 
-
-## 环境配置##
+## 环境配置
 
 [Docker1.13环境配置](docs/docker_env.md)
 
 
-
-
-## 网络管理##
+## 网络管理
 
 网络配置和管理是容器使用中的的一个重点和难点，对比我们之前使用的docker版本是1.11.1，docker1.13中网络模式跟之前的变动比较大，我们会花大力气讲解。
 
@@ -25,7 +22,7 @@
 
 [docker扁平化网络插件Shrike（基于docker1.11）](https://github.com/TalkingData/shrike)
 
-## 存储管理##
+## 存储管理
 
 [Docker存储插件](docs/docker_storage_plugin.md)
 
@@ -36,7 +33,7 @@
 
 
 
-## 日志管理##
+## 日志管理
 
 Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/logging/overview/)，如fluentd、journald、syslog等。
 
@@ -54,8 +51,6 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [使用docker-compose创建应用](docs/docker_compose.md)
 
-
-
 ## 集群管理##
 
 我们使用docker内置的swarm来管理docker集群。
@@ -71,15 +66,19 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [Rancher的部署和使用](docs/rancher_usage.md)
 
+## 资源限制
 
+[内存资源限制](docs/memory_resource_limit.md)
 
-## 插件开发##
+[CPU资源限制](docs/cpu_resource_limit.md)
+
+[IO资源限制](docs/io_resource_limit.md)
+
+## 插件开发
 
 网络插件
 
 存储插件
-
-
 
 ## 业界使用案例
 
@@ -93,15 +92,13 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [乐视云基于Kubernetes的PaaS平台建设](docs/letv_docker.md)
 
-
-
-## 相关资源##
+## 相关资源
 
 [容器技术工具与资源](docs/tech_resource.md)
 
 [容器技术2016年总结](docs/container_2016.md)
 
-## 关于##
+## 关于
 
 Author: Jimmy Song 
 
