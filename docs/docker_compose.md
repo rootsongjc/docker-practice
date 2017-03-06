@@ -89,4 +89,41 @@ deploy:
   - max_failure_ratio：可容忍的失败率
 - **resources**：service的资源数量限定，包括如下几个值`cpu_shares`, `cpu_quota`,`cpuset`, `mem_limit`, `memswap_limit`, `mem_swappiness`。
   - **restart_policy**：``condition``：one、on-failure、any默认any，``delay``，``max_attempts``，``window``
+  - **labels**：为service打标签
 
+
+### docker-compose.yml还支持的配置有
+
+- **devices**：devices mapping
+- **depends_on**：定义service依赖关系，影响启动顺序
+- **dns**：自定义DNS，可以是单条也可以为列表
+- **dns_search**：自定义DNS搜索域
+- **tmpfs**：挂载临时文件系统
+- **entrypoint**：覆盖dockerfile中国年的entrypoint
+- **env_file**：定义env的文件，可以为一个列表
+- **environment**：定义环境变量
+- **expose**
+- **external_links**：链接外部docker-compose.yml外部启动的容器
+- **extra_hosts**：添加外部hosts
+- **group_add**
+- **healthcheck**：检查service的健康状况
+- **Image**
+- **Isolation**：linux只支持default，windows还有其他选项
+- **labels**：给容器打标签，建议用DNS的反向字符串定义
+- **links**：链接其他service
+- **logging**：日志配置，可以配置日志的driver、地址等
+- **network_mode**
+- **networks**：可以连接的定义网络名称，分配IP地址，设置网络别名，``LINK_LOCAL_IPS``选项可以连接外部非docker管理的IP。还可以定义的选项有driver、driver_opts、enable_ipv6、ipam、internal、labels、external等
+- **pid**
+- **ports**：对外暴露的端口
+- **secret**：定义service可以访问的secret文件
+- **security_opts**
+- **stop_grace_period**
+- **stop_signal**
+- **sysctls**
+- **ulimits**
+- **userns_mode**
+- **volumes**：可以定义driver、driver_opts、external、labels等
+
+
+networks和volumes的子选项比较多，定义的时候请参照详细文档。
