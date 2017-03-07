@@ -78,6 +78,8 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 ## 插件开发
 
+[插件开发示例-sshfs](docs/plugin_developing.md)
+
 网络插件
 
 存储插件
