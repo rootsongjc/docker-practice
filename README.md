@@ -80,9 +80,16 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [插件开发示例-sshfs](docs/plugin_developing.md)
 
-网络插件
+[我的docker插件开发文章](http://rootsongjc.github.io/blogs/docker-plugin-develop/)
 
-存储插件
+[Docker17.03-CE插件开发举例](http://rootsongjc.github.io/blogs/docker-plugin-develop/)
+
+**网络插件**
+
+- [Contiv](http://rootsongjc.github.io/tags/contiv/) 思科出的Docker网络插件，趟坑全记录，目前还无法上生产，1.0正式版还没出，密切关注中。
+- [Calico](github.com/calico) 产品化做的不错，已经有人用在生产上了。
+
+**存储插件**
 
 ## 业界使用案例
 
