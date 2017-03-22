@@ -114,3 +114,5 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 Author: Jimmy Song 
 
 rootsongjc@gmail.com
+
+更多关于**Docker**、**MicroServices**、**Big Data**、**DevOps**、**Deep Learning**的内容请关注[Jimmy's Blog](http://rootsongjc.github.io)，将不定期更新。
