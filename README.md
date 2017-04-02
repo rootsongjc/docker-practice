@@ -103,6 +103,12 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [乐视云基于Kubernetes的PaaS平台建设](docs/letv_docker.md)
 
+## 资源编排
+
+建议使用kuberentes，虽然比较复杂，但是专业的工具做专业的事情，将编排这么重要的生产特性绑定到docker上的风险还是很大的，我已经转投到kubernetes怀抱了，那么你呢？
+
+[我的kubernetes探险之旅](http://rootsongjc.github.io/tags/kubernetes/)
+
 ## 相关资源
 
 [容器技术工具与资源](docs/tech_resource.md)
