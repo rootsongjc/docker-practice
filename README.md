@@ -96,14 +96,14 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 [插件开发示例-sshfs](docs/plugin_developing.md)
 
-[我的docker插件开发文章](http://rootsongjc.github.io/blogs/docker-plugin-develop/)
+[我的docker插件开发文章](https://jimmysong.io/blogs/docker-plugin-develop/)
 
-[Docker17.03-CE插件开发举例](http://rootsongjc.github.io/blogs/docker-plugin-develop/)
+[Docker17.03-CE插件开发举例](https://jimmysong.io/blogs/docker-plugin-develop/)
 
 **网络插件**
 
-- [Contiv](http://rootsongjc.github.io/tags/contiv/) 思科出的Docker网络插件，趟坑全记录，目前还无法上生产，1.0正式版还没出，密切关注中。
-- [Calico](github.com/calico) 产品化做的不错，已经有人用在生产上了。
+- [Contiv](https://jimmysong.io/tags/contiv/) 思科出的Docker网络插件，趟坑全记录，目前还无法上生产，1.0正式版还没出，密切关注中。
+- [Calico](https://github.com/calico) 产品化做的不错，已经有人用在生产上了。
 
 **存储插件**
 
@@ -123,7 +123,7 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 建议使用kuberentes，虽然比较复杂，但是专业的工具做专业的事情，将编排这么重要的生产特性绑定到docker上的风险还是很大的，我已经转投到kubernetes怀抱了，那么你呢？
 
-[我的kubernetes探险之旅](http://rootsongjc.github.io/tags/kubernetes/)
+[我的kubernetes探险之旅](https://jimmysong.io/tags/kubernetes/)
 
 ## 相关资源
 
@@ -133,8 +133,6 @@ Docker提供了一系列[log drivers](https://docs.docker.com/engine/admin/loggi
 
 ## 关于
 
-Author: [Jimmy Song](rootsongjc.github.io/about)
+ [Jimmy Song](https://jimmsyong.io/about)
 
-rootsongjc@gmail.com
-
-更多关于**Docker**、**MicroServices**、**Big Data**、**DevOps**、**Deep Learning**的内容请关注[Jimmy Song's Blog](http://rootsongjc.github.io)，将不定期更新。
+更多关于Big Data 和 Cloud Native 的内容请关注 [Jimmy Song's Blog](https://jimmysong.io)，将不定期更新。
