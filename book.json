@@ -1,6 +1,6 @@
 {
-    "title": "Docker Practice",
-    "description": "Docker最佳实践|jimmysong.io|宋净超",
+    "title": "Docker Handbook",
+    "description": "Docker Handbook|jimmysong.io|宋净超",
     "language": "zh-hans",
     "author": "Jimmy Song",
     "links": {
@@ -24,17 +24,17 @@
     ],
     "pluginsConfig": {
         "github": {
-            "url": "https://github.com/rootsongjc/docker-practice"
+            "url": "https://github.com/rootsongjc/docker-handbook"
         },
         "editlink": {
-            "base": "https://github.com/rootsongjc/docker-practice/blob/master/",
+            "base": "https://github.com/rootsongjc/docker-handbook/blob/master/",
             "label": "编辑本页"
         },
         "image-captions": {
             "caption": "图片 - _CAPTION_"
         },
         "github-buttons": {
-            "repo": "rootsongjc/hugo-handbook",
+            "repo": "rootsongjc/docker-handbook",
             "types": ["star"],
             "size": "small"
         },

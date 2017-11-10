@@ -54,7 +54,7 @@
   - [11.5 乐视云基于Kubernetes的PaaS平台建设](docs/letv_docker.md)
 - [12. 未来]()
   - [12.1 我的kubernetes探险之旅](https://jimmysong.io/tags/kubernetes/)
-  - [12.2 Kubernetes handbook](https://jimmysong.io/kubernetes-handbok)
+  - [12.2 Kubernetes handbook](https://jimmysong.io/kubernetes-handbook)
 - [13. 相关资源]()
   - [13.1 容器技术工具与资源](docs/tech_resource.md)
   - [13.2 容器技术2016年总结](docs/container_2016.md)
