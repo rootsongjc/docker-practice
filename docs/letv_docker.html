@@ -1,0 +1,1143 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>11.5 乐视云基于Kubernetes的PaaS平台建设 · Docker Practice</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Jimmy Song">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.ico' type="image/x-icon">
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"repo":"rootsongjc/hugo-handbook","types":["star"],"size":"small"};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://jimmysong.io" target="_blank" class="custom-link">Jimmy Song</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    1. 前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    2. 环境配置
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="docker_env.html">
+            
+                <a href="docker_env.html">
+            
+                    
+                    2.1 Docker1.13环境配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="docker_compile.html">
+            
+                <a href="docker_compile.html">
+            
+                    
+                    2.2 Docker源码编译
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    3. 网络管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="create_network.html">
+            
+                <a href="create_network.html">
+            
+                    
+                    3.1 如何创建docker network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="rancher_network.html">
+            
+                <a href="rancher_network.html">
+            
+                    
+                    3.2 Rancher网络探讨和扁平网络实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="swarm_mode_routing_mesh.html">
+            
+                <a href="swarm_mode_routing_mesh.html">
+            
+                    
+                    3.3 swarm mode的路由网络
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" >
+            
+                <a target="_blank" href="https://github.com/TalkingData/shrike">
+            
+                    
+                    3.4 docker扁平化网络插件Shrike（基于docker1.11）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    4. 存储管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="docker_storage_plugin.html">
+            
+                <a href="docker_storage_plugin.html">
+            
+                    
+                    4.1 Docker存储插件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="infinit.html">
+            
+                <a href="infinit.html">
+            
+                    
+                    4.2 infinit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="convoy.html">
+            
+                <a href="convoy.html">
+            
+                    
+                    4.3 convoy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="torus.html">
+            
+                <a href="torus.html">
+            
+                    
+                    4.4 torus
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="flocker.html">
+            
+                <a href="flocker.html">
+            
+                    
+                    4.5 flocker
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    5. 创建应用
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="create_swarm_app.html">
+            
+                <a href="create_swarm_app.html">
+            
+                    
+                    5.1 基于docker1.13手把手教你创建swarm app
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="swarm_app_manage.html">
+            
+                <a href="swarm_app_manage.html">
+            
+                    
+                    5.2 swarm集群应用管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="docker_compose.html">
+            
+                <a href="docker_compose.html">
+            
+                    
+                    5.3 使用docker-compose创建应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    6. 集群管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="crane_usage.html">
+            
+                <a href="crane_usage.html">
+            
+                    
+                    6.1 Crane的部署和使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="rancher_usage.html">
+            
+                <a href="rancher_usage.html">
+            
+                    
+                    6.2Rancher的部署和使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    7. 资源限制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="memory_resource_limit.html">
+            
+                <a href="memory_resource_limit.html">
+            
+                    
+                    7.1 内存资源限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="cpu_resource_limit.html">
+            
+                <a href="cpu_resource_limit.html">
+            
+                    
+                    7.2 CPU资源限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="io_resource_limit.html">
+            
+                <a href="io_resource_limit.html">
+            
+                    
+                    7.3IO资源限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="service-discovery.html">
+            
+                <a href="service-discovery.html">
+            
+                    
+                    8. 服务发现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    9. 插件开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="plugin_developing.html">
+            
+                <a href="plugin_developing.html">
+            
+                    
+                    9.1 插件开发示例-sshfs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" >
+            
+                <a target="_blank" href="https://jimmysong.io/posts/docker-plugin-develop/">
+            
+                    
+                    9.2 我的docker插件开发文章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" >
+            
+                <a target="_blank" href="https://jimmysong.io/posts/docker-plugin-develop/">
+            
+                    
+                    9.3 Docker17.03-CE插件开发举例
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" >
+            
+                <span>
+            
+                    
+                    10. 网络插件
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" >
+            
+                <a target="_blank" href="https://jimmysong.io/tags/contiv/">
+            
+                    
+                    Contiv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" >
+            
+                <a target="_blank" href="https://github.com/calico">
+            
+                    
+                    Calico
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    11. 业界使用案例
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="jd_transform_to_kubernetes.html">
+            
+                <a href="jd_transform_to_kubernetes.html">
+            
+                    
+                    11.1 京东从OpenStack切换到Kubernetes的经验之谈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="meituan_docker_platform.html">
+            
+                <a href="meituan_docker_platform.html">
+            
+                    
+                    11.2 美团点评容器平台介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="ali_docker.html">
+            
+                <a href="ali_docker.html">
+            
+                    
+                    11.3 阿里超大规模docker化之路
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" >
+            
+                <a target="_blank" href="https://jimmysong.io/posts/yarn-on-docker/">
+            
+                    
+                    11.4 Yarn on Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11.5" data-path="letv_docker.html">
+            
+                <a href="letv_docker.html">
+            
+                    
+                    11.5 乐视云基于Kubernetes的PaaS平台建设
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    12. 未来
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" >
+            
+                <a target="_blank" href="https://jimmysong.io/tags/kubernetes/">
+            
+                    
+                    12.1 我的kubernetes探险之旅
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" >
+            
+                <a target="_blank" href="https://jimmysong.io/kubernetes-handbok">
+            
+                    
+                    12.2 Kubernetes handbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    13. 相关资源
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="tech_resource.html">
+            
+                <a href="tech_resource.html">
+            
+                    
+                    13.1 容器技术工具与资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="container_2016.html">
+            
+                <a href="container_2016.html">
+            
+                    
+                    13.2 容器技术2016年总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >11.5 乐视云基于Kubernetes的PaaS平台建设</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x4E50;&#x89C6;&#x4E91;&#x57FA;&#x4E8E;kubernetes&#x7684;paas&#x5E73;&#x53F0;&#x5EFA;&#x8BBE;">&#x4E50;&#x89C6;&#x4E91;&#x57FA;&#x4E8E;Kubernetes&#x7684;PaaS&#x5E73;&#x53F0;&#x5EFA;&#x8BBE;</h1>
+<h3 id="&#x80CC;&#x666F;">&#x80CC;&#x666F;</h3>
+<p>2014&#x5E74;&#x4E50;&#x89C6;&#x4E91;&#x5F00;&#x59CB;&#x5C1D;&#x8BD5;Docker&#x7684;&#x63A8;&#x5E7F;&#x548C;&#x4F7F;&#x7528;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x56E2;&#x961F;&#x5F00;&#x59CB;&#x5F00;&#x53D1;&#x7B2C;&#x4E00;&#x4EE3;&#x5BB9;&#x5668;&#x4E91;&#x5E73;&#x53F0;Harbor &#xFF08;&#x5206;&#x4EAB;&#x7F51;&#x5740;&#xFF1A;</p>
+<p><a href="http://dockone.io/article/1091" target="_blank">http://dockone.io/article/1091</a></p>
+<p> &#xFF09;&#x3002;&#xFF08;&#x5728;&#x8FD9;&#x91CC;&#x63D0;&#x9192;&#x4E00;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E0E;VMware&#x516C;&#x53F8;&#x4E2D;&#x56FD;&#x56E2;&#x961F;&#x4E3A;&#x4F01;&#x4E1A;&#x7528;&#x6237;&#x8BBE;&#x8BA1;&#x7684;Docker Registry erver&#x5F00;&#x6E90;&#x9879;&#x76EE;Harbor &#x91CD;&#x540D;&#xFF09;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x4EE3;&#x5BB9;&#x5668;&#x4E91;&#x5E73;&#x53F0;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x653E;&#x7684;&#x6258;&#x7BA1;&#x5E73;&#x53F0;&#x3002;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x5C06;&#x81EA;&#x5DF1;&#x4ECE;&#x516C;&#x53F8;&#x7533;&#x8BF7;&#x7684;&#x865A;&#x62DF;&#x673A;&#x6216;&#x8005;&#x7269;&#x7406;&#x673A;&#x6DFB;&#x52A0;&#x5230;Harbor&#x7CFB;&#x7EDF;&#x4E2D;&#x8FDB;&#x884C;&#x6258;&#x7BA1;&#x7BA1;&#x7406;&#xFF0C;&#x5E73;&#x53F0;&#x57FA;&#x672C;&#x5305;&#x542B;&#xFF1A;&#x955C;&#x50CF;&#x81EA;&#x52A8;&#x6784;&#x5EFA;&#xFF08;CI&#xFF09;&#xFF0C;&#x5E94;&#x7528;&#x5FEB;&#x901F;&#x6269;&#x5BB9;&#x3001;&#x7F29;&#x5BB9;&#x3001;&#x7070;&#x5EA6;&#x5347;&#x7EA7;&#xFF0C;&#x8D44;&#x6E90;&#x6743;&#x9650;&#x7BA1;&#x7406;&#xFF0C;&#x591A;&#x96C6;&#x7FA4;&#x4E3B;&#x673A;&#x7BA1;&#x7406;&#x7B49;&#x529F;&#x80FD;&#x3002; </p>
+<p>&#x7531;&#x4E8E;&#x90A3;&#x65F6;&#x5BB9;&#x5668;&#x624D;&#x521A;&#x521A;&#x5174;&#x8D77;&#xFF0C;&#x521A;&#x5F00;&#x59CB;&#x5728;&#x516C;&#x53F8;&#x5185;&#x90E8;&#x63A8;&#x52A8;&#x4E5F;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x963B;&#x529B;&#xFF0C;&#x521A;&#x5F00;&#x59CB;&#x7ED9;&#x4E1A;&#x52A1;&#x7EBF;&#x63A8;&#x5E7F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x9996;&#x5148;&#x4ECB;&#x7ECD;Docker&#xFF0C;&#x4ECB;&#x7ECD;&#x5BB9;&#x5668;&#x548C;&#x865A;&#x62DF;&#x673A;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4ECB;&#x7ECD;&#x5E73;&#x53F0;&#x672C;&#x8EAB;&#x548C;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF0C;&#x63A8;&#x5E7F;&#x6210;&#x672C;&#x4EE5;&#x53CA;&#x4E1A;&#x52A1;&#x7EBF;&#x5B66;&#x4E60;&#x6210;&#x672C;&#x4E5F;&#x6BD4;&#x8F83;&#x9AD8;&#x3002;&#x63A5;&#x5165;Harbor&#x4E0A;&#x7684;&#x4E1A;&#x52A1;&#x7684;&#x5927;&#x591A;&#x662F;&#x4E1A;&#x52A1;&#x7EBF;&#x81EA;&#x5DF1;&#x63D0;&#x4F9B;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x800C;&#x7269;&#x7406;&#x673A;&#x5360;&#x5C11;&#x6570;&#x3002;&#x4E0D;&#x8FC7;&#x9274;&#x4E8E;Harbor&#x7684;&#x6613;&#x7528;&#x7A0B;&#x5EA6;&#xFF0C;&#x5438;&#x5F15;&#x4E86;&#x5F88;&#x591A;&#x65B0;&#x4E1A;&#x52A1;&#x63A5;&#x5165;&#x3002;&#x5230;&#x73B0;&#x5728;&#x4E3A;&#x6B62;Harbor&#x5DF2;&#x7ECF;&#x5B8C;&#x5168;&#x5B9E;&#x73B0;&#x5F00;&#x53D1;&#x81EA;&#x52A9;&#x5316;&#x3002;&#x4E1A;&#x52A1;&#x81EA;&#x5DF1;&#x6DFB;&#x52A0;&#x4E3B;&#x673A;&#xFF0C;&#x81EA;&#x4E3B;&#x7BA1;&#x7406;&#x5E94;&#x7528;&#x548C;&#x5BB9;&#x5668;&#xFF0C;&#x5BF9;&#x5E94;&#x7528;&#x8FDB;&#x884C;&#x5347;&#x7EA7;&#x3001;&#x56DE;&#x6EDA;&#xFF0C;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#xFF0C;&#x955C;&#x50CF;&#x6784;&#x5EFA;&#xFF0C;&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x7A33;&#x5B9A;&#x8FD0;&#x884C;2&#x5E74;&#x591A;&#x3002;</p>
+<h4 id="&#x7B2C;&#x4E00;&#x4EE3;&#x5BB9;&#x5668;&#x4E91;&#x5E73;&#x53F0;&#x4E0D;&#x8DB3;&#x4E4B;&#x5904;">&#x7B2C;&#x4E00;&#x4EE3;&#x5BB9;&#x5668;&#x4E91;&#x5E73;&#x53F0;&#x4E0D;&#x8DB3;&#x4E4B;&#x5904;</h4>
+<ol>
+<li>&#x7F51;&#x7EDC;&#x65B9;&#x9762;&#x4E5F;&#x662F;&#x7528;&#x7684;&#x6700;&#x57FA;&#x672C;&#x7684;Nat&#xFF0C;&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#x6A21;&#x5F0F;&#xFF0C;&#x5B58;&#x5728;&#x6027;&#x80FD;&#x95EE;&#x9898;&#x3002;&#x4E1A;&#x52A1;&#x5FC5;&#x987B;&#x8981;&#x77E5;&#x9053;&#x5BB9;&#x5668;&#x5BF9;&#x5916;&#x6620;&#x5C04;&#x51FA;&#x6765;&#x7684;&#x7AEF;&#x53E3;&#xFF0C;&#x5BF9;&#x4E1A;&#x52A1;&#x4E0D;&#x900F;&#x660E;&#xFF0C;&#x4E0D;&#x4FBF;&#x4E8E;&#x62A5;&#x8B66;&#x548C;&#x8FD0;&#x7EF4;&#xFF0C;&#x4E5F;&#x4E0D;&#x4FBF;&#x4E8E;&#x5BF9;&#x63A5;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x3002;</li>
+<li>&#x5BB9;&#x5668;&#x7684;&#x5206;&#x53D1;&#x8C03;&#x5EA6;&#x5168;&#x90E8;&#x81EA;&#x5DF1;&#x5F00;&#x53D1;&#xFF0C;&#x4EFB;&#x52A1;&#x91CF;&#x5927;&#xFF0C;&#x5F53;&#x65F6;&#x6CA1;&#x6709;&#x80FD;&#x591F;&#x505A;&#x5230;&#x5BB9;&#x5668;&#x81EA;&#x52A8;&#x8FC1;&#x79FB;&#x3002;</li>
+<li>&#x4E0D;&#x652F;&#x6301;&#x5E94;&#x7528;&#x7684;&#x5168;&#x7403;&#x90E8;&#x7F72;&#x3002;</li>
+<li>Harbor&#x7BA1;&#x7406;&#x7684;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x9700;&#x8981;&#x4E1A;&#x52A1;&#x7EBF;&#x81EA;&#x5DF1;&#x7533;&#x8BF7;&#xFF0C;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x53EF;&#x4EE5;&#x662F;&#x7269;&#x7406;&#x673A;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x865A;&#x62DF;&#x673A;&#xFF0C;&#x5BFC;&#x81F4;&#x4E1A;&#x52A1;&#x7EBF;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x5E95;&#x5C42;&#x7684;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#xFF0C;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x65E0;&#x6CD5;&#x5BF9;&#x4E1A;&#x52A1;&#x7EBF;&#x5B8C;&#x5168;&#x900F;&#x660E;&#x3002;</li>
+<li>&#x4E3A;&#x4E86;&#x964D;&#x4F4E;&#x7528;&#x6237;&#x5BF9;Dockerfile&#x7684;&#x5B66;&#x4E60;&#x6210;&#x672C;&#xFF0C;&#x6211;&#x4EEC;&#x5BF9;Dockerfile&#x8FDB;&#x884C;&#x4E86;&#x5C01;&#x88C5;&#xFF0C;&#x53EA;&#x8BA9;&#x7528;&#x6237;&#x5199;Shell&#x811A;&#x672C;&#xFF0C;&#x56E0;&#x5C01;&#x88C5;&#x7684;&#x4E0D;&#x5408;&#x7406;&#xFF0C;&#x5BFC;&#x81F4;&#x5236;&#x4F5C;&#x51FA;&#x7684;&#x955C;&#x50CF;&#x592A;&#x5927;&#xFF0C;&#x5C24;&#x5176;Maven&#x9879;&#x76EE;&#xFF0C;&#x9700;&#x8981;&#x7F16;&#x8BD1;&#xFF0C;&#x6BCF;&#x6B21;&#x5728;Docker Build&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x4E0B;&#x8F7D;&#x4F9D;&#x8D56;&#x5305;&#xFF0C;&#x5BFC;&#x81F4;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x957F;&#xFF0C;&#x955C;&#x50CF;&#x5927;&#xFF0C;&#x5E76;&#x4E14;&#x5BB9;&#x5668;&#x5185;&#x670D;&#x52A1;&#x542F;&#x52A8;&#x65B9;&#x5F0F;&#x4E0D;&#x7075;&#x6D3B;&#x3002;</li>
+<li>&#x76D1;&#x63A7;&#x62A5;&#x8B66;&#x673A;&#x5236;&#x4E0D;&#x5B8C;&#x5584;&#xFF0C;&#x6CA1;&#x6709;&#x505A;&#x5230;&#x5BB9;&#x5668;&#x548C;&#x5E94;&#x7528;&#x7EA7;&#x522B;&#x7684;&#x76D1;&#x63A7;&#x548C;&#x62A5;&#x8B66;&#x3002;</li>
+<li>&#x955C;&#x50CF;&#x4ED3;&#x5E93;Registry&#x5E76;&#x6CA1;&#x6709;&#x505A;&#x5F97;&#x5230;&#x50CF;Docker Hub&#x90A3;&#x6837;&#x7528;&#x6237;&#x6743;&#x9650;&#x5212;&#x5206;&#x3002;</li>
+</ol>
+<p>&#x968F;&#x7740;Kubernetes&#x5728;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x516C;&#x53F8;&#x5F00;&#x59CB;&#x4F7F;&#x7528;&#xFF0C;&#x4E50;&#x89C6;&#x5185;&#x90E8;&#x66F4;&#x591A;&#x7684;&#x56E2;&#x961F;&#x548C;&#x4E1A;&#x52A1;&#x7EBF;&#x5F00;&#x59CB;&#x63A5;&#x53D7;&#x6216;&#x8005;&#x4E3B;&#x52A8;&#x4E86;&#x89E3;Docker&#xFF0C;&#x540C;&#x65F6;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x7B2C;&#x4E00;&#x4EE3;&#x5E73;&#x53F0;&#x7684;&#x5B58;&#x5728;&#x95EE;&#x9898;&#x548C;&#x57FA;&#x4E8E;&#x4E50;&#x89C6;&#x73B0;&#x6709;&#x670D;&#x52A1;&#x90E8;&#x7F72;&#x60C5;&#x51B5;&#xFF0C;&#x5230;2015&#x5E74;&#x5E95;&#xFF0C;&#x6211;&#x4EEC;&#x56E2;&#x961F;&#x8BA1;&#x5212;&#x66FF;&#x6362;&#x6389;&#x4E4B;&#x524D;&#x81EA;&#x5DF1;&#x5199;&#x7684;&#x8C03;&#x5EA6;&#x65B9;&#x6848;&#xFF0C;&#x7740;&#x624B;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528;Kubernetes&#x4F5C;&#x4E3A;&#x5BB9;&#x5668;&#x7684;&#x8C03;&#x5EA6;&#x5F15;&#x64CE;&#xFF0C;&#x5728;&#x5BF9;&#x6BD4;&#x591A;&#x5957;&#x7F51;&#x7EDC;&#x65B9;&#x6848;&#xFF08;Calico&#xFF0C;Flannel&#x7B49;&#x7B49;&#xFF09;&#x540E;&#xFF0C;&#x7ED3;&#x5408;&#x4E50;&#x89C6;&#x73B0;&#x6709;&#x72B6;&#x51B5;&#xFF0C;&#x91C7;&#x7528;Bridge&#x6A21;&#x5F0F;&#xFF0C;&#x5BB9;&#x5668;&#x5927;&#x4E8C;&#x5C42;&#x7F51;&#x7EDC;&#x65B9;&#x6848;&#x3002;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x4F7F;&#x7528;Nginx&#xFF0C;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x5168;&#x90E8;&#x4F7F;&#x7528;&#x7269;&#x7406;&#x673A;&#xFF0C;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x5B8C;&#x5168;&#x5BF9;&#x4E1A;&#x52A1;&#x900F;&#x660E;&#x3002;&#x7ECF;&#x8FC7;&#x534A;&#x5E74;&#x591A;&#x7684;&#x8C03;&#x7814;&#x548C;&#x5F00;&#x53D1;&#xFF0C;&#x5728;2016&#x5E74;10&#x6708;&#x7B2C;&#x4E8C;&#x4EE3;PaaS&#x5E73;&#x53F0;LeEngine&#x5728;&#x7F8E;&#x56FD;&#x4E0A;&#x7EBF;&#xFF0C;&#x534A;&#x4E2A;&#x6708;&#x540E;&#xFF0C;&#x5317;&#x4EAC;&#x5730;&#x533A;&#x4E0A;&#x7EBF;&#x3002;LeEngine&#x73B0;&#x5728;&#x4FDD;&#x6301;&#x7740;&#x4E00;&#x6708;&#x4E00;&#x7248;&#x672C;&#x7684;&#x5F00;&#x53D1;&#x8FED;&#x4EE3;&#x901F;&#x5EA6;&#xFF0C;&#x5230;&#x73B0;&#x5728;&#x4E3A;&#x6B62;&#x5DF2;&#x7ECF;&#x5F00;&#x53D1;&#x4E86;3&#x4E2A;&#x7248;&#x672C;&#x3002;</p>
+<p>LeEngine &#x91C7;&#x7528;&#x5168;&#x65B0;&#x7684;&#x67B6;&#x6784;&#xFF0C;&#x4E3B;&#x8981;&#x9762;&#x5411;&#x4E8E;&#x65E0;&#x72B6;&#x6001;&#x6216;&#x8005;RPC&#x5E94;&#x7528;&#x3002;&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x627F;&#x63A5;&#x4E86;&#x4E50;&#x89C6;&#x4E91;&#x8BA1;&#x7B97;&#xFF0C;&#x4E50;&#x89C6;&#x4F53;&#x80B2;&#x7AE0;&#x9C7C;TV&#xFF0C;&#x98CE;&#x4E91;&#x76F4;&#x64AD;&#xFF0C;&#x4E50;&#x89C6;&#x7F51;&#x4E50;&#x770B;&#x641C;&#x7D22;&#xFF0C;&#x4E91;&#x76F8;&#x518C;&#x7B49;&#x8FD1;100&#x591A;&#x4E2A;&#x91CD;&#x8981;&#x4E1A;&#x52A1;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x5BA2;&#x6237;&#x666E;&#x904D;&#x53CD;&#x6620;&#x4E00;&#x65E6;&#x638C;&#x63E1;&#x4E86;LeEngine&#x7684;&#x4F7F;&#x7528;&#x6D41;&#x7A0B;&#xFF0C;&#x4ECE;&#x5F00;&#x53D1;&#x5230;&#x4E0A;&#x7EBF;&#x90E8;&#x7F72;&#xFF0C;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#xFF0C;&#x5347;&#x7EA7;&#x7684;&#x6548;&#x7387;&#x53EF;&#x6210;&#x500D;&#x589E;&#x957F;&#xFF0C;&#x6781;&#x5927;&#x7B80;&#x5316;&#x4E86;&#x8FD0;&#x7EF4;&#x6210;&#x672C;&#x3002;LeEngine&#x62E5;&#x6709;&#x6781;&#x5F3A;&#x7684;&#x7528;&#x6237;&#x7C98;&#x6027;&#xFF0C;&#x5438;&#x5F15;&#x4E86;&#x5F88;&#x591A;&#x4E1A;&#x52A1;&#x7EBF;&#x4E3B;&#x52A8;&#x7533;&#x8BF7;&#x8BD5;&#x7528;LeEngine&#xFF0C;&#x73B0;&#x9636;&#x6BB5;&#x5DF2;&#x7ECF;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x589E;&#x52A0;&#x989D;&#x5916;&#x7684;&#x7CBE;&#x529B;&#x5728;&#x516C;&#x53F8;&#x5185;&#x90E8;&#x63A8;&#x5E7F;&#x3002;</p>
+<h3 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h3>
+<p>Kubernetes&#xFF1A;Google&#x5F00;&#x6E90;&#x7684;&#x7684;&#x5BB9;&#x5668;&#x7F16;&#x6392;&#x5DE5;&#x5177;&#xFF0C;&#x5728;&#x6574;&#x4E2A;2016&#x5E74;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x516C;&#x53F8;&#x5F00;&#x59CB;&#x5728;&#x7EBF;&#x4E0A;&#x4F7F;&#x7528;Kubernetes&#xFF0C;&#x540C;&#x65F6;Kubernetes&#x5177;&#x5907;&#x6211;&#x4EEC;&#x8FEB;&#x5207;&#x9700;&#x8981;&#x7684;&#x5BB9;&#x5668;&#x81EA;&#x52A8;&#x8FC1;&#x79FB;&#x548C;&#x9AD8;&#x53EF;&#x7528;&#x529F;&#x80FD;&#x3002;&#x5173;&#x4E8E;Kubernetes &#x7684;&#x67B6;&#x6784;&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x5C31;&#x4E0D;&#x591A;&#x4ECB;&#x7ECD;&#x4E86;&#xFF0C;&#x867D;&#x7136;&#x67B6;&#x6784;&#x504F;&#x91CD;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x6700;&#x7EC8;&#x51B3;&#x5B9A;&#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x5E76;&#x4E14;&#x5C3D;&#x91CF;&#x53EA;&#x4F7F;&#x7528;&#x5B83;&#x7684;Pod&#xFF0C;Replicationtroller&#x548C;Service&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x9996;&#x5148;&#x89E3;&#x91CA;&#x4E00;&#x4E0B;&#x51E0;&#x4E2A;&#x6982;&#x5FF5;&#xFF1A;</p>
+<p>&#x7528;&#x6237;</p>
+<p>&#xFF1A;&#x4E50;&#x89C6;&#x5404;&#x4E2A;&#x4EA7;&#x54C1;&#x7EBF;&#x4E0B;&#x7684;&#x4EA7;&#x54C1;&#x3001;&#x5F00;&#x53D1;&#x3001;&#x6D4B;&#x8BD5;&#x3001;&#x8FD0;&#x7EF4;&#x7B49;&#x4EBA;&#x5458;&#x3002;</p>
+<p>Region</p>
+<p>&#xFF1A;&#x504F;&#x5411;&#x4E8E;&#x5730;&#x7406;&#x6982;&#x5FF5;&#xFF0C;&#x4F8B;&#x5982;&#x5317;&#x4EAC;&#x548C;&#x6D1B;&#x6749;&#x77F6;&#x662F;&#x4E24;&#x4E2A;Region&#x3002; &#x540C;&#x4E00;&#x4E2A;Region&#x5185;&#x8981;&#x6C42;&#x5185;&#x7F51;&#x53EF;&#x8FBE;&#xFF0C;&#x7F51;&#x7EDC;&#x53EF;&#x9760;&#xFF0C;&#x4F4E;&#x5EF6;&#x8FDF;&#x3002;&#x540C;&#x4E00;&#x4E2A;Region&#x5171;&#x7528;&#x4E00;&#x5957;&#x955C;&#x50CF;Registry&#xFF0C;&#x955C;&#x50CF;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#xFF0C;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7CFB;&#x7EDF;&#x548C;&#x76D1;&#x63A7;&#x62A5;&#x8B66;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E0D;&#x540C;Region &#x5171;&#x4EAB;&#x5168;&#x5C40;&#x552F;&#x4E00;&#x7684;SDNS&#x548C;GitLab&#x4EE3;&#x7801;&#x4ED3;&#x5E93;&#x3002;</p>
+<p>Cell</p>
+<p>&#xFF1A;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x4F7F;&#x7528;&#x7684;Kubernetes 1.2.0&#x7248;&#x672C;&#xFF0C;&#x7406;&#x8BBA;&#x4E0A;&#x80FD;&#x63A7;&#x5236;1000&#x4E2A;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#xFF0C;&#x4E3A;&#x8C28;&#x614E;&#x4F7F;&#x7528;&#xFF0C;&#x89C4;&#x5B9A;&#x4E00;&#x4E2A;Kubernetes&#x96C6;&#x7FA4;&#x6700;&#x5927;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x4F1A;&#x63A7;&#x5236;&#x5728;600&#x4E2A;&#x5DE6;&#x53F3;&#x3002; Cell &#x6982;&#x5FF5;&#x7684;&#x5F15;&#x5165;&#x662F;&#x4E3A;&#x4E86;&#x6269;&#x5145;&#x5355;&#x4E2A;Region&#x4E0B;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x7684;&#x89C4;&#x6A21;&#xFF0C;&#x504F;&#x5411;&#x4E8E;&#x673A;&#x623F;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x4E00;&#x4E2A;Cell &#x5373;&#x4E00;&#x4E2A;Kubernetes&#x96C6;&#x7FA4;&#xFF0C;&#x6BCF;&#x4E2A;Region&#x4E0B;&#x53EF;&#x4EE5;&#x642D;&#x5EFA;&#x591A;&#x4E2A;Cell&#x3002;&#x6240;&#x6709;Cell&#x5171;&#x4EAB;&#x672C;Region&#x4E0B;&#x7684;&#x955C;&#x50CF;Registry&#xFF0C;&#x955C;&#x50CF;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#xFF0C;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7CFB;&#x7EDF;&#x548C;&#x76D1;&#x63A7;&#x7CFB;&#x7EDF;&#x3002;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;Cell&#x4E0B;&#x7684;&#x5BB9;&#x5668;&#x914D;&#x7F6E;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x7F51;&#x6BB5;&#xFF0C;&#x6BCF;&#x4E2A;&#x7F51;&#x6BB5;&#x5212;&#x5206;&#x5355;&#x72EC;&#x7684;VLAN&#x3002;&#x540C;&#x4E00;Cell&#x4E0B;&#x7684;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x4E0D;&#x4F1A;&#x8DE8;&#x673A;&#x623F;&#x90E8;&#x7F72;&#x3002;</p>
+<p>LeEngine Registry</p>
+<p>&#xFF1A;&#x57FA;&#x4E8E;Docker Registry 2.0&#x505A;&#x7684;&#x90E8;&#x5206;&#x4FEE;&#x6539;&#xFF0C;&#x540E;&#x7AEF;&#x652F;&#x6301;&#x4E50;&#x89C6;&#x4E91;&#x7684;Ceph&#x5B58;&#x50A8;&#x3002;&#x5E76;&#x4EFF;&#x7167;Docker Hub&#x589E;&#x52A0;&#x6743;&#x9650;&#x548C;&#x8BA4;&#x8BC1;&#x673A;&#x5236;&#xFF0C;&#x53EA;&#x6709;&#x62E5;&#x6709;&#x76F8;&#x5E94;&#x6743;&#x9650;&#x7684;&#x7528;&#x6237;&#x624D;&#x80FD;&#x5BF9;&#x7279;&#x5B9A;&#x7684;&#x955C;&#x50CF;&#x8FDB;&#x884C;Push&#x548C;Pull&#x64CD;&#x4F5C;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x955C;&#x50CF;&#x516C;&#x5F00;&#xFF0C;&#x516C;&#x5F00;&#x7684;&#x955C;&#x50CF;&#x4EFB;&#x4F55;&#x7528;&#x6237;&#x90FD;&#x53EF;&#x4EE5;Pull&#x3002;</p>
+<p>&#x8BA1;&#x7B97;&#x8282;&#x70B9;</p>
+<p>&#xFF1A; &#x7269;&#x7406;&#x673A;&#xFF0C;Kubernetes&#x7684;Node&#x6982;&#x5FF5;&#x3002;</p>
+<p>&#x5E94;&#x7528;</p>
+<p>&#xFF1A; &#x5B9A;&#x4E49;&#x63D0;&#x4F9B;&#x76F8;&#x540C;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x4E00;&#x7EC4;&#x5BB9;&#x5668;&#x4E3A;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x5E94;&#x7528;&#x662F;&#x4E00;&#x4E2A;&#x5FAE;&#x670D;&#x52A1;&#x3002;&#x8FD9;&#x7C7B;&#x5E94;&#x7528;&#x8981;&#x6C42;&#x662F;&#x65E0;&#x72B6;&#x6001;Web&#x670D;&#x52A1;&#x6216;&#x8005;RPC&#x7C7B;&#x7684;&#x670D;&#x52A1;&#x3002;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x90E8;&#x7F72;&#x5728;&#x591A;&#x4E2A;Cell&#x4E2D;&#x3002;&#x4E0A;&#x6587;&#x63D0;&#x5230;&#x8FC7;&#xFF0C;&#x4E00;&#x4E2A;Cell&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x662F;&#x4E00;&#x4E2A;&#x673A;&#x623F;&#x3002;LeEngine&#x5728;&#x4E00;&#x4E2A;Region&#x4E0B;&#x4F1A;&#x81F3;&#x5C11;&#x90E8;&#x7F72;2&#x4E2A;Cell&#xFF0C;&#x90E8;&#x7F72;&#x5E94;&#x7528;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x6C42;&#x5E94;&#x7528;&#x81F3;&#x5C11;&#x90E8;&#x7F72;&#x5728;2&#x4E2A;Cell&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x5373;&#x4F7F;&#x4E00;&#x4E2A;&#x673A;&#x623F;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x673A;&#x623F;&#x7684;&#x5E94;&#x7528;&#x5BB9;&#x5668;&#x8FD8;&#x80FD;&#x7EE7;&#x7EED;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x3002;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x4E0B;&#x53EF;&#x4EE5;&#x90E8;&#x7F72;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x5E94;&#x7528;&#x7684;&#x7070;&#x5EA6;&#x5347;&#x7EA7;&#x3002;&#x8BBF;&#x95EE;web&#x7C7B;&#x5E94;&#x7528;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x5F3A;&#x5236;&#x8981;&#x6C42;&#x8FD9;&#x7C7B;&#x5E94;&#x7528;&#xFF08;&#x5982;&#x679C;&#x662F;&#x7EBF;&#x4E0A;&#x5E94;&#x7528;&#xFF09;&#x524D;&#x9762;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x7531;&#x6211;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x7CFB;&#x7EDF;&#x544A;&#x8BC9;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x4E0B;&#x6709;&#x54EA;&#x4E9B;&#x5BB9;&#x5668;IP&#x3002;&#x4ECE;Kubernetes&#x5C42;&#x9762;&#x8BB2;&#xFF0C;&#x6211;&#x4EEC;&#x89C4;&#x5B9A;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5BF9;&#x5E94;Kubernetes&#x4E0B;&#x7684;&#x4E00;&#x4E2A;Namespace&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x5E94;&#x7528;&#x7684;&#x6570;&#x636E;&#x5E93;&#x8868;&#x4E2D;&#x4F1A;&#x5B58;&#x5728;&#x4E00;&#x4E2A;Namespace&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x5E76;&#x9700;&#x8981;&#x5168;&#x5C40;&#x552F;&#x4E00;&#xFF0C;&#x800C;&#x5E94;&#x7528;&#x7684;&#x591A;&#x4E2A;&#x7248;&#x672C;&#x5BF9;&#x5E94;&#x4E86;&#x5728;&#x8FD9;&#x4E2A;Namespace&#x4E0B;&#x521B;&#x5EFA;&#x7684;&#x591A;&#x4E2A;Replicationtroller&#x3002;</p>
+<p>Region&#x3001;Cell &#x548C;kubernetes&#x7684;&#x5173;&#x7CFB;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/b161c38bc139d5282acd1c8f3e039444.png" target="_blank"><figure id="fig1.11.5.1"><img src="http://dockerone.com/uploads/article/20170215/b161c38bc139d5282acd1c8f3e039444.png" alt="&#x5173;&#x7CFB;.png"><figcaption>&#x56FE;&#x7247; - &#x5173;&#x7CFB;.png</figcaption></figure></a>
+<h3 id="&#x67B6;&#x6784;&#x5E73;&#x53F0;&#x8BBE;&#x8BA1;">&#x67B6;&#x6784;&#x5E73;&#x53F0;&#x8BBE;&#x8BA1;</h3>
+<p>&#x5BB9;&#x5668;&#x76F4;&#x63A5;&#x8FD0;&#x884C;&#x5728;&#x7269;&#x7406;&#x673A;&#x4E0A;&#xFF0C;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x5168;&#x90E8;&#x7531;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#xFF0C;&#x4E1A;&#x52A1;&#x7EBF;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x5FC3;&#xFF0C;LeEngine&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x4F01;&#x4E1A;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x5BF9;&#x5916;&#x5168;&#x5957;&#x8F93;&#x51FA;&#xFF0C;&#x5E73;&#x53F0;&#x67B6;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/51ae1e2c3432f03e936630eefa411152.png" target="_blank"><figure id="fig1.11.5.2"><img src="http://dockerone.com/uploads/article/20170215/51ae1e2c3432f03e936630eefa411152.png" alt="&#x67B6;&#x6784;.png"><figcaption>&#x56FE;&#x7247; - &#x67B6;&#x6784;.png</figcaption></figure></a>
+<p>&#x4E1A;&#x52A1;&#x5C42;&#xFF1A; &#x4E50;&#x89C6;&#x4F7F;&#x7528;&#x5BB9;&#x5668;&#x7684;&#x5404;&#x4E2A;&#x4E1A;&#x52A1;&#x7EBF;&#xFF0C;&#x662F;LeEngine&#x7684;&#x6700;&#x7EC8;&#x7528;&#x6237;&#x3002;</p>
+<p>PaaS &#x5C42;&#xFF1A; LeEngine&#x63D0;&#x4F9B;&#x7684;&#x5404;&#x79CD;&#x670D;&#x52A1;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x5B8C;&#x6210;&#x5BF9;&#x5E94;&#x7528;&#x7684;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#xFF0C;&#x7070;&#x5EA6;&#x5347;&#x7EA7;&#xFF0C;&#x81EA;&#x52A8;&#x63A5;&#x5165;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x76D1;&#x63A7;&#xFF0C;&#x62A5;&#x8B66;&#xFF0C;&#x5FEB;&#x901F;&#x90E8;&#x7F72;&#xFF0C;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x7B49;&#x670D;&#x52A1;&#x3002;</p>
+<p>&#x5BBF;&#x4E3B;&#x673A;&#x8D44;&#x6E90;&#x5C42;&#xFF1A;&#x4E3B;&#x8981;&#x6307;Docker &#x7269;&#x7406;&#x673A;&#x96C6;&#x7FA4;&#xFF0C;&#x5E76;&#x5305;&#x542B;IP&#x6C60;&#x7684;&#x7BA1;&#x7406;&#x3002;</p>
+<a href="http://dockerone.com/uploads/article/20170215/7055c11a130c988b68a34b3e0ee5d343.png" target="_blank"><figure id="fig1.11.5.3"><img src="http://dockerone.com/uploads/article/20170215/7055c11a130c988b68a34b3e0ee5d343.png" alt="&#x903B;&#x8F91;.png"><figcaption>&#x56FE;&#x7247; - &#x903B;&#x8F91;.png</figcaption></figure></a>
+<p>&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x90E8;&#x7F72;&#x5728;LeEngine&#x4E0A;&#x7684;&#x5E94;&#x7528;&#x65F6;&#xFF0C;&#x9996;&#x5148;&#x901A;&#x8FC7;SDNS&#x667A;&#x80FD;&#x89E3;&#x6790;&#x5230;&#x5BF9;&#x5E94;&#x7684;Nginx&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x96C6;&#x7FA4;&#xFF0C;&#x7136;&#x540E;&#x7531;Nginx&#x5C06;&#x8BF7;&#x6C42;&#x6253;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x5BB9;&#x5668;&#x4E2D;&#x3002;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x7F13;&#x5B58;&#x7B49;&#x6709;&#x72B6;&#x6001;&#x7684;&#x670D;&#x52A1;&#x5E76;&#x6CA1;&#x6709;&#x5728;LeEngine&#x4F53;&#x7CFB;&#x4E4B;&#x5185;&#xFF0C;&#x56E0;&#x4E3A;&#x91C7;&#x7528;&#x5927;&#x4E8C;&#x5C42;&#x7F51;&#x7EDC;&#xFF0C;&#x5BB9;&#x5668;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FDE;&#x63A5;&#x516C;&#x53F8;&#x5176;&#x4ED6;&#x56E2;&#x961F;&#x63D0;&#x4F9B;&#x7684;&#x6570;&#x636E;&#x5E93;&#x6216;&#x8005;&#x7F13;&#x5B58;&#x7B49;&#x670D;&#x52A1;&#x3002; </p>
+<p>&#x4E0B;&#x56FE;&#x662F;&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x8BF4;&#x660E;&#x652F;&#x6301;&#x591A;&#x5730;&#x57DF;&#xFF0C;&#x591A;kubernetes&#x96C6;&#x7FA4;&#x7684;&#x90E8;&#x7F72;&#x3002;</p>
+<a href="http://dockerone.com/uploads/article/20170215/eb7abcaec90313f5f54a09081acb5c53.png" target="_blank"><figure id="fig1.11.5.4"><img src="http://dockerone.com/uploads/article/20170215/eb7abcaec90313f5f54a09081acb5c53.png" alt="Region.png"><figcaption>&#x56FE;&#x7247; - Region.png</figcaption></figure></a>
+<p>&#x5355;&#x4E00;Region&#x4E0B;&#x5355;Cell&#x90E8;&#x7F72;&#x56FE;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/39608b12c11b1be8a8f4bd16a9756348.png" target="_blank"><figure id="fig1.11.5.5"><img src="http://dockerone.com/uploads/article/20170215/39608b12c11b1be8a8f4bd16a9756348.png" alt="&#x5355;cell.png"><figcaption>&#x56FE;&#x7247; - &#x5355;cell.png</figcaption></figure></a>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x7684;&#x7BA1;&#x7406;&#x7F51;&#x7EDC;&#x548C;&#x5BB9;&#x5668;&#x7F51;&#x7EDC;&#x5212;&#x5206;&#x5F00;&#x5E76;&#x7ED9;&#x5BB9;&#x5668;&#x7F51;&#x7EDC;&#x5212;&#x5206;&#x5355;&#x72EC;&#x7684;VLAN&#x3002;</p>
+<h4 id="&#x6210;&#x5458;&#x3001;&#x6743;&#x9650;&#x7BA1;&#x7406;">&#x6210;&#x5458;&#x3001;&#x6743;&#x9650;&#x7BA1;&#x7406;</h4>
+<p>LeEngine&#x4E0B;&#x9762;&#x5B9A;&#x4E49;&#x4E86;&#x56DB;&#x5927;&#x8D44;&#x6E90;&#xFF0C;&#x5E94;&#x7528;&#x3001;&#x955C;&#x50CF;&#x3001;&#x955C;&#x50CF;&#x5206;&#x7EC4;&#x548C;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x3002;&#x4E3A;&#x4E86;&#x56E2;&#x961F;&#x534F;&#x540C;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;4&#x5927;&#x8D44;&#x6E90;&#x90FD;&#x589E;&#x52A0;&#x4E86;&#x6210;&#x5458;&#x548C;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x3002;&#x6210;&#x5458;&#x548C;&#x6743;&#x9650;&#x4EFF;&#x7167;&#x4E86;GitLab&#x8FDB;&#x884C;&#x4E86;&#x8BBE;&#x8BA1;&#xFF0C;&#x6210;&#x5458;&#x89D2;&#x8272;&#x5206;&#x4E3A;&#xFF1A;Owner&#x3001;Master&#x3001;Developer&#x3001;Reporter&#x3001;Guest&#x3002; &#x4E0D;&#x540C;&#x7684;&#x89D2;&#x8272;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x8D44;&#x6E90;&#x7CFB;&#x7EDF;&#x90FD;&#x5B9A;&#x4E49;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x6743;&#x9650;&#x3002;&#x6BD4;&#x5982;&#x5E94;&#x7528;&#xFF0C;&#x53EA;&#x6709;Owner&#x548C;Master&#x6709;&#x6743;&#x9650;&#x5BF9;&#x5E94;&#x7528;&#x90E8;&#x7F72;&#x65B0;&#x7248;&#x672C;&#xFF0C;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#x7B49;&#x7B49;&#x3002; &#x5047;&#x5982;&#x4E00;&#x4E2A;&#x7528;&#x6237;A&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5E94;&#x7528;A1&#xFF0C;&#x90A3;&#x4E48;A&#x5C31;&#x9ED8;&#x8BA4;&#x662F;&#x5E94;&#x7528;A1&#x7684;Owner&#xFF0C;&#x62E5;&#x6709;&#x5BF9;&#x5E94;&#x7528;A1&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x6743;&#x9650;&#xFF0C;&#x5305;&#x62EC;&#x90E8;&#x7F72;&#x65B0;&#x7248;&#x672C;&#xFF0C;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#xFF0C;&#x4FEE;&#x6539;&#x5E94;&#x7528;&#xFF0C;&#x5220;&#x9664;&#x5E94;&#x7528;&#x7B49;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x3002;&#x800C;&#x7528;&#x6237;B&#x6B64;&#x65F6;&#x5BF9;&#x5E94;&#x7528;A1&#x4E0D;&#x53EF;&#x89C1;&#xFF0C;&#x82E5;&#x60F3;&#x53EF;&#x89C1;&#xFF0C;&#x5FC5;&#x987B;&#x7531;A&#x5BF9;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;A1&#x6267;&#x884C;&#x6DFB;&#x52A0;&#x6210;&#x5458;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x628A;B&#x6DFB;&#x52A0;&#x5230;A1&#x4E2D;&#xFF0C;&#x5E76;&#x8D4B;&#x4E3A;&#x9664;Owner&#x4EE5;&#x5916;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x89D2;&#x8272;&#xFF0C;&#x82E5;&#x6B64;&#x65F6;B&#x88AB;&#x8D4B;&#x4E3A;Master&#x89D2;&#x8272;&#xFF0C;&#x90A3;B&#x62E5;&#x6709;&#x4E86;&#x5BF9;&#x5E94;&#x7528;A1&#x90E8;&#x7F72;&#x65B0;&#x7248;&#x672C;&#xFF0C;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#x7B49;&#x6743;&#x9650;&#xFF0C;&#x53CD;&#x4E4B;&#x5219;&#x6CA1;&#x6709;&#x3002;</p>
+<p>&#x6839;&#x636E;&#x4E0A;&#x9762;&#x7684;&#x6743;&#x9650;&#x8BBE;&#x8BA1;&#xFF0C;&#x901A;&#x8FC7;LeEngine&#x7684;Console&#x754C;&#x9762;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x7528;&#x6237;&#x767B;&#x5F55;&#x540E;&#x770B;&#x5230;&#x7684;&#x4EC5;&#x4EC5;&#x662F;&#x8DDF;&#x81EA;&#x5DF1;&#x76F8;&#x5173;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x5728;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x80FD;&#x770B;&#x5230;&#x6211;&#x521B;&#x5EFA;&#x7684;&#x4EE5;&#x53CA;&#x6211;&#x53C2;&#x4E0E;&#x7684;&#x5E94;&#x7528;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/3e8895a01fdd8968fb262ebf2eab4099.png" target="_blank"><figure id="fig1.11.5.6"><img src="http://dockerone.com/uploads/article/20170215/3e8895a01fdd8968fb262ebf2eab4099.png" alt="&#x53C2;&#x4E0E;&#x5E94;&#x7528;.png"><figcaption>&#x56FE;&#x7247; - &#x53C2;&#x4E0E;&#x5E94;&#x7528;.png</figcaption></figure></a>
+<p>&#x5728;&#x955C;&#x50CF;&#x9875;&#x9762;&#xFF0C;&#x80FD;&#x591F;&#x770B;&#x5230;&#x6211;&#x521B;&#x5EFA;&#x7684;&#x4EE5;&#x53CA;&#x6211;&#x53C2;&#x4E0E;&#x7684;&#x955C;&#x50CF;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/6abcb0a147d2ab3d5cf9ac303a701370.png" target="_blank"><figure id="fig1.11.5.7"><img src="http://dockerone.com/uploads/article/20170215/6abcb0a147d2ab3d5cf9ac303a701370.png" alt="&#x53C2;&#x4E0E;&#x955C;&#x50CF;.png"><figcaption>&#x56FE;&#x7247; - &#x53C2;&#x4E0E;&#x955C;&#x50CF;.png</figcaption></figure></a>
+<p>&#x5E2E;&#x52A9;&#x6587;&#x6863;&#x4F1A;&#x63D0;&#x4F9B;&#x7ED9;&#x7528;&#x6237;&#x4E0D;&#x540C;&#x8D44;&#x6E90;&#x7684;&#x6743;&#x9650;&#x8BF4;&#x660E;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/c4e503a90b7dc07df55f9c1343e03d95.png" target="_blank"><figure id="fig1.11.5.8"><img src="http://dockerone.com/uploads/article/20170215/c4e503a90b7dc07df55f9c1343e03d95.png" alt="&#x5E2E;&#x52A9;.png"><figcaption>&#x56FE;&#x7247; - &#x5E2E;&#x52A9;.png</figcaption></figure></a>
+<a href="http://dockerone.com/uploads/article/20170215/adcc568d05035599379bf5f2ba8acaec.png" target="_blank"><figure id="fig1.11.5.9"><img src="http://dockerone.com/uploads/article/20170215/adcc568d05035599379bf5f2ba8acaec.png" alt="&#x5E2E;&#x52A9;2.png"><figcaption>&#x56FE;&#x7247; - &#x5E2E;&#x52A9;2.png</figcaption></figure></a>
+<h4 id="&#x7528;&#x6237;&#x7AEF;&#x548C;&#x7BA1;&#x7406;&#x7AEF;">&#x7528;&#x6237;&#x7AEF;&#x548C;&#x7BA1;&#x7406;&#x7AEF;</h4>
+<p>LeEngine&#x5177;&#x6709;&#x9762;&#x5411;&#x7528;&#x6237;&#x7AEF;&#x7684;Console&#x754C;&#x9762;&#x548C;&#x9762;&#x5411;&#x8FD0;&#x7EF4;&#x7BA1;&#x7406;&#x5458;&#x7684;boss&#x754C;&#x9762;&#xFF0C;&#x5728;&#x7528;&#x6237;&#x7AEF;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x548C;&#x53C2;&#x4E0E;&#x7684;4&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x8D44;&#x6E90;&#x3002;&#x7BA1;&#x7406;&#x7AEF;&#x5219;&#x4E3B;&#x8981;&#x662F;&#x5BF9;&#x6574;&#x4E2A;LeEngine&#x5E73;&#x53F0;&#x8D44;&#x6E90;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x5305;&#x62EC;&#x7528;&#x6237;&#x53EF;&#x4F7F;&#x7528;&#x6700;&#x5927;&#x8D44;&#x6E90;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7279;&#x6B8A;&#x914D;&#x7F6E;&#xFF0C;Cell&#x96C6;&#x7FA4;&#x4E0B;&#x7684;&#x8D44;&#x6E90;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#xFF0C;&#x64CD;&#x4F5C;&#x9891;&#x7387;&#x7EDF;&#x8BA1;&#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x662F;LeEngine&#x6D4B;&#x8BD5;&#x73AF;&#x5883;boss&#x7CFB;&#x7EDF;&#x5173;&#x4E8E;&#x64CD;&#x4F5C;&#x9891;&#x7387;&#x7EDF;&#x8BA1;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/463da22aa0b62bfe003090f7a02ab6eb.png" target="_blank"><figure id="fig1.11.5.10"><img src="http://dockerone.com/uploads/article/20170215/463da22aa0b62bfe003090f7a02ab6eb.png" alt="&#x64CD;&#x4F5C;&#x9891;&#x7387;.png"><figcaption>&#x56FE;&#x7247; - &#x64CD;&#x4F5C;&#x9891;&#x7387;.png</figcaption></figure></a>
+<p>&#x64CD;&#x4F5C;&#x9891;&#x7387;&#x5305;&#x62EC;&#x6BCF;&#x5929;&#x6240;&#x7528;&#x5E94;&#x7528;&#x7684;&#x90E8;&#x7F72;&#x6B21;&#x6570;&#xFF0C;&#x4EE3;&#x7801;&#x7684;&#x6784;&#x5EFA;&#x6B21;&#x6570;&#xFF0C;&#x955C;&#x50CF;&#x7684;Push&#x6B21;&#x6570;&#xFF0C;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#x6B21;&#x6570;&#xFF0C;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x80FD;&#x5C55;&#x793A;&#x51FA;&#x4E1A;&#x52A1;&#x7EBF;&#x5BF9;LeEngine&#x5E73;&#x53F0;&#x672C;&#x8EAB;&#x7684;&#x4F7F;&#x7528;&#x9891;&#x7387;&#x3002;</p>
+<h4 id="leengine-core">LeEngine-core</h4>
+<p>LeEngine-core&#x662F;LeEngine&#x6700;&#x7EC8;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x7684;API&#x63A5;&#x53E3;&#x5C42;&#xFF08;beego&#x5B9E;&#x73B0;&#xFF09;&#xFF0C;&#x6240;&#x6709;4&#x5927;&#x8D44;&#x6E90;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x6743;&#x9650;&#x63A7;&#x5236;&#xFF0C;&#x90FD;&#x662F;&#x901A;&#x8FC7;&#x8FD9;&#x4E00;&#x5C42;&#x63A7;&#x5236;&#x7684;&#x3002;LeEngine&#x53EA;&#x63D0;&#x4F9B;&#x6700;&#x539F;&#x5B50;&#x7684;API&#x63A5;&#x53E3;&#xFF0C;&#x7279;&#x6B8A;&#x4E1A;&#x52A1;&#x7EBF;&#x8981;&#x60F3;&#x6709;&#x7279;&#x6B8A;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5728;&#x73B0;&#x6709;API&#x57FA;&#x7840;&#x4E0A;&#x8FDB;&#x884C;&#x4E8C;&#x6B21;&#x5F00;&#x53D1;&#x3002;</p>
+<h4 id="&#x5BB9;&#x5668;&#x7F51;&#x7EDC;">&#x5BB9;&#x5668;&#x7F51;&#x7EDC;</h4>
+<p>&#x5BB9;&#x5668;&#x91C7;&#x7528;&#x5927;&#x4E8C;&#x5C42;&#x7F51;&#x7EDC;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FDE;&#x901A;&#x5BB9;&#x5668;&#xFF0C;&#x5BB9;&#x5668;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FDE;&#x901A;&#x5916;&#x90E8;&#x670D;&#x52A1;&#xFF0C;&#x6BD4;&#x5982;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x7F13;&#x5B58;&#x7B49;&#x7B49;&#x3002;&#x91C7;&#x7528;&#x6B64;&#x79CD;&#x65B9;&#x6848;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x5BB9;&#x5668;&#x6A2A;&#x5411;&#x53EF;&#x8FDE;&#x63A5;&#xFF0C;&#x7EB5;&#x5411;&#x53EF;&#x8BBF;&#x95EE;&#x3002;&#x5916;&#x90E8;&#x60F3;&#x8FDE;&#x63A5;&#x5BB9;&#x5668;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BB9;&#x5668;IP&#x5730;&#x5740;&#x76F4;&#x63A5;&#x8FDE;&#x63A5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#x3002;&#x800C;&#x5BB9;&#x5668;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;LeEngine&#x4F53;&#x7CFB;&#x5916;&#x7684;&#x865A;&#x62DF;&#xFF0C;&#x7269;&#x7406;&#x673A;&#x8D44;&#x6E90;&#xFF0C;&#x4EE5;&#x53CA;MySQL&#x7B49;&#x7EC4;&#x4EF6;&#x670D;&#x52A1;&#x3002;</p>
+<a href="http://dockerone.com/uploads/article/20170215/2017815e75eed5039c9876a450ef526a.png" target="_blank"><figure id="fig1.11.5.11"><img src="http://dockerone.com/uploads/article/20170215/2017815e75eed5039c9876a450ef526a.png" alt="&#x7EB5;&#x5411;&#x8BBF;&#x95EE;.png"><figcaption>&#x56FE;&#x7247; - &#x7EB5;&#x5411;&#x8BBF;&#x95EE;.png</figcaption></figure></a>
+<p>&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5199;&#x4E86;CNI&#x63D2;&#x4EF6;&#x548C;CNICTL&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#xFF0C;&#x652F;&#x6301;&#x6DFB;&#x52A0;&#x591A;&#x4E2A;IP&#x6BB5;&#xFF0C;&#x7528;&#x6765;&#x9632;&#x6B62;IP&#x8D44;&#x6E90;&#x4E0D;&#x591F;&#x7684;&#x60C5;&#x51B5;&#x3002;IP&#x6BB5;&#x7684;&#x4FE1;&#x606F;&#x5B58;&#x5728;&#x4E86;&#x5F53;&#x524D;Kubernetes&#x96C6;&#x7FA4;&#x91CC;&#x7684;etcd&#x4E2D;&#x3002;&#x6211;&#x4EEC;&#x4F1A;&#x4E3A;&#x6BCF;&#x4E2A;Cell&#x5373;&#x6BCF;&#x4E2A;Kubernetes&#x96C6;&#x7FA4;&#x4E0B;&#x90FD;&#x6DFB;&#x52A0;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;IP&#x6BB5;&#xFF0C;&#x4E00;&#x822C;1024&#x4E2A;IP&#x5730;&#x5740;22&#x5B50;&#x7F51;&#x63A9;&#x7801;&#xFF0C;&#x5355;&#x72EC;vlan&#x9632;&#x6B62;&#x5E7F;&#x64AD;&#x98CE;&#x66B4;&#xFF0C;&#x8FD9;&#x9700;&#x8981;&#x63D0;&#x524D;&#x8DDF;&#x7F51;&#x7EDC;&#x90E8;&#x95E8;&#x89C4;&#x5212;&#x597D;IP&#x6BB5;&#x3002;&#x5982;&#x679C;&#x8FD9;&#x4E2A;IP&#x6BB5;&#x5DF2;&#x7ECF;&#x4F7F;&#x7528;&#x5B8C;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x4F7F;&#x7528;CNICTL&#x5DE5;&#x5177;&#xFF0C;&#x91CD;&#x65B0;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;IP&#x6BB5;&#x3002;</p>
+<a href="http://dockerone.com/uploads/article/20170215/2d0f872b91af43a6fbe72eb959cc80b9.png" target="_blank"><figure id="fig1.11.5.12"><img src="http://dockerone.com/uploads/article/20170215/2d0f872b91af43a6fbe72eb959cc80b9.png" alt="&#x5BB9;&#x5668;&#x7F51;&#x7EDC;.png"><figcaption>&#x56FE;&#x7247; - &#x5BB9;&#x5668;&#x7F51;&#x7EDC;.png</figcaption></figure></a>
+<p>&#x4E3A;&#x4E86;&#x8FDB;&#x4E00;&#x6B65;&#x4FDD;&#x8BC1;&#x4E1A;&#x52A1;&#x5BB9;&#x5668;&#x5728;&#x7F51;&#x7EDC;&#x65B9;&#x9762;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x6240;&#x6709;&#x7684;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x90FD;&#x662F;4&#x4E2A;&#x7F51;&#x5361;&#xFF0C;2&#x5343;&#x5146;&#xFF0C;2&#x4E07;&#x5146;&#xFF0C;&#x53CC;&#x53CC;&#x505A;bond&#xFF0C;&#x5343;&#x5146;bond1&#x7528;&#x6765;&#x505A;&#x7BA1;&#x7406;&#x7F51;&#x5361;&#xFF0C;&#x4E07;&#x5146;bond1&#x7528;&#x6765;&#x8DD1;&#x4E1A;&#x52A1;&#x5BB9;&#x5668;&#xFF0C;&#x6BCF;&#x4E2A;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x5728;&#x4EA4;&#x4ED8;&#x65F6;&#x5019;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;OVS&#x7F51;&#x6865;&#xFF0C;&#x5E76;&#x5C06;bond1&#x6302;&#x8F7D;&#x4E0A;&#x53BB;&#xFF0C;&#x4E0A;&#x8054;&#x4EA4;&#x6362;&#x673A;&#x505A;&#x5806;&#x53E0;&#xFF0C;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x5C3D;&#x91CF;&#x6253;&#x6563;&#x5728;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x673A;&#x67DC;&#x4E2D;&#x3002;</p>
+<p>&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x7269;&#x7406;&#x673A;&#x4E0A;&#x7684;Kubulet&#x5728;&#x521B;&#x5EFA;Pod&#x7684;PAUSE&#x5BB9;&#x5668;&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;CNI&#x63D2;&#x4EF6;&#xFF0C;CNI&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;veth pair&#xFF0C; &#x4E00;&#x7AEF;&#x6254;&#x5230;&#x8FD9;&#x4E2A;&#x5BB9;&#x5668;&#x7684;Namespace&#x4E2D;&#xFF0C;&#x5E76;&#x547D;&#x540D;eth0&#xFF0C;&#x4E00;&#x7AEF;&#x6302;&#x8F7D;&#x5230;OVS&#x7F51;&#x6865;&#x4E0A;&#xFF0C;&#x4E4B;&#x540E;&#x4ECE;etcd&#x4E2D;&#x5927;&#x7684;IP&#x6BB5;&#x4E2D;&#x627E;&#x51FA;&#x4E00;&#x4E2A;&#x8FDE;&#x7EED;16&#x4E2A;IP&#x5730;&#x5740;&#x7684;&#x5C0F;&#x6BB5;&#x7ED9;&#x8FD9;&#x4E2A;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4ECE;&#x8FD9;&#x4E2A;&#x5B50;&#x6BB5;&#x4E2D;&#x627E;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x7684;IP&#x7ED9;&#x8FD9;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x914D;&#x7F6E;&#x597D;&#x5BB9;&#x5668;IP&#xFF0C;&#x4EE5;&#x53CA;&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#xFF0C;&#x540C;&#x65F6;&#x4F1A;&#x6839;&#x636E;&#x914D;&#x7F6E;&#x6765;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x53D1;&#x9001;&#x514D;&#x8D39;ARP&#x4FE1;&#x606F;&#xFF0C;&#x4E4B;&#x540E;&#x9075;&#x5B88;CNI&#x89C4;&#x8303;&#x628A;&#x76F8;&#x5E94;&#x7684;&#x4FE1;&#x606F;&#x8FD4;&#x56DE;&#x7ED9;kubelet&#x3002;&#x5F53;&#x8FD9;&#x4E2A;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x518D;&#x6B21;&#x521B;&#x5EFA;&#x65B0;&#x7684;Pod&#x65F6;&#xFF0C;&#x4F1A;&#x4F18;&#x5148;&#x4ECE;&#x8FD9;&#x4E2A;&#x5B50;&#x6BB5;&#x4E2D;&#x9009;&#x62E9;&#x7A7A;&#x95F4;&#x7684;IP&#xFF0C;&#x82E5;&#x6CA1;&#x6709;&#x7A7A;&#x95F2;&#x7684;IP&#x5730;&#x5740;&#xFF0C;&#x4F1A;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;&#x4E00;&#x4E2A;&#x5B50;&#x6BB5;&#x7ED9;&#x8FD9;&#x4E2A;&#x8BA1;&#x7B97;&#x8282;&#x70B9;&#x7528;&#x3002;</p>
+<p>&#x73B0;&#x5728;CNI&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;Pod&#x5220;&#x6389;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x65F6;&#x5019;IP&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#xFF0C;&#x56E0;&#x6B64;&#x5E94;&#x7528;&#x5728;&#x6BCF;&#x6B21;&#x5347;&#x7EA7;&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x5BB9;&#x5668;IP&#x5730;&#x5740;&#x4F1A;&#x53D8;&#xFF0C;&#x8FD9;&#x5C31;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x7684;&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x4E0E;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x505A;&#x5BF9;&#x63A5;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x73B0;&#x5728;&#x7684;&#x8FD9;&#x5957;&#x65B9;&#x6848;&#x4E5F;&#x4F1A;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF1A;&#x6BD4;&#x5982;&#x7269;&#x7406;&#x4E3B;&#x673A;&#x7A81;&#x7136;down&#x6389;&#xFF0C;&#x6216;&#x8005;Docker&#x8FDB;&#x7A0B;&#x6B7B;&#x6389;&#xFF0C;&#x5BFC;&#x81F4;&#x672C;&#x4E3B;&#x673A;&#x4E0A;&#x6240;&#x6709;&#x5BB9;&#x5668;&#x6302;&#x6389;&#xFF0C;&#x7B49;kubelet&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x539F;&#x6765;&#x6B7B;&#x6389;&#x7684;&#x5BB9;&#x5668;&#x6240;&#x5360;&#x7528;&#x7684;IP&#x5E76;&#x4E0D;&#x4F1A;&#x91CA;&#x653E;&#x3002;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x662F;&#x901A;&#x8FC7;&#x6211;&#x4EEC;&#x5F00;&#x53D1;CNICTL&#x547D;&#x4EE4;&#x6765;&#x8FDB;&#x884C;&#x5B9A;&#x671F;&#x68C0;&#x6D4B;&#x3002;CNICTL&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;check&#x547D;&#x4EE4;&#xFF0C;&#x4F1A;&#x68C0;&#x7D22;etcd&#x4E2D;&#x6240;&#x6709;&#x5206;&#x914D;&#x7684;IP&#x548C;&#x5BF9;&#x5E94;&#x7684;POD&#x4FE1;&#x606F;&#xFF0C;&#x4E4B;&#x540E;&#x8C03;&#x7528;apiserver&#x83B7;&#x5F97;&#x6240;&#x6709;Pod&#x4FE1;&#x606F;&#xFF0C;&#x53D6;&#x5DEE;&#x503C;&#x5219;&#x4E3A;&#x6CA1;&#x91CA;&#x653E;&#x7684;IP&#x5730;&#x5740;&#x3002;&#x6536;&#x5230;&#x62A5;&#x8B66;&#x540E;&#xFF0C;&#x4EBA;&#x5DE5;&#x8C03;&#x7528;CNICTL&#x7684;&#x91CA;&#x653E;IP&#x529F;&#x80FD;&#xFF0C;&#x624B;&#x52A8;&#x91CA;&#x653E;IP&#x3002;</p>
+<h4 id="&#x670D;&#x52A1;&#x53D1;&#x73B0;">&#x670D;&#x52A1;&#x53D1;&#x73B0;</h4>
+<p>&#x6211;&#x4EEC;&#x5145;&#x5206;&#x5229;&#x7528;&#x4E86;Kubernetes&#x7684;Service&#x6982;&#x5FF5;&#xFF0C;&#x524D;&#x9762;&#x5DF2;&#x7ECF;&#x63D0;&#x8FC7;&#xFF0C;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;Namespace&#xFF0C;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;RC&#xFF0C;&#x5728;&#x7528;&#x6237;&#x901A;&#x8FC7;API&#x8BF7;&#x6C42;&#x521B;&#x5EFA;&#x5E94;&#x7528;&#x65F6;&#x5019;&#xFF0C;LeEngine&#x6838;&#x5FC3;API&#x5C42;&#xFF1A;LeEngin-core&#x4F1A;&#x9ED8;&#x8BA4;&#x5728;&#x5BF9;&#x5E94;&#x7684;Kubernetes&#x96C6;&#x7FA4;&#x4E2D;&#x521B;&#x5EFA;&#x76F8;&#x5173;&#x8054;&#x7684;Namespace&#xFF0C;&#x540C;&#x65F6;&#x9ED8;&#x8BA4;&#x5728;&#x8FD9;&#x4E2A;Namespace&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Service&#xFF0C;&#x5E76;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x6807;&#x7B7E;&#x5C5E;&#x6027;&#xFF0C;&#x7528;&#x6237;&#x5728;&#x90E8;&#x7F72;&#x65B0;&#x7248;&#x672C;&#xFF08;RC&#xFF09;&#x65F6;&#x5019;&#xFF0C;LeEngine&#x4F1A;&#x7ED9;&#x8FD9;&#x4E2A;RC&#x6DFB;&#x52A0;&#x8FD9;&#x4E2A;Service&#x7684;&#x552F;&#x4E00;&#x6807;&#x7B7E;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Service&#x6765;&#x53D1;&#x73B0;&#x540E;&#x7AEF;&#x7684;Endpoint&#x3002;&#x6211;&#x4EEC;&#x7528;Go&#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x670D;&#x52A1;&#xFF0C;&#x901A;&#x8FC7;watch api-server&#x7684;API&#x63A5;&#x53E3;&#xFF0C;&#x81EA;&#x52A8;&#x5F52;&#x7C7B;&#x53D1;&#x73B0;&#x54EA;&#x4E2A;&#x5E94;&#x7528;&#x4E0B;&#x6709;IP&#x53D8;&#x52A8;&#xFF0C;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#x6211;&#x4EEC;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;API&#x63A5;&#x53E3;&#xFF0C;&#x52A8;&#x6001;&#x66F4;&#x6539;Nginx&#x7684;&#x540E;&#x7AEF;upstream serverip&#x3002;</p>
+<p>&#x5728;&#x6211;&#x4EEC;&#x6CA1;&#x4F7F;&#x7528;Kubernetes&#x7684;&#x5065;&#x5EB7;&#x63A2;&#x6D4B;&#x529F;&#x80FD;&#x4E4B;&#x524D;&#xFF0C;&#x4F1A;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x51E0;&#x7387;&#x51FA;&#x73B0;&#x5BB9;&#x5668;&#x521B;&#x5EFA;&#x5B8C;&#x6210;&#xFF0C;&#x670D;&#x52A1;&#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x542F;&#x52A8;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5BB9;&#x5668;IP&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x5230;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x65F6;&#x5019;&#x5982;&#x679C;&#x521A;&#x597D;&#x6709;&#x8BF7;&#x6C42;&#x8FC7;&#x6765;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x7684;&#x73B0;&#x8C61;&#x3002;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x5728;&#x6700;&#x65B0;&#x4E00;&#x7248;&#x4E2D;&#xFF0C;&#x52A0;&#x5165;&#x4E86;&#x5065;&#x5EB7;&#x63A2;&#x6D4B;&#x529F;&#x80FD;&#xFF0C;&#x7528;&#x6237;&#x5728;&#x7ED9;&#x5E94;&#x7528;&#x90E8;&#x7F72;&#x65B0;&#x7248;&#x672C;&#x65F6;&#xFF0C;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x81EA;&#x5DF1;&#x670D;&#x52A1;&#x7684;&#x76D1;&#x63A7;&#x63A2;&#x6D4B;HTTP&#x63A5;&#x53E3;&#xFF0C;&#x5F53;&#x5BB9;&#x5668;&#x5185;&#x670D;&#x52A1;&#x63A2;&#x6D4B;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x52A0;&#x5165;&#x5230;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x4E2D;&#x53BB;&#x3002;&#x800C;&#x5220;&#x9664;&#x5BB9;&#x5668;&#x5219;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x6267;&#x884C;RC&#x7F29;&#x5BB9;&#x547D;&#x4EE4;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x5220;&#x9664;&#x7684;&#x5BB9;&#x5668;&#x9996;&#x5148;&#x4F1A;&#x7ACB;&#x9A6C;&#x4ECE;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x4E2D;&#x5220;&#x9664;&#xFF0C;&#x4E4B;&#x540E;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x5BB9;&#x5668;&#x7684;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x3002;</p>
+<h4 id="&#x8D1F;&#x8F7D;&#x5747;&#x8861;">&#x8D1F;&#x8F7D;&#x5747;&#x8861;</h4>
+<p>&#x6211;&#x4EEC;&#x5E76;&#x6CA1;&#x6709;&#x4F7F;&#x7528;Kubernetes&#x7684;Proxy&#x4F5C;&#x4E3A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;Nginx&#x96C6;&#x7FA4;&#x4F5C;&#x4E3A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x3002;Nginx&#x6211;&#x4EEC;&#x539F;&#x5219;&#x4E0A;&#x4F1A;&#x90E8;&#x7F72;&#x5728;&#x540C;&#x4E00;&#x4E2A;Region&#x4E0B;&#x7684;&#x591A;&#x4E2A;&#x673A;&#x623F;&#x4E2D;&#xFF0C;&#x9632;&#x6B62;&#x56E0;&#x4E3A;&#x673A;&#x623F;&#x7F51;&#x7EDC;&#x6545;&#x969C;&#x5BFC;&#x81F4;&#x5168;&#x90E8;&#x7684;Nginx&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x652F;&#x6301;Nginx&#x6A2A;&#x5411;&#x53EF;&#x6269;&#x5C55;&#xFF0C;&#x5F53;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x538B;&#x529B;&#x8FC7;&#x5927;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x6A2A;&#x5411;&#x589E;&#x52A0;Nginx&#x7269;&#x7406;&#x673A;&#x3002;&#x4E3A;&#x9632;&#x6B62;&#x5355;&#x4E00;Nginx&#x96C6;&#x7FA4;&#x4E0B;&#x4EE3;&#x7406;&#x7684;Domain&#x6570;&#x76EE;&#x8FC7;&#x591A;&#xFF0C;&#x4EE5;&#x53CA;&#x533A;&#x5206;&#x4E0D;&#x540C;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;,&#x6BD4;&#x5982;&#x516C;&#x7F51;&#x548C;&#x5185;&#x7F51;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x6211;&#x4EEC;&#x652F;&#x6301;&#x521B;&#x5EFA;&#x591A;&#x4E2A;Nginx&#x8D1F;&#x8F7D;&#x96C6;&#x7FA4;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x4E3A;&#x7528;&#x6237;&#x6D4F;&#x89C8;&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;&#x3002;</p>
+<a href="http://dockerone.com/uploads/article/20170215/8d636130241f31d7968ecbb5d6fdf9ed.png" target="_blank"><figure id="fig1.11.5.13"><img src="http://dockerone.com/uploads/article/20170215/8d636130241f31d7968ecbb5d6fdf9ed.png" alt="&#x8BF7;&#x6C42;&#x8DEF;&#x5F84;.png"><figcaption>&#x56FE;&#x7247; - &#x8BF7;&#x6C42;&#x8DEF;&#x5F84;.png</figcaption></figure></a>
+<p>&#x5173;&#x4E8E;&#x5982;&#x4F55;&#x80FD;&#x591F;&#x901A;&#x77E5;Nginx&#x96C6;&#x7FA4;&#x81EA;&#x52A8;&#x66F4;&#x65B0;Upstream&#x4E0B;&#x7684;Server IP&#x95EE;&#x9898;&#xFF0C; &#x6211;&#x4EEC;&#x5728;Nginx&#x96C6;&#x7FA4;&#x5916;&#x9762;&#x7528;beego&#x6846;&#x67B6;&#x8BBE;&#x8BA1;&#x4E86;&#x4E00;&#x5C42;API&#x5C42;&#xFF1A;slb-core&#xFF0C; &#x4E13;&#x95E8;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;API&#x63A5;&#x53E3;&#xFF0C;&#x5177;&#x4F53;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/e7f0474710a3f261cf0da2daed65e9ad.png" target="_blank"><figure id="fig1.11.5.14"><img src="http://dockerone.com/uploads/article/20170215/e7f0474710a3f261cf0da2daed65e9ad.png" alt="slb-core.png"><figcaption>&#x56FE;&#x7247; - slb-core.png</figcaption></figure></a>
+<p>etcd&#x91CC;&#x9762;&#x5B58;&#x653E;&#x6BCF;&#x4E2A;domain&#x7684;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#x3002;&#x5177;&#x4F53;key&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>/slb/{groupname or groupid}/domains/{domain_name}/
+</code></pre><p>&#x6BCF;&#x4E00;&#x53F0;Nginx&#x4E3B;&#x673A;&#x4E0A;&#x90FD;&#x4F1A;&#x5B89;&#x88C5;&#x4E00;&#x4E2A;Agent&#xFF0C;&#x6BCF;&#x4E2A;Agent&#x76D1;&#x63A7;&#x4ED6;&#x6240;&#x5C5E;&#x7684;groupid &#x7684;key&#xFF0C;&#x6BD4;&#x5982;/slb/2/&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x76D1;&#x63A7;&#x672C;Nginx &#x96C6;&#x7FA4;&#x4E0B;&#x6240;&#x6709;Domain&#x7684;&#x914D;&#x7F6E;&#x53D8;&#x5316;&#xFF0C;Agent &#x5C06;&#x53D8;&#x5316;&#x8FC7;&#x7684;Domain &#x914D;&#x7F6E;&#x66F4;&#x65B0;&#x5230;Nginx&#x4E0B;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x5E76;&#x5224;&#x65AD;&#x914D;&#x7F6E;&#x53D8;&#x5316;&#x662F;&#x5426;&#x662F;&#x66F4;&#x6539;&#x7684;upstream&#x4E0B;&#x7684;Server IP&#x8FD8;&#x662F;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x53D1;&#x73B0;&#x662F;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#x66F4;&#x6539;&#xFF0C;&#x6BD4;&#x5982;location&#x6216;&#x8005;&#x589E;&#x52A0;header&#xFF0C;&#x5219;&#x4F1A;reload nginx&#xFF0C; &#x5982;&#x679C;&#x53D1;&#x73B0;&#x5355;&#x7EAF;&#x66F4;&#x6539;upstream &#x4E0B;Server IP&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8C03;&#x7528;Nginx&#x52A8;&#x6001;&#x66F4;&#x6539;upstream ip&#x7684;&#x63A5;&#x53E3;&#x3002;</p>
+<p>&#x4E0A;&#x5C42;&#x7684;slb-core &#x5219;&#x4F1A;&#x63D0;&#x4F9B;domain&#x52A8;&#x6001;&#x66F4;&#x6539;&#x540E;&#x53F0;upstream ip&#x7684;&#x63A5;&#x53E3;&#xFF0C; &#x4F9B;&#x670D;&#x52A1;&#x53D1;&#x73B0;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x591A;&#x4E2A;&#x4E92;&#x76F8;&#x5173;&#x8054;&#xFF0C;&#x4E92;&#x76F8;&#x8C03;&#x7528;&#x7684;&#x4E1A;&#x52A1;&#x57DF;&#x540D;&#x90FD;&#x540C;&#x65F6;&#x88AB;&#x4E00;&#x4E2A;Nginx&#x96C6;&#x7FA4;&#x6240;&#x4EE3;&#x7406;&#xFF0C;&#x82E5;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;domain&#x9700;&#x8981;&#x66F4;&#x6539;&#x914D;&#x7F6E;&#xFF0C;&#x5BFC;&#x81F4;&#x9700;&#x8981;reload nginx&#xFF0C;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;reload &#x65F6;&#x95F4;&#x8FC7;&#x957F;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x57FA;&#x4E8E;&#x8FD9;&#x5957;&#x67B6;&#x6784;&#xFF0C;&#x540E;&#x7AEF;Nginx&#x4E3B;&#x673A;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x6269;&#x5C55;&#xFF0C;&#x8FC5;&#x901F;&#x589E;&#x52A0;&#x5230;&#x5BF9;&#x5E94;&#x96C6;&#x7FA4;&#x4E2D;&#x3002;&#x7531;&#x4E8E;&#x589E;&#x52A0;&#x4E86;nginx test&#x673A;&#x5236;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x66F4;&#x6539;domain&#x7684;&#x914D;&#x7F6E;&#x6709;&#x8BED;&#x6CD5;&#x95EE;&#x9898;&#xFF0C; &#x4E5F;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#xFF0C;&#x8FD8;&#x4F1A;&#x4FDD;&#x6301;&#x4E0A;&#x4E00;&#x4E2A;&#x6B63;&#x786E;&#x7684;&#x914D;&#x7F6E;&#x3002;&#x73B0;&#x5728;&#x8FD9;&#x5957;&#x67B6;&#x6784;&#x5DF2;&#x7ECF;&#x662F;&#x4E50;&#x89C6;&#x8D1F;&#x8F7D;&#x96C6;&#x7FA4;&#x7684;&#x901A;&#x7528;&#x67B6;&#x6784;&#xFF0C;&#x627F;&#x8F7D;&#x4E86;&#x4E50;&#x89C6;&#x4E0A;&#x5343;&#x4E2A;&#x57DF;&#x540D;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x3002;</p>
+<p>&#x7528;&#x6237;&#x5728;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5219;&#x9700;&#x8981;&#x586B;&#x5199;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x57DF;&#x540D;&#xFF0C;Nginx&#x96C6;&#x7FA4;&#x7B49;&#x4FE1;&#x606F;&#xFF0C; &#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/c211f9568db381b6d28b0d97afb8d0f2.png" target="_blank"><figure id="fig1.11.5.15"><img src="http://dockerone.com/uploads/article/20170215/c211f9568db381b6d28b0d97afb8d0f2.png" alt="&#x521B;&#x5EFA;&#x5E94;&#x7528;.png"><figcaption>&#x56FE;&#x7247; - &#x521B;&#x5EFA;&#x5E94;&#x7528;.png</figcaption></figure></a>
+<p>&#x521B;&#x5EFA;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x901A;&#x8FC7;&#x67E5;&#x770B;&#x5E94;&#x7528;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x5BFC;&#x822A;&#x680F;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;CNAME&#x548C;VIP&#x4FE1;&#x606F;&#xFF0C;&#x7B49;&#x4E1A;&#x52A1;&#x6D4B;&#x8BD5;&#x6210;&#x529F;&#x540E;&#xFF0C;DNS&#x7CFB;&#x7EDF;&#x4E0A;&#x914D;&#x7F6E;&#x4F7F;&#x57DF;&#x540D;&#x751F;&#x6548;&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/d608cc162e93fcf67854b77beae2a000.png" target="_blank"><figure id="fig1.11.5.16"><img src="http://dockerone.com/uploads/article/20170215/d608cc162e93fcf67854b77beae2a000.png" alt="&#x8D1F;&#x8F7D;&#x5747;&#x8861;.png"><figcaption>&#x56FE;&#x7247; - &#x8D1F;&#x8F7D;&#x5747;&#x8861;.png</figcaption></figure></a>
+<p>&#x4E0B;&#x56FE;&#x53EF;&#x4EE5;&#x8BA9;&#x7528;&#x6237;&#x67E5;&#x770B;&#x8D1F;&#x8F7D;&#x5747;&#x8861;Nginx&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/ba53fb39e11a46f4d69e3ad3d5c77c53.png" target="_blank"><figure id="fig1.11.5.17"><img src="http://dockerone.com/uploads/article/20170215/ba53fb39e11a46f4d69e3ad3d5c77c53.png" alt="&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x914D;&#x7F6E;.png"><figcaption>&#x56FE;&#x7247; - &#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x914D;&#x7F6E;.png</figcaption></figure></a>
+<p>&#x73B0;&#x9636;&#x6BB5;Nginx&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x96C6;&#x7FA4;&#x5E76;&#x6CA1;&#x6709;&#x6309;&#x7167;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x6765;&#x8FDB;&#x884C;&#x5212;&#x5206;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x662F;&#x4E00;&#x4E2A;Nginx&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x96C6;&#x7FA4;&#x4EE3;&#x7406;&#x4E86;&#x591A;&#x7EC4;domain&#x3002;&#x56E0;&#x6B64;&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x7AEF;&#xFF0C;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x4E1A;&#x52A1;&#x7EBF;&#x7528;&#x6237;&#x6076;&#x610F;&#x6216;&#x8005;&#x65E0;&#x610F;&#x7684;&#x968F;&#x4FBF;&#x66F4;&#x6539;&#xFF0C;&#x800C;&#x5BFC;&#x81F4;&#x6574;&#x4E2A;Nginx&#x96C6;&#x7FA4;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#xFF0C;&#x73B0;&#x9636;&#x6BB5;&#x7528;&#x6237;&#x7AEF;&#x65E0;&#x6743;&#x66F4;&#x6539;Nginx&#x914D;&#x7F6E;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x66F4;&#x6539;&#x7279;&#x6B8A;&#x914D;&#x7F6E;&#xFF0C;&#x9700;&#x8981;&#x8054;&#x7CFB;&#x7BA1;&#x7406;&#x5458;&#xFF0C;&#x7531;&#x7BA1;&#x7406;&#x5458;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x3002;&#x540E;&#x7EED;&#x6211;&#x4EEC;&#x4F1A;&#x8003;&#x8651;&#x7ED9;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5206;&#x914D;&#x4E00;&#x7EC4;Nginx&#x5BB9;&#x5668;&#x8FDB;&#x884C;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x4EE3;&#x7406;&#xFF0C;&#x8FD9;&#x6837;&#x7528;&#x6237;&#x5C31;&#x4F1A;&#x62E5;&#x6709;Nginx&#x914D;&#x7F6E;&#x66F4;&#x6539;&#x7684;&#x6700;&#x9AD8;&#x6743;&#x9650;&#x3002;</p>
+<h4 id="leengine-registry">LeEngine registry</h4>
+<p>LeEngine Registry&#x662F;&#x6211;&#x4EEC;&#x5185;&#x90E8;&#x63D0;&#x4F9B;&#x7684;&#x955C;&#x50CF;&#x4ED3;&#x5E93;&#xFF0C;&#x6839;&#x636E;Docker Registry 2.0 &#x7248;&#x672C;&#xFF1A;docker distribution&#x505A;&#x4E86;&#x4FEE;&#x6539;&#xFF0C;&#x652F;&#x6301;&#x4E50;&#x89C6;Ceph&#x540E;&#x7AEF;&#x5B58;&#x50A8;&#xFF0C;&#x540C;&#x65F6;&#x4F7F;&#x7528;auth-server &#x4EE5;&#x53CA;LeEngine &#x7684;&#x6743;&#x9650;&#x673A;&#x5236;&#xFF0C;&#x5B9A;&#x4E49;&#x7528;&#x6237;&#x548C;&#x6743;&#x9650;&#x5212;&#x5206;&#x3002;&#x5141;&#x8BB8;&#x955C;&#x50CF;&#x79C1;&#x6709;&#x548C;&#x516C;&#x5F00;&#x3002; &#x516C;&#x5F00;&#x7684;&#x955C;&#x50CF;&#x4EFB;&#x4F55;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x6267;&#x884C;Pull &#x64CD;&#x4F5C;&#x3002;&#x79C1;&#x6709;&#x7684;&#x955C;&#x50CF;&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x56E2;&#x961F;&#x6210;&#x5458;&#xFF0C;&#x4E0D;&#x540C;&#x89D2;&#x8272;&#x7684;&#x6210;&#x5458;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;Push&#xFF0C;Pull&#xFF0C; &#x5220;&#x9664;&#x6743;&#x9650;&#x3002;&#x57FA;&#x4E8E;&#x4EE5;&#x4E0A;&#x7684;&#x8BBE;&#x8BA1;LeEngine Registry &#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x72EC;&#x7ACB;&#x4E8E;LeEngine&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x955C;&#x50CF;&#x4ED3;&#x5E93;&#x670D;&#x52A1;&#xFF0C; &#x4E1A;&#x52A1;&#x7EBF;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x4F7F;&#x7528;LeEngine&#x7684;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x6784;&#x5EFA;&#x65B9;&#x6CD5;&#xFF0C;&#x6784;&#x5EFA;&#x51FA;&#x955C;&#x50CF;&#x6765;&#xFF0C;&#x4E4B;&#x540E;Push &#x5230;LeEngine registry&#x4E2D;&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#x662F;&#x5173;&#x4E8E;&#x955C;&#x50CF;tag&#x7684;&#x76F8;&#x5173;&#x64CD;&#x4F5C;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/66e492e3c836d85300f27626b22a399e.png" target="_blank"><figure id="fig1.11.5.18"><img src="http://dockerone.com/uploads/article/20170215/66e492e3c836d85300f27626b22a399e.png" alt="&#x955C;&#x50CF;tag.png"><figcaption>&#x56FE;&#x7247; - &#x955C;&#x50CF;tag.png</figcaption></figure></a>
+<p>&#x6210;&#x5458;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/31f25fecb49e1eca8c950e8edc572629.png" target="_blank"><figure id="fig1.11.5.19"><img src="http://dockerone.com/uploads/article/20170215/31f25fecb49e1eca8c950e8edc572629.png" alt="&#x6210;&#x5458;.png"><figcaption>&#x56FE;&#x7247; - &#x6210;&#x5458;.png</figcaption></figure></a>
+<p>&#x52A8;&#x6001;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/b5d3059446d17e0452781538d97e28b8.png" target="_blank"><figure id="fig1.11.5.20"><img src="http://dockerone.com/uploads/article/20170215/b5d3059446d17e0452781538d97e28b8.png" alt="&#x52A8;&#x6001;.png"><figcaption>&#x56FE;&#x7247; - &#x52A8;&#x6001;.png</figcaption></figure></a>
+<p>LeEngine&#x4E0B;4&#x5927;&#x8D44;&#x6E90;&#xFF1A;&#x5E94;&#x7528;&#x3001;&#x955C;&#x50CF;&#x3001;&#x955C;&#x50CF;&#x7EC4;&#x7EC7;&#x3001;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#xFF0C;&#x5728;&#x6BCF;&#x4E2A;&#x8D44;&#x6E90;&#x9875;&#x91CC;&#x90FD;&#x662F;&#x6709;&#x52A8;&#x6001;&#x4E00;&#x680F;&#xFF0C;&#x7528;&#x6765;&#x8BB0;&#x5F55;&#x64CD;&#x4F5C;&#x8BB0;&#x5F55;,&#x65B9;&#x4FBF;&#x4EE5;&#x540E;&#x7684;&#x95EE;&#x9898;&#x8FFD;&#x8E2A;&#x3002;</p>
+<h4 id="&#x4EE3;&#x7801;&#x6784;&#x5EFA;">&#x4EE3;&#x7801;&#x6784;&#x5EFA;</h4>
+<p>&#x4E3A;&#x4E86;&#x5FEB;&#x901F;&#x5C06;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x6210;Image&#xFF0C;&#x5E76;Push&#x5230;&#x955C;&#x50CF;&#x4ED3;&#x5E93;&#x4E2D;&#xFF0C;LeEngine&#x540E;&#x9762;&#x4F1A;&#x8BBE;&#x7F6E;&#x4E00;&#x7EC4;&#x4E13;&#x95E8;&#x6784;&#x5EFA;&#x7528;&#x7684;Docker&#x7269;&#x7406;&#x673A;&#x96C6;&#x7FA4;&#xFF0C;&#x7528;&#x6765;&#x6267;&#x884C;&#x6784;&#x5EFA;&#x4EFB;&#x52A1;&#xFF0C;&#x6BCF;&#x4E2A;&#x6784;&#x5EFA;&#x7269;&#x7406;&#x673A;&#x90FD;&#x4F1A;&#x5B89;&#x88C5;&#x4E00;&#x4E2A;Agent&#x3002;</p>
+<p>LeEngine&#x7684;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x6846;&#x67B6;&#x5982;&#x4E0B;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/5413a7445a394985b826a2bc75a8cace.png" target="_blank"><figure id="fig1.11.5.21"><img src="http://dockerone.com/uploads/article/20170215/5413a7445a394985b826a2bc75a8cace.png" alt="&#x6784;&#x5EFA;&#x6846;&#x67B6;.png"><figcaption>&#x56FE;&#x7247; - &#x6784;&#x5EFA;&#x6846;&#x67B6;.png</figcaption></figure></a>
+<p>&#x6BCF;&#x4E2A;&#x6784;&#x5EFA;&#x7269;&#x7406;&#x673A;&#x4E0A;&#x7684;agent &#x542F;&#x52A8;&#x540E;&#xFF0C;&#x90FD;&#x4F1A;&#x5C06;&#x81EA;&#x5DF1;&#x7684;&#x4FE1;&#x606F;&#x5B9A;&#x671F;&#x81EA;&#x52A8;&#x6CE8;&#x518C;&#x5230;etcd&#x4E2D;&#xFF0C;&#x8868;&#x793A;&#x65B0;&#x589E;&#x4E00;&#x53F0;&#x6784;&#x5EFA;&#x673A;&#xFF0C;&#x5F53;Agent&#x610F;&#x5916;&#x505C;&#x6B62;&#x6216;&#x8005;&#x4E3B;&#x673A;&#x6302;&#x6389;&#xFF0C;etcd&#x4E2D;&#x7684;&#x6CE8;&#x518C;&#x4FE1;&#x606F;&#x4F1A;&#x5931;&#x6548;&#xFF0C;&#x8868;&#x793A;&#x5DF2;&#x7ECF;&#x4E0B;&#x7EBF;&#x4E00;&#x53F0;&#x6784;&#x5EFA;&#x673A;&#x3002;&#x53E6;&#x5916;Agent&#x4F1A;&#x76D1;&#x63A7;&#x81EA;&#x5DF1;&#x7684;&#x4EFB;&#x52A1;key&#xFF0C;&#x7528;&#x6765;&#x63A5;&#x6536;LeEngine-core&#x4E0B;&#x53D1;&#x7684;&#x6784;&#x5EFA;&#x4EFB;&#x52A1;&#x3002;</p>
+<p>&#x5F53;&#x6709;&#x4E00;&#x4E2A;&#x6784;&#x5EFA;&#x8BF7;&#x6C42;&#x65F6;&#x4F1A;&#x8C03;&#x7528;LeEngine-core&#x7684;API&#xFF0C;LeEngine-core&#x4F1A;&#x4ECE;etcd&#x4E2D;&#x9009;&#x51FA;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x6784;&#x5EFA;&#x673A;&#xFF08;&#x4E00;&#x822C;&#x6309;&#x7167;hash&#x65B9;&#x5F0F;&#xFF0C;&#x5C3D;&#x91CF;&#x4FDD;&#x8BC1;&#x4E00;&#x4E2A;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x5728;&#x540C;&#x4E00;&#x53F0;&#x7269;&#x7406;&#x673A;&#x4E0A;&#x6784;&#x5EFA;&#xFF0C;&#x52A0;&#x5FEB;&#x6784;&#x5EFA;&#x901F;&#x5EA6;&#xFF09;&#xFF0C; &#x7136;&#x540E;&#x5C06;&#x6784;&#x5EFA;&#x4EFB;&#x52A1;&#x653E;&#x5230;&#x8FD9;&#x4E2A;&#x6784;&#x5EFA;&#x673A;&#x7684;&#x4EFB;&#x52A1;key&#x4E2D;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;Agent&#x76D1;&#x63A7;&#x5230;key&#x53D8;&#x5316;&#x540E;&#xFF0C;&#x4F1A;&#x6267;&#x884C;&#x4EE3;&#x7801;Clone&#xFF0C;&#x7F16;&#x8BD1;&#xFF0C;Build&#x548C;Push&#x64CD;&#x4F5C;&#x3002;</p>
+<p>Etcd&#x5728;LeEngine&#x4E2D;&#x626E;&#x6F14;&#x8FD9;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x89D2;&#x8272;&#xFF0C;&#x662F;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x901A;&#x4FE1;&#x7684;&#x6D88;&#x606F;&#x603B;&#x7EBF;&#x3002;</p>
+<p>&#x9274;&#x4E8E;Maven&#x9879;&#x76EE;&#xFF0C;&#x9700;&#x8981;&#x7F16;&#x8BD1;&#xFF0C;&#x5728;&#x7B2C;&#x4E00;&#x4EE3;Harbor&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x7F16;&#x8BD1;&#x6B65;&#x9AA4;&#x653E;&#x5728;&#x4E86;Docker Build &#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x7531;&#x4E8E;Maven&#x7F16;&#x8BD1;&#x9700;&#x8981;&#x5927;&#x91CF;&#x7684;mvn&#x4F9D;&#x8D56;&#xFF0C;&#x6BCF;&#x6B21;&#x7F16;&#x8BD1;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x4E0B;&#x8F7D;&#x4F9D;&#x8D56;&#xFF0C;&#x5BFC;&#x81F4;&#x7F16;&#x8BD1;&#x65F6;&#x95F4;&#x957F;&#xFF0C;&#x7F16;&#x8BD1;&#x7684;&#x955C;&#x50CF;&#x591A;&#x5927;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x5728;Build&#x4E4B;&#x524D;&#xFF0C;&#x4F1A;&#x8D77;&#x4E00;&#x4E2A;Container&#xFF0C;&#x5728;Container&#x4E2D;&#x5BF9;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;&#x5E76;&#x5C06;mvn&#x4F9D;&#x8D56;&#x7684;&#x76EE;&#x5F55;&#x6620;&#x5C04;&#x5230;&#x4E3B;&#x673A;&#x4E0A;&#xFF0C;&#x8FD9;&#x6837;&#x540C;&#x4E00;&#x4E2A;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#xFF0C;&#x5728;&#x6BCF;&#x6B21;&#x6784;&#x5EFA;&#x65F6;&#x5019;&#xFF0C;&#x90FD;&#x4F1A;&#x5171;&#x4EAB;&#x540C;&#x4E00;&#x4E2A;mvn&#x4F9D;&#x8D56;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x4E0B;&#x8F7D;&#xFF0C;&#x52A0;&#x5FEB;&#x7F16;&#x8BD1;&#x901F;&#x5EA6;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x80FD;&#x4FDD;&#x8BC1;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;mvn&#x4F9D;&#x8D56;&#x76EE;&#x5F55;&#xFF0C;&#x4FDD;&#x8BC1;&#x7F16;&#x8BD1;&#x73AF;&#x5883;&#x7EDD;&#x5BF9;&#x7EAF;&#x51C0;&#xFF0C;&#x6700;&#x540E;&#x53EA;&#x5C06;&#x7F16;&#x8BD1;&#x597D;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6253;&#x5230;&#x955C;&#x50CF;&#x4E2D;&#xFF0C;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x4FDD;&#x8BC1;&#x4EE3;&#x7801;&#x4E0D;&#x5916;&#x6CC4;&#x3002; </p>
+<p>&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x4EC5;&#x9650;&#x4E8E;&#x653E;&#x5728;Git&#x4E0A;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x73B0;&#x9636;&#x6BB5;&#x5E76;&#x4E0D;&#x652F;&#x6301;SVN&#xFF0C;&#x56E0;&#x6B64;&#x6709;&#x7684;&#x4E1A;&#x52A1;&#x5982;&#x679C;&#x4EE3;&#x7801;&#x5728;SVN&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x5DE5;&#x5177;&#x81EA;&#x5DF1;&#x5C06;&#x4EE3;&#x7801;&#x5236;&#x4F5C;&#x6210;&#x955C;&#x50CF;&#xFF0C;&#x7136;&#x540E;Push&#x5230;LeEngine Registry&#x4E0A;&#x3002;&#x7531;&#x4E8E;LeEngine Registry&#x4E0A;&#x5BF9;&#x955C;&#x50CF;&#x548C;&#x955C;&#x50CF;&#x4ED3;&#x5E93;&#x505A;&#x4E86;&#x6743;&#x9650;&#x8BA4;&#x8BC1;&#xFF0C;&#x4FDD;&#x8BC1;&#x4E86;&#x955C;&#x50CF;&#x7684;&#x5B89;&#x5168;&#x3002;</p>
+<p>&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x652F;&#x6301;&#x624B;&#x52A8;&#x6784;&#x5EFA;&#x548C;&#x81EA;&#x52A8;&#x6784;&#x5EFA;&#xFF0C;&#x5728;GitLab&#x4E0A;&#x8BBE;&#x7F6E;&#x76F8;&#x5E94;&#x7684;Web hook&#xFF0C;&#x8FD9;&#x6837;&#x7528;&#x6237;&#x53EA;&#x8981;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x89E6;&#x53D1;LeEngine&#x7684;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x529F;&#x80FD;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x4E3A;&#x521B;&#x5EFA;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x7684;Web&#x9875;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/c360b0436674f1a6b36de60f1f048df3.png" target="_blank"><figure id="fig1.11.5.22"><img src="http://dockerone.com/uploads/article/20170215/c360b0436674f1a6b36de60f1f048df3.png" alt="&#x6DFB;&#x52A0;&#x6784;&#x5EFA;.png"><figcaption>&#x56FE;&#x7247; - &#x6DFB;&#x52A0;&#x6784;&#x5EFA;.png</figcaption></figure></a>
+<p>&#x4F7F;&#x7528;LeEngine&#x7684;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#xFF0C;&#x6211;&#x4EEC;&#x8981;&#x6C42;&#x7528;&#x6237;&#x7684;&#x4EE3;&#x7801;&#x91CC;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5199;Dockerfile&#xFF0C;Dockerfile &#x91CC;FROM &#x7684;&#x6839;&#x955C;&#x50CF;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;LeEngine Registry &#x91CC;&#x516C;&#x5F00;&#x7684;&#x955C;&#x50CF;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;Docker Hub&#x91CC;&#x516C;&#x5F00;&#x7684;&#x955C;&#x50CF;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x7F16;&#x8BD1;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x7F16;&#x8BD1;&#x73AF;&#x5883;&#xFF0C;&#x7F16;&#x8BD1;&#x811A;&#x672C;&#x4E5F;&#x662F;&#x9700;&#x8981;&#x653E;&#x5230;&#x4EE3;&#x7801;&#x4E2D;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x4E3A;&#x624B;&#x52A8;&#x6784;&#x5EFA;&#x9875;&#x9762;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/b5fc6dab0c2be9d89316886cff7eedb3.png" target="_blank"><figure id="fig1.11.5.23"><img src="http://dockerone.com/uploads/article/20170215/b5fc6dab0c2be9d89316886cff7eedb3.png" alt="&#x624B;&#x52A8;&#x6784;&#x5EFA;.png"><figcaption>&#x56FE;&#x7247; - &#x624B;&#x52A8;&#x6784;&#x5EFA;.png</figcaption></figure></a>
+<p>tag&#x540D;&#x5982;&#x679C;&#x4E0D;&#x5199;&#xFF0C;LeEngine&#x4F1A;&#x6839;&#x636E;&#x5F53;&#x524D;&#x5206;&#x652F;&#x4E0B;&#x7684;commit&#x53F7;&#x4F5C;&#x4E3A;&#x955C;&#x50CF;tag&#x540D;&#x3002;&#x5982;&#x679C;&#x9009;&#x7528;mvncache&#xFF0C;&#x5219;&#x672C;&#x6B21;&#x6784;&#x5EFA;&#x5C31;&#x4F1A;&#x4F7F;&#x7528;&#x4E0A;&#x6B21;&#x6784;&#x5EFA;&#x6240;&#x4E0B;&#x8F7D;&#x7684;mvn&#x4F9D;&#x8D56;&#xFF0C;&#x52A0;&#x5FEB;&#x6784;&#x5EFA;&#x901F;&#x5EA6;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x4E3A;&#x6784;&#x5EFA;&#x7ED3;&#x679C;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/b679bb805e1ed84b39edce32a1983880.png" target="_blank"><figure id="fig1.11.5.24"><img src="http://dockerone.com/uploads/article/20170215/b679bb805e1ed84b39edce32a1983880.png" alt="&#x6784;&#x5EFA;&#x7ED3;&#x679C;.png"><figcaption>&#x56FE;&#x7247; - &#x6784;&#x5EFA;&#x7ED3;&#x679C;.png</figcaption></figure></a>
+<p>&#x6784;&#x5EFA;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/2f578c3c9a7a2012f54cae5201a4e24a.png" target="_blank"><figure id="fig1.11.5.25"><img src="http://dockerone.com/uploads/article/20170215/2f578c3c9a7a2012f54cae5201a4e24a.png" alt="&#x6784;&#x5EFA;&#x65E5;&#x5FD7;.png"><figcaption>&#x56FE;&#x7247; - &#x6784;&#x5EFA;&#x65E5;&#x5FD7;.png</figcaption></figure></a>
+<p>&#x6784;&#x5EFA;&#x65E5;&#x5FD7;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E00;&#x5173;&#x952E;&#x73AF;&#x8282;&#x90FD;&#x8BB0;&#x5F55;&#x4E86;&#x8017;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x4EE5;&#x53CA;&#x5177;&#x4F53;&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x3002;</p>
+<h4 id="&#x5E94;&#x7528;&#x7BA1;&#x7406;">&#x5E94;&#x7528;&#x7BA1;&#x7406;</h4>
+<p>&#x5E94;&#x7528;&#x652F;&#x6301;&#x57AE;&#x673A;&#x623F;&#x90E8;&#x7F72;&#xFF0C;&#x591A;&#x7248;&#x672C;&#x7070;&#x5EA6;&#x5347;&#x7EA7;&#xFF0C;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#x7B49;&#x529F;&#x80FD;&#x3002;&#x6211;&#x4EEC;&#x89C4;&#x5B9A;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x955C;&#x50CF;&#x3002;</p>
+<a href="http://dockerone.com/uploads/article/20170215/19b5a95258ce6a7954a8575d9efdb6ef.png" target="_blank"><figure id="fig1.11.5.26"><img src="http://dockerone.com/uploads/article/20170215/19b5a95258ce6a7954a8575d9efdb6ef.png" alt="&#x5E94;&#x7528;&#x670D;&#x52A1;.png"><figcaption>&#x56FE;&#x7247; - &#x5E94;&#x7528;&#x670D;&#x52A1;.png</figcaption></figure></a>
+<p>&#x90E8;&#x7F72;&#x7248;&#x672C;&#xFF08;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x5373;&#x4E00;&#x4E2A;RC&#xFF09;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x6307;&#x5B9A;&#x955C;&#x50CF;tag&#xFF0C;&#x5BB9;&#x5668;&#x6570;&#x76EE;&#xFF0C;CPU&#xFF0C;&#x5185;&#x5B58;&#xFF0C;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x7B49;&#x7B49;&#x53C2;&#x6570;&#xFF0C;&#x73B0;&#x5728;&#x7684;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x6211;&#x4EEC;&#x6682;&#x65F6;&#x53EA;&#x652F;&#x6301;http&#x63A5;&#x53E3;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/88414ead04427180ad2515db003269f6.png" target="_blank"><figure id="fig1.11.5.27"><img src="http://dockerone.com/uploads/article/20170215/88414ead04427180ad2515db003269f6.png" alt="&#x521B;&#x5EFA;&#x65B0;&#x7248;&#x672C;.png"><figcaption>&#x56FE;&#x7247; - &#x521B;&#x5EFA;&#x65B0;&#x7248;&#x672C;.png</figcaption></figure></a>
+<p>&#x7531;&#x4E8E;&#x5927;&#x90E8;&#x5206;&#x7684;&#x5347;&#x7EA7;&#xFF0C;&#x90FD;&#x662F;&#x66F4;&#x6539;&#x955C;&#x50CF;tag&#xFF0C;&#x56E0;&#x6B64;&#x6BCF;&#x6B21;&#x90E8;&#x7F72;&#x65B0;&#x7248;&#x672C;&#x65F6;&#x5019;&#xFF0C;LeEngine&#x4F1A;&#x5728;&#x65B0;&#x5F39;&#x51FA;&#x6846;&#x5185;&#xFF0C;&#x5C06;&#x4E0A;&#x4E00;&#x7248;&#x672C;&#x7684;&#x5BB9;&#x5668;&#x6570;&#x76EE;&#xFF0C;CPU&#xFF0C;&#x5185;&#x5B58;&#xFF0C;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x5065;&#x5EB7;&#x68C0;&#x67E5;&#x7B49;&#x7B49;&#x53C2;&#x6570;&#x81EA;&#x52A8;&#x586B;&#x5145;&#x5230;&#x5F39;&#x51FA;&#x6846;&#x4E2D;&#xFF0C;&#x7528;&#x6237;&#x53EA;&#x9700;&#x9009;&#x62E9;&#x65B0;&#x7684;&#x955C;&#x50CF;tag&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;&#x56E0;&#x6B64;&#x6700;&#x540E;&#x7070;&#x5EA6;&#x4E0A;&#x7EBF;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x65B0;&#x7248;&#x672C;&#x7B49;&#x65B0;&#x7248;&#x672C;&#x7684;&#x5BB9;&#x5668;&#x5B8C;&#x5168;&#x542F;&#x52A8;&#xFF0C;&#x670D;&#x52A1;&#x81EA;&#x52A8;&#x52A0;&#x5165;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x540E;&#xFF0C;&#x518D;&#x5C06;&#x65E7;&#x7248;&#x672C;&#x5220;&#x9664;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x4E3A;&#x5E94;&#x7528;&#x4E8B;&#x4EF6;&#x67E5;&#x770B;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/7c7e2438d62cd7817ade92c54abb8047.png" target="_blank"><figure id="fig1.11.5.28"><img src="http://dockerone.com/uploads/article/20170215/7c7e2438d62cd7817ade92c54abb8047.png" alt="&#x5E94;&#x7528;&#x4E8B;&#x4EF6;.png"><figcaption>&#x56FE;&#x7247; - &#x5E94;&#x7528;&#x4E8B;&#x4EF6;.png</figcaption></figure></a>
+<p>&#x5E94;&#x7528;&#x4E8B;&#x4EF6;&#x4E3B;&#x8981;&#x6536;&#x96C6;&#x7684;&#x662F;&#x5E94;&#x7528;&#x5728;Kubernetes&#x96C6;&#x7FA4;&#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x4FE1;&#x606F;&#x3002;</p>
+<h4 id="&#x76D1;&#x63A7;&#x3001;&#x544A;&#x8B66;&#x7CFB;&#x7EDF;">&#x76D1;&#x63A7;&#x3001;&#x544A;&#x8B66;&#x7CFB;&#x7EDF;</h4>
+<p>&#x76D1;&#x63A7;&#x62A5;&#x8B66;&#x6211;&#x4EEC;&#x5206;PaaS&#x5E73;&#x53F0;&#x548C;&#x4E1A;&#x52A1;&#x5E94;&#x7528;&#x4E24;&#x5927;&#x7C7B;&#x3002;</p>
+<p>PaaS&#x5E73;&#x53F0;&#x4E3B;&#x8981;&#x805A;&#x7126;&#x5728;&#x57FA;&#x7840;&#x8BBE;&#x65BD;&#x548C;LeEngine&#x7684;&#x5404;&#x4E2A;&#x670D;&#x52A1;&#x7EC4;&#x4EF6;&#x7684;&#x76D1;&#x63A7;&#x62A5;&#x8B66;&#xFF08;&#x6BD4;&#x5982;&#x4E3B;&#x673A;CPU&#xFF0C;&#x5185;&#x5B58;&#xFF0C;IO&#xFF0C;&#x78C1;&#x76D8;&#x7A7A;&#x95F4;&#xFF0C;LeEngine&#x5404;&#x4E2A;&#x670D;&#x52A1;&#x8FDB;&#x7A0B;&#x7B49;&#x7B49;&#xFF09;&#xFF0C;&#x8FD9;&#x4E00;&#x7C7B;&#x4F7F;&#x7528;&#x516C;&#x53F8;&#x7EDF;&#x4E00;&#x7684;&#x76D1;&#x63A7;&#x62A5;&#x8B66;&#x673A;&#x5236;&#x3002;</p>
+<p>&#x4E1A;&#x52A1;&#x5E94;&#x7528;&#x7C7B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8DD1;&#x5728;LeEngine&#x4E0A;&#x7684;&#x5404;&#x4E2A;&#x4E1A;&#x52A1;&#x7EBF;&#x7684;&#x76D1;&#x63A7;&#x548C;&#x62A5;&#x8B66;&#xFF0C;&#x9700;&#x8981;&#x7531;LeEngine&#x8FDB;&#x884C;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x76D1;&#x63A7;&#x548C;&#x62A5;&#x8B66;&#xFF0C;&#x89E6;&#x53D1;&#x62A5;&#x8B66;&#x540E;&#xFF0C;&#x4F1A;&#x901A;&#x77E5;&#x7ED9;&#x5404;&#x4E2A;&#x5E94;&#x7528;&#x7684;&#x8D1F;&#x8D23;&#x4EBA;&#x3002;&#x6211;&#x4EEC;&#x91C7;&#x7528;&#x4E86;heapster &#x6765;&#x6536;&#x96C6;&#x5BB9;&#x5668;&#x7684;&#x76D1;&#x63A7;&#x4FE1;&#x606F;&#x548C;Kubernetes&#x7684;&#x5404;&#x79CD;&#x4E8B;&#x4EF6;&#x3002;&#x6BCF;&#x4E2A;Cell&#x96C6;&#x7FA4;&#x4E2D;&#x90FD;&#x90E8;&#x7F72;&#x4E00;&#x4E2A;heapster&#xFF0C;&#x76D1;&#x63A7;&#x6570;&#x636E;&#x5B58;&#x653E;&#x5230;influxdb&#x4E2D;&#x3002;&#x8BBE;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5168;&#x5C40;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;Kubernetes&#x7684;Namespace&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x80FD;&#x5F88;&#x597D;&#x7684;&#x805A;&#x5408;&#x51FA;&#x5E94;&#x7528;&#x548C;&#x5355;&#x4E2A;&#x5BB9;&#x5668;&#x7684;&#x76D1;&#x63A7;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#x56FE; &#x9488;&#x5BF9;&#x5E94;&#x7528;&#x7684;&#x7F51;&#x7EDC;&#x6D41;&#x91CF;&#x76D1;&#x63A7;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/4d234595aafecc01393be388e73d7b0f.png" target="_blank"><figure id="fig1.11.5.29"><img src="http://dockerone.com/uploads/article/20170215/4d234595aafecc01393be388e73d7b0f.png" alt="&#x7F51;&#x7EDC;&#x76D1;&#x63A7;.png"><figcaption>&#x56FE;&#x7247; - &#x7F51;&#x7EDC;&#x76D1;&#x63A7;.png</figcaption></figure></a>
+<p>&#x5BB9;&#x5668; IP&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x548C;&#x72B6;&#x6001;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/99890c2c201dbf3a610af8bbda6fe5fa.png" target="_blank"><figure id="fig1.11.5.30"><img src="http://dockerone.com/uploads/article/20170215/99890c2c201dbf3a610af8bbda6fe5fa.png" alt="&#x5BB9;&#x5668;&#x76D1;&#x63A7;&#x5217;&#x8868;.png"><figcaption>&#x56FE;&#x7247; - &#x5BB9;&#x5668;&#x76D1;&#x63A7;&#x5217;&#x8868;.png</figcaption></figure></a>
+<p>&#x4E0B;&#x56FE;&#x662F;&#x9488;&#x5BF9;&#x5E94;&#x7528;&#x4E0B;&#x5355;&#x4E2A;&#x5BB9;&#x5668;&#x7684;&#x76D1;&#x63A7;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/dc7859311da37c17de45909e6b991e36.png" target="_blank"><figure id="fig1.11.5.31"><img src="http://dockerone.com/uploads/article/20170215/dc7859311da37c17de45909e6b991e36.png" alt="&#x5355;&#x4E2A;&#x5BB9;&#x5668;&#x76D1;&#x63A7;.png"><figcaption>&#x56FE;&#x7247; - &#x5355;&#x4E2A;&#x5BB9;&#x5668;&#x76D1;&#x63A7;.png</figcaption></figure></a>
+<p>&#x73B0;&#x5728;heapster &#x6CA1;&#x6CD5;&#x6536;&#x96C6;&#x5BB9;&#x5668;&#x7684;&#x78C1;&#x76D8;IO&#x6570;&#x636E;&#xFF0C;&#x540E;&#x671F;&#x6211;&#x4EEC;&#x4F1A;&#x589E;&#x52A0;&#x5BF9;&#x4E8E;&#x78C1;&#x76D8;IO&#x7684;&#x76D1;&#x63A7;&#x6536;&#x96C6;&#xFF0C;&#x540C;&#x65F6;&#x6211;&#x4EEC;&#x4F1A;&#x4E30;&#x5BCC;&#x5176;&#x4ED6;&#x7684;&#x76D1;&#x63A7;&#x6570;&#x636E;&#xFF08;&#x6BD4;&#x5982;&#x8BF7;&#x6C42;&#x91CF;&#x7B49;&#x7B49;&#xFF09;&#x3002;&#x5173;&#x4E8E;&#x62A5;&#x8B66;&#xFF0C;&#x6211;&#x4EEC;&#x540E;&#x671F;&#x51C6;&#x5907;&#x4F7F;&#x7528;kapacitor &#x8FDB;&#x884C;&#x7528;&#x6237;&#x81EA;&#x52A9;&#x5316;&#x62A5;&#x8B66;&#xFF0C;&#x8BA9;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x8BBE;&#x5B9A;&#x9488;&#x5BF9;&#x4E8E;&#x5E94;&#x7528;cpu&#xFF0C;&#x5185;&#x5B58;&#xFF0C;&#x7F51;&#x7EDC;&#xFF0C;IO&#xFF0C;&#x5BB9;&#x5668;&#x91CD;&#x542F;&#xFF0C;&#x5220;&#x9664;&#x7B49;&#x7684;&#x62A5;&#x8B66;&#x9600;&#x503C;&#x3002;&#x89E6;&#x53D1;&#x62A5;&#x8B66;&#x540E;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;&#x516C;&#x53F8;&#x7EDF;&#x4E00;&#x7684;&#x544A;&#x8B66;&#x5E73;&#x53F0;&#xFF08;&#x7535;&#x8BDD;&#xFF0C;&#x90AE;&#x4EF6;&#xFF0C;&#x77ED;&#x4FE1;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#xFF09;&#x5BF9;&#x76F8;&#x5173;&#x4EBA;&#x5458;&#x8FDB;&#x884C;&#x62A5;&#x8B66;&#x3002;&#x9ED8;&#x8BA4;&#x62A5;&#x8B66;&#x4EBA;&#x5458;&#x4E3A;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x7684;Owner&#x548C;Master&#x89D2;&#x8272;&#x7684;&#x6210;&#x5458;&#x3002;&#x6B64;&#x529F;&#x80FD;&#x5DF2;&#x7ECF;&#x57FA;&#x672C;&#x8C03;&#x7814;&#x5B8C;&#x6210;&#xFF0C;&#x8BA1;&#x5212;3&#x6708;&#x5E95;&#x4E0A;&#x7EBF;&#x3002;</p>
+<h4 id="&#x65E5;&#x5FD7;&#x6536;&#x96C6;">&#x65E5;&#x5FD7;&#x6536;&#x96C6;</h4>
+<p>&#x6839;&#x636E;&#x516C;&#x53F8;&#x5177;&#x4F53;&#x72B6;&#x51B5;&#xFF0C;&#x5BB9;&#x5668;&#x7684;&#x65E5;&#x5FD7;&#x6536;&#x96C6;&#x6682;&#x65F6;&#x8FD8;&#x6CA1;&#x6709;&#x7EB3;&#x5165;LeEngine&#x8303;&#x56F4;&#x5185;&#xFF0C;&#x5168;&#x90E8;&#x7531;&#x4E1A;&#x52A1;&#x7EBF;&#x81EA;&#x5DF1;&#x6536;&#x96C6;&#xFF0C;&#x7136;&#x540E;&#x7EDF;&#x4E00;&#x6536;&#x5165;&#x5230;&#x516C;&#x53F8;&#x7684;&#x65E5;&#x5FD7;&#x7CFB;&#x7EDF;&#x4E2D;&#x6216;&#x8005;&#x7531;&#x4E1A;&#x52A1;&#x7EBF;&#x81EA;&#x5DF1;&#x642D;&#x5EFA;&#x65E5;&#x5FD7;&#x5B58;&#x50A8;&#x548C;&#x68C0;&#x7D22;&#x7CFB;&#x7EDF;&#x3002;&#x6211;&#x4EEC;&#x540E;&#x671F;&#x4F1A;&#x8003;&#x8651;&#x65E5;&#x5FD7;&#x7EDF;&#x4E00;&#x6536;&#x96C6;&#x3002;</p>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<h4 id="&#x4E00;&#x952E;&#x5F0F;&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x4E00;&#x952E;&#x5F0F;&#x89E3;&#x51B3;&#x65B9;&#x6848;</h4>
+<p>LeEngine&#x63D0;&#x4F9B;&#x4E86;&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#xFF0C;&#x955C;&#x50CF;&#x4ED3;&#x5E93;&#xFF0C;&#x5E94;&#x7528;&#x7BA1;&#x7406;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x5B9E;&#x73B0;&#x4E86;&#x5F00;&#x53D1;&#x8005;&#x4E00;&#x952E;&#x5F0F;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</p>
+<a href="http://dockerone.com/uploads/article/20170215/a03b22ea6f4d4db1b82ddbdaad748d63.png" target="_blank"><figure id="fig1.11.5.32"><img src="http://dockerone.com/uploads/article/20170215/a03b22ea6f4d4db1b82ddbdaad748d63.png" alt="&#x4E00;&#x7AD9;&#x5F0F;&#x89E3;&#x51B3;&#x65B9;&#x6848;.png"><figcaption>&#x56FE;&#x7247; - &#x4E00;&#x7AD9;&#x5F0F;&#x89E3;&#x51B3;&#x65B9;&#x6848;.png</figcaption></figure></a>
+<p>&#x5404;&#x4E2A;&#x4E1A;&#x52A1;&#x7EBF;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x53EA;&#x9700;&#x8981;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x5C31;&#x4F1A;&#x6839;&#x636E;&#x6253;&#x5305;&#x548C;&#x6784;&#x5EFA;&#x89C4;&#x5219;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7279;&#x5B9A;&#x7684;&#x955C;&#x50CF;&#x7248;&#x672C;&#xFF0C;&#x6D4B;&#x8BD5;&#x548C;&#x8FD0;&#x7EF4;&#x4EBA;&#x5458;&#x53EA;&#x9700;&#x8981;&#x62FF;&#x7740;&#x5BF9;&#x5E94;&#x7684;&#x955C;&#x50CF;&#x7248;&#x672C;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x548C;&#x7EBF;&#x4E0A;&#x5347;&#x7EA7;&#x5373;&#x53EF;&#xFF0C;&#x6781;&#x5927;&#x7B80;&#x5316;&#x5F00;&#x53D1;&#x8FD0;&#x7EF4;&#x5DE5;&#x4F5C;&#x3002;</p>
+<h4 id="&#x51CF;&#x5C11;&#x8FD0;&#x7EF4;&#x6210;&#x672C;">&#x51CF;&#x5C11;&#x8FD0;&#x7EF4;&#x6210;&#x672C;</h4>
+<p>&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x7A0B;&#x5E8F;&#x5728;&#x5BB9;&#x5668;&#x5185;&#x524D;&#x53F0;&#x542F;&#x52A8;&#xFF0C;&#x5229;&#x7528;Kubernetes&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x7A0B;&#x5E8F;&#x6B7B;&#x6389;&#x540E;&#xFF0C;&#x7531;kubelet&#x81EA;&#x52A8;&#x62C9;&#x8D77;&#xFF0C;&#x5B9E;&#x65F6;&#x4FDD;&#x8BC1;&#x7EBF;&#x4E0A;&#x5BB9;&#x5668;&#x5B9E;&#x4F8B;&#x6570;&#x3002;&#x82E5;&#x9700;&#x8981;&#x8C03;&#x8BD5;&#xFF0C;&#x4E1A;&#x52A1;&#x6216;&#x8005;&#x8FD0;&#x7EF4;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;SSH&#x8FDE;&#x63A5;&#x5230;&#x5BB9;&#x5668;&#x5185;&#x6392;&#x67E5;&#x95EE;&#x9898;&#x3002;&#x7531;&#x4E8E;Kubernetes&#x5F3A;&#x5927;&#x7684;&#x5BB9;&#x5668;&#x81EA;&#x52A8;&#x8FC1;&#x79FB;&#x529F;&#x80FD;&#xFF0C;&#x5373;&#x4F7F;&#x540E;&#x7AEF;&#x7269;&#x7406;&#x4E3B;&#x673A;&#x51FA;&#x73B0;&#x5B95;&#x673A;&#x6216;&#x8005;&#x7F51;&#x7EDC;&#x95EE;&#x9898;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x4E25;&#x91CD;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x9664;&#x975E;&#x540E;&#x7AEF;&#x7269;&#x7406;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x4E0D;&#x591F;&#xFF0C;&#x8FD9;&#x5728;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x51CF;&#x5C11;&#x4E86;&#x8FD0;&#x7EF4;&#x4EBA;&#x5458;&#x5927;&#x534A;&#x591C;&#x88AB;&#x53EB;&#x8D77;&#x5904;&#x7406;&#x95EE;&#x9898;&#x7684;&#x6B21;&#x6570;&#x3002;</p>
+<h5 id="&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x5BF9;&#x4E1A;&#x52A1;&#x5B8C;&#x5168;&#x900F;&#x660E;">&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x5BF9;&#x4E1A;&#x52A1;&#x5B8C;&#x5168;&#x900F;&#x660E;</h5>
+<p>&#x5E95;&#x5C42;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x5B8C;&#x5168;&#x7531;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#xFF0C;&#x4E1A;&#x52A1;&#x7EBF;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#x8D44;&#x6E90;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h4 id="&#x4EA7;&#x54C1;&#x5316;">&#x4EA7;&#x54C1;&#x5316;</h4>
+<p>LeEngine&#x5728;&#x8BBE;&#x8BA1;&#x4E4B;&#x521D;&#xFF0C;&#x4FDD;&#x8BC1;&#x5C3D;&#x91CF;&#x5C11;&#x7684;&#x4F9D;&#x8D56;&#x5176;&#x4ED6;&#x5916;&#x90E8;&#x8D44;&#x6E90;&#x548C;&#x670D;&#x52A1;&#xFF0C;&#x6574;&#x4E2A;LeEngine&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x6574;&#x4F53;&#x5BF9;&#x5916;&#x8F93;&#x51FA;&#x3002;</p>
+<h3 id="&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;">&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;</h3>
+<p>&#x4EFB;&#x4F55;&#x4E00;&#x6B3E;&#x4EA7;&#x54C1;&#x4E0D;&#x7BA1;&#x600E;&#x4E48;&#x8BBE;&#x8BA1;&#xFF0C;&#x90FD;&#x6709;&#x5B83;&#x7684;&#x4E0D;&#x8DB3;&#x4E4B;&#x5904;&#xFF0C;LeEngine&#x5728;&#x4E0A;&#x7EBF;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x6536;&#x5230;&#x4E86;&#x4E0D;&#x5C11;&#x53CD;&#x9988;&#x548C;&#x95EE;&#x9898;&#x3002;</p>
+<ol>
+<li>&#x6309;&#x7167;&#x4E4B;&#x524D;&#x7684;&#x8FD0;&#x7EF4;&#x4E60;&#x60EF;&#xFF0C;&#x8FD0;&#x7EF4;&#x4EBA;&#x5458;&#x5728;&#x6392;&#x67E5;&#x95EE;&#x9898;&#x65F6;&#x5019;&#xFF0C;&#x7ECF;&#x5E38;&#x4F1A;&#x6839;&#x636E;IP&#x6765;&#x8FDB;&#x884C;&#x533A;&#x5206;&#xFF0C;&#x800C;LeEngine&#x4E0B;&#x7684;&#x5E94;&#x7528;&#x6BCF;&#x6B21;&#x5347;&#x7EA7;&#x540E;&#xFF0C;&#x5BB9;&#x5668;IP&#x90FD;&#x4F1A;&#x53D8;&#x5316;&#xFF0C;&#x8FD9;&#x5BF9;&#x4F20;&#x7EDF;&#x7684;&#x8FD0;&#x7EF4;&#x9020;&#x6210;&#x4E00;&#x5B9A;&#x7684;&#x51B2;&#x51FB;&#x3002;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x7684;&#x89E3;&#x51B3;&#x601D;&#x8DEF;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x8FD0;&#x7EF4;&#x4EBA;&#x5458;&#x4E00;&#x5B9A;&#x8981;&#x901A;&#x8FC7;IP&#x53BB;&#x6392;&#x67E5;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x8BA9;&#x8FD0;&#x7EF4;&#x4EBA;&#x5458;&#x767B;&#x5F55;LeEngine&#x7684;Console&#xFF0C;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5E94;&#x7528;&#x4E0B;&#x7684;&#x5BB9;&#x5668;IP&#x5217;&#x8868;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x53BB;&#x9010;&#x4E2A;&#x6392;&#x67E5;&#x3002;&#x540C;&#x65F6;&#x6709;&#x7684;&#x4E1A;&#x52A1;&#x4F1A;&#x5BF9;IP&#x8FDB;&#x884C;&#x8BBF;&#x95EE;&#x9650;&#x5236;&#xFF0C;&#x9488;&#x5BF9;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x8BA9;&#x8FD9;&#x4E9B;&#x4E1A;&#x52A1;&#x5BF9;&#x4E00;&#x4E2A;IP&#x6BB5;&#x8FDB;&#x884C;&#x9650;&#x5236;&#x3002;</li>
+<li>Kubernetes 1.2&#x7248;&#x672C;&#xFF0C;&#x5BF9;&#x5BB9;&#x5668;&#x7684;swap&#x5E76;&#x6CA1;&#x6709;&#x63A7;&#x5236;&#xFF0C;&#x82E5;&#x4E1A;&#x52A1;&#x5E94;&#x7528;&#x6709;bug&#xFF0C;&#x51FA;&#x73B0;&#x5927;&#x91CF;&#x7684;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#xFF0C;&#x5F80;&#x5F80;&#x4F1A;&#x628A;&#x5BB9;&#x5668;&#x6240;&#x5728;&#x7269;&#x7406;&#x673A;&#x7684;swap&#x5403;&#x6EE1;&#xFF0C;&#x800C;&#x5F71;&#x54CD;&#x4E86;&#x7269;&#x7406;&#x673A;&#x4E0A;&#x5176;&#x4ED6;&#x7684;&#x5BB9;&#x5668;&#x3002; &#x6211;&#x4EEC;&#x73B0;&#x5728;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x6682;&#x65F6;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x62A5;&#x8B66;&#x65B9;&#x5F0F;&#xFF0C;&#x5C3D;&#x5FEB;&#x8BA9;&#x7528;&#x6237;&#x4FEE;&#x590D;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x7531;&#x4E8E;Dockerfile &#x548C;&#x7F16;&#x8BD1;&#x811A;&#x672C;&#x90FD;&#x8981;&#x6C42;&#x653E;&#x5728;&#x7528;&#x6237;Git&#x4EE3;&#x7801;&#x4E2D;&#x3002;&#x4F1A;&#x5B58;&#x5728;&#x7528;&#x6237;Git&#x4F7F;&#x7528;&#x4E0D;&#x89C4;&#x8303;&#xFF0C;&#x4E0D;&#x540C;&#x5206;&#x652F;&#x4EE3;&#x7801;&#x4E92;&#x76F8;merge&#xFF0C;&#x5BFC;&#x81F4;Dockerfile&#x548C;&#x7F16;&#x8BD1;&#x811A;&#x672C;&#x51FA;&#x73B0;&#x53D8;&#x5316;&#xFF0C;&#x5BFC;&#x81F4;&#x6784;&#x5EFA;&#x51FA;&#x7684;&#x955C;&#x50CF;&#x4E0E;&#x9884;&#x671F;&#x7684;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x4ECE;&#x800C;&#x4E0A;&#x7EBF;&#x5931;&#x8D25;&#x3002;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x80FD;&#x8981;&#x6C42;&#x4E1A;&#x52A1;&#x7EBF;&#x89C4;&#x8303;Git&#x4F7F;&#x7528;&#x89C4;&#x8303;&#xFF0C;LeEngine&#x4EE3;&#x7801;&#x6784;&#x5EFA;&#x672C;&#x8EAB;&#x5DF2;&#x7ECF;&#x65E0;&#x6CD5;&#x63A7;&#x5236;&#x5230;&#x8FD9;&#x79CD;&#x7EC6;&#x7C92;&#x5EA6;&#x3002;</li>
+<li>&#x73B0;&#x9636;&#x6BB5;&#x6211;&#x4EEC;&#x8FD8;&#x6CA1;&#x6CD5;&#x505A;&#x5230;&#x81EA;&#x52A8;&#x5F39;&#x6027;&#x6269;&#x5BB9;&#xFF08;&#x7ED9;&#x5E94;&#x7528;&#x8BBE;&#x5B9A;&#x4E00;&#x4E2A;&#x6700;&#x5C0F;&#x5BB9;&#x5668;&#x6570;&#x76EE;&#x548C;&#x6700;&#x5927;&#x5BB9;&#x5668;&#x6570;&#x76EE;&#x7684;&#x9600;&#x503C;&#xFF0C;&#x6839;&#x636E;CPU&#x3001;&#x5185;&#x5B58;&#x3001;IO&#x3001;&#x8BF7;&#x6C42;&#x91CF;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x503C;&#xFF0C;&#x81EA;&#x52A8;&#x89C9;&#x5F97;&#x5BB9;&#x5668;&#x662F;&#x5426;&#x9700;&#x8981;&#x6269;&#x5BB9;&#xFF0C;&#x7F29;&#x5BB9;&#xFF09;&#x3002;</li>
+</ol>
+<h3 id="&#x5C55;&#x671B;">&#x5C55;&#x671B;</h3>
+<p>Docker&#x548C;Kubernetes&#x4E5F;&#x5728;&#x98DE;&#x901F;&#x53D1;&#x5C55;&#x4E2D;&#xFF0C;&#x76F8;&#x4FE1;Kubernetes&#x672A;&#x6765;&#x4F1A;&#x6709;&#x66F4;&#x52A0;&#x5F3A;&#x52B2;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x6211;&#x4EEC;&#x540E;&#x7EED;&#x4E5F;&#x4F1A;&#x8003;&#x8651;&#x628A;&#x6709;&#x72B6;&#x6001;&#x7684;&#x670D;&#x52A1;&#x8DD1;&#x5230;Kubernetes&#x4E2D;&#x53BB;&#xFF0C;&#x6B22;&#x8FCE;&#x5927;&#x5BB6;&#x4E00;&#x5757;&#x63A2;&#x7D22;&#x3002;</p>
+<h3 id="qa">Q&amp;A</h3>
+<p>Q&#xFF1A;&#x4F60;&#x4EEC;&#x7684;IP&#x7BA1;&#x7406;&#x5E94;&#x8BE5;&#x505A;&#x4E86;&#x5F88;&#x5927;&#x7684;&#x5F00;&#x53D1;&#x5DE5;&#x4F5C;&#x5427;&#xFF1F;&#x80FD;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#xFF1F;</p>
+<blockquote>
+<p>A&#xFF1A;&#x786E;&#x5B9E;&#x505A;&#x4E86;&#x5F88;&#x591A;&#x5F00;&#x53D1;&#x5DE5;&#x4F5C;&#xFF0C;&#x5176;&#x4E2D;&#x5F88;&#x5927;&#x7684;&#x4E00;&#x4E2A;&#x5F00;&#x53D1;&#x91CF;&#x662F;&#x5173;&#x4E8E;&#x7A7A;&#x95F2;IP&#x83B7;&#x53D6;&#x8FD9;&#x5757;&#x3002;</p>
+</blockquote>
+<p>Q&#xFF1A;&#x8FD8;&#x6709;&#x4F60;&#x4EEC;&#x7684;&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x662F;&#x7528;&#x7684;Kubernetes&#x672C;&#x8EAB;&#x6EDA;&#x52A8;&#x66F4;&#x65B0;&#x529F;&#x80FD;&#xFF1F;&#x8FD8;&#x662F;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7684;&#xFF1F;</p>
+<blockquote>
+<p>A&#xFF1A;&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x6CA1;&#x7528;Kubernetes &#x7684;&#x6EDA;&#x52A8;&#x66F4;&#x65B0;&#x66F4;&#x80FD;&#xFF0C;&#x800C;&#x662F;&#x7528;&#x4E86;&#x4E0D;&#x540C;&#x7684;RC&#x7684;&#x76F8;&#x4E92;&#x5207;&#x6362;&#x3002;</p>
+</blockquote>
+<p>Q&#xFF1A;&#x591A;&#x4E2A;Region&#x7684;&#x955C;&#x50CF;&#x7BA1;&#x7406;&#xFF0C;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x955C;&#x50CF;&#x540C;&#x6B65;&#x4E0E;&#x66F4;&#x65B0;&#xFF1F;</p>
+<blockquote>
+<p>A&#xFF1A; &#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x955C;&#x50CF;&#x7684;&#x540C;&#x6B65;&#x3002;&#x5206;&#x4EAB;&#x4E2D;&#x5DF2;&#x7ECF;&#x63D0;&#x5230;&#x8FC7;&#xFF0C;&#x5404;&#x4E2A;Region&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x955C;&#x50CF;&#x4ED3;&#x5E93;&#x3002;</p>
+</blockquote>
+<p>Q&#xFF1A;&#x4F60;&#x597D; &#x8BF7;&#x95EE;&#x4F60;&#x4EEC;&#x5927;&#x4E8C;&#x5C42;&#x7F51;&#x7EDC;&#x662F;&#x7528;&#x5F00;&#x6E90;&#x65B9;&#x6848;&#x5B9E;&#x73B0;&#x7684;&#x8FD8;&#x662F;&#x81EA;&#x5DF1;&#x6839;&#x636E;OVS&#x5F00;&#x53D1;&#x5B9E;&#x73B0;&#x7684;&#xFF1F;</p>
+<blockquote>
+<p>A&#xFF1A;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x6211;&#x4EEC;CNI&#x4E2D;&#x8C03;&#x7528;&#x4E86;OVS&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4F7F;&#x7528;&#x4E86;OVS&#x7684;&#x7F51;&#x6865;&#x529F;&#x80FD;&#x3002;</p>
+</blockquote>
+<p>Q&#xFF1A;&#x5E94;&#x7528;&#x8DE8;&#x673A;&#x623F;&#x90E8;&#x7F72;&#xFF0C;&#x6211;&#x7406;&#x89E3;&#x4E5F;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x8DE8;Kubernetes&#x96C6;&#x7FA4;&#x90E8;&#x7F72;&#xFF0C;Kubernetes&#x91CC;&#x7684;&#x8C03;&#x5EA6;&#x662F;&#x5982;&#x4F55;&#x505A;&#x7684;&#xFF1F;</p>
+<blockquote>
+<p>A&#xFF1A;&#x5E94;&#x7528;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x662F;&#x5728;Kubernetes&#x96C6;&#x7FA4;&#x4E4B;&#x4E0A;&#x7684;&#xFF0C;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x90E8;&#x7F72;&#x5728;&#x591A;&#x4E2A;Kubernetes &#x96C6;&#x7FA4;&#x4E2D;&#x3002;</p>
+</blockquote>
+<p>Q&#xFF1A;&#x8BF7;&#x95EE;&#x8D35;&#x516C;&#x53F8;&#x5185;&#x90E8;&#x670D;&#x52A1;&#x4E4B;&#x95F4;&#x7684;&#x4E92;&#x76F8;&#x8C03;&#x7528;&#x662F;&#x600E;&#x4E48;&#x63A7;&#x5236;&#x7684;&#xFF1F;&#x5BB9;&#x5668;&#x5230;&#x5BB9;&#x5668;&#x8FD8;&#x662F;&#x5BB9;&#x5668;-Nginx-&#x5BB9;&#x5668;&#xFF08;&#x7B49;&#x540C;&#x5916;&#x90E8;&#xFF09;&#xFF1F;</p>
+<blockquote>
+<p>A&#xFF1A;1. &#x5BB9;&#x5668;-&gt;&#x5BB9;&#x5668; 2. &#x5916;&#x90E8;&#x670D;&#x52A1;-&gt;Nginx-&gt;&#x5BB9;&#x5668; 3. &#x5BB9;&#x5668;-&gt;Nginx-&gt;&#x5BB9;&#x5668; 4. &#x5BB9;&#x5668;-&gt;&#x5916;&#x90E8;&#x670D;&#x52A1;&#x3002; &#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x90FD;&#x6709;&#xFF0C;&#x4E3B;&#x8981;&#x770B;&#x4E1A;&#x52A1;&#x573A;&#x666F;&#x3002;</p>
+</blockquote>
+<p>Q&#xFF1A;&#x6784;&#x5EFA;&#x670D;&#x52A1;&#x96C6;&#x7FA4;&#x7528;&#x5230;&#x4EC0;&#x4E48;CI&#x5DE5;&#x5177;&#xFF0C;&#x8FD8;&#x662F;&#x81EA;&#x5DF1;&#x5F00;&#x53D1;&#x7684;&#xFF1F;etcd&#x5728;&#x5176;&#x4E2D;&#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;&#xFF1F;</p>
+<blockquote>
+<p>A&#xFF1A;&#x81EA;&#x5DF1;&#x5F00;&#x53D1;&#x7684;&#xFF0C;etcd &#x76F8;&#x5F53;&#x4E8E;&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF0C;&#x63A7;&#x5236;&#x5C42;&#x6536;&#x5230;&#x6784;&#x5EFA;&#x8BF7;&#x6C42;&#x540E;&#xFF0C;etcd&#x4E2D;&#x5B58;&#x653E;&#x4E86;&#x73B0;&#x9636;&#x6BB5;&#x96C6;&#x7FA4;&#x4E0B;&#x90FD;&#x6709;&#x54EA;&#x4E9B;&#x6784;&#x5EFA;&#x673A;&#xFF0C;&#x5F53;&#x6765;&#x5230;&#x6784;&#x5EFA;&#x8BF7;&#x6C42;&#x540E;&#xFF0C;&#x63A7;&#x5236;&#x5C42;&#x4F1A;&#x5BFB;&#x627E;&#x4E00;&#x4E2A;&#x6784;&#x5EFA;&#x673A;&#x5668;&#xFF0C;&#x5E76;&#x5411;&#x6784;&#x5EFA;&#x673A;&#x5668;&#x6240;&#x5728;&#x7684;etcd key&#x4E2D;&#x53D1;&#x9001;&#x547D;&#x4EE4;&#xFF0C; &#x5BF9;&#x5E94;&#x7684;&#x6784;&#x5EFA;&#x673A;&#x5668;&#x5728;&#x76D1;&#x63A7;&#x81EA;&#x5DF1;&#x7684;key&#x53D1;&#x751F;&#x53D8;&#x5316;&#x540E;&#xFF0C;&#x4F1A;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x6784;&#x5EFA;&#x4EFB;&#x52A1;&#x3002;</p>
+</blockquote>
+<p>&#x4EE5;&#x4E0A;&#x5185;&#x5BB9;&#x6839;&#x636E;2017&#x5E74;2&#x6708;14&#x65E5;&#x665A;&#x5FAE;&#x4FE1;&#x7FA4;&#x5206;&#x4EAB;&#x5185;&#x5BB9;&#x6574;&#x7406;&#x3002;&#x5206;&#x4EAB;&#x4EBA;</p>
+<p>&#x4F5C;&#x8005;&#xFF1A;&#x5F20;&#x6770;&#xFF0C;&#x4E50;&#x89C6;&#x4E91;&#x8BA1;&#x7B97;&#x6709;&#x9650;&#x516C;&#x53F8;PaaS&#x5E73;&#x53F0;LeEngine&#x8D1F;&#x8D23;&#x4EBA;&#x3002;&#x6BD5;&#x4E1A;&#x4E8E;&#x4E1C;&#x5317;&#x5927;&#x5B66;&#xFF0C;&#x4E13;&#x6CE8;&#x4E8E;&#x4E91;&#x8BA1;&#x7B97;&#x9886;&#x57DF;PaaS&#x5E73;&#x53F0;&#x7684;&#x6280;&#x672F;&#x7814;&#x7A76;&#x3002;14&#x5E74;&#x5165;&#x804C;&#x4E50;&#x89C6;&#xFF0C;&#x76EE;&#x524D;&#x4ECE;&#x4E8B;&#x57FA;&#x4E8E;Docker&#x548C;Kubernetes&#x7684;&#x4F01;&#x4E1A;&#x7EA7;PaaS&#x5E73;&#x53F0;&#x7684;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;&#xFF0C;&#x7814;&#x53D1;&#x4EE5;&#x53CA;&#x5E73;&#x53F0;&#x843D;&#x5730;&#x5DE5;&#x4F5C;&#x3002; </p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; jimmysong.io 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Updated:
+2017-11-10 17:44:45
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"11.5 乐视云基于Kubernetes的PaaS平台建设","level":"1.11.5","depth":2,"next":{"title":"12. 未来","level":"1.12","depth":1,"ref":"","articles":[{"title":"12.1 我的kubernetes探险之旅","level":"1.12.1","depth":2,"url":"https://jimmysong.io/tags/kubernetes/","ref":"https://jimmysong.io/tags/kubernetes/","articles":[]},{"title":"12.2 Kubernetes handbook","level":"1.12.2","depth":2,"url":"https://jimmysong.io/kubernetes-handbok","ref":"https://jimmysong.io/kubernetes-handbok","articles":[]}]},"previous":{"title":"11.4 Yarn on Docker","level":"1.11.4","depth":2,"url":"https://jimmysong.io/posts/yarn-on-docker/","ref":"https://jimmysong.io/posts/yarn-on-docker/","articles":[]},"dir":"ltr"},"config":{"plugins":["github","codesnippet","splitter","page-toc-button","image-captions","editlink","back-to-top-button","-lunr","-search","search-plus","github-buttons@2.1.0","favicon@^0.0.2","tbfed-pagefooter@^0.0.1","3-ba"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jimmysong.io 2017","modify_label":"Updated:","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/rootsongjc/docker-practice"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/rootsongjc/docker-practice/blob/master/"},"splitter":{},"codesnippet":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"page-toc-button":{},"back-to-top-button":{},"github-buttons":{"repo":"rootsongjc/hugo-handbook","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"11f7d254cfa4e0ca44b175c66d379ecc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{},"image-captions":{"caption":"图片 - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Jimmy Song","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"docs/rancher_network.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: rancher_cnm","alt":"rancher_cnm","nro":1,"url":"imgs/rancher_cnm.png","index":1,"caption_template":"图片 - _CAPTION_","label":"rancher_cnm","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"docs/rancher_network.html#fig1.3.2.2","level":"1.3.2","list_caption":"Figure: rancher_cnm_interface","alt":"rancher_cnm_interface","nro":2,"url":"imgs/rancher_cnm_interface.png","index":2,"caption_template":"图片 - _CAPTION_","label":"rancher_cnm_interface","attributes":{},"skip":false,"key":"1.3.2.2"},{"backlink":"docs/rancher_network.html#fig1.3.2.3","level":"1.3.2","list_caption":"Figure: rancher_cni_driver","alt":"rancher_cni_driver","nro":3,"url":"imgs/rancher_cni_driver.png","index":3,"caption_template":"图片 - _CAPTION_","label":"rancher_cni_driver","attributes":{},"skip":false,"key":"1.3.2.3"},{"backlink":"docs/rancher_network.html#fig1.3.2.4","level":"1.3.2","list_caption":"Figure: rancher_verson","alt":"rancher_verson","nro":4,"url":"imgs/rancher_version.jpg","index":4,"caption_template":"图片 - _CAPTION_","label":"rancher_verson","attributes":{},"skip":false,"key":"1.3.2.4"},{"backlink":"docs/rancher_network.html#fig1.3.2.5","level":"1.3.2","list_caption":"Figure: rancher_net","alt":"rancher_net","nro":5,"url":"imgs/rancher_net.png","index":5,"caption_template":"图片 - _CAPTION_","label":"rancher_net","attributes":{},"skip":false,"key":"1.3.2.5"},{"backlink":"docs/rancher_network.html#fig1.3.2.6","level":"1.3.2","list_caption":"Figure: rancher_bridge","alt":"rancher_bridge","nro":6,"url":"imgs/rancher_bridge.png","index":6,"caption_template":"图片 - _CAPTION_","label":"rancher_bridge","attributes":{},"skip":false,"key":"1.3.2.6"},{"backlink":"docs/rancher_network.html#fig1.3.2.7","level":"1.3.2","list_caption":"Figure: rancher_compose","alt":"rancher_compose","nro":7,"url":"imgs/rancher_compose.png","index":7,"caption_template":"图片 - _CAPTION_","label":"rancher_compose","attributes":{},"skip":false,"key":"1.3.2.7"},{"backlink":"docs/rancher_network.html#fig1.3.2.8","level":"1.3.2","list_caption":"Figure: rancher_ipec","alt":"rancher_ipec","nro":8,"url":"imgs/rancher_ipec.png","index":8,"caption_template":"图片 - _CAPTION_","label":"rancher_ipec","attributes":{},"skip":false,"key":"1.3.2.8"},{"backlink":"docs/rancher_network.html#fig1.3.2.9","level":"1.3.2","list_caption":"Figure: rancher_template","alt":"rancher_template","nro":9,"url":"imgs/rancher_template.png","index":9,"caption_template":"图片 - _CAPTION_","label":"rancher_template","attributes":{},"skip":false,"key":"1.3.2.9"},{"backlink":"docs/rancher_network.html#fig1.3.2.10","level":"1.3.2","list_caption":"Figure: rancher_cattle","alt":"rancher_cattle","nro":10,"url":"imgs/rancher_cattle.png","index":10,"caption_template":"图片 - _CAPTION_","label":"rancher_cattle","attributes":{},"skip":false,"key":"1.3.2.10"},{"backlink":"docs/rancher_network.html#fig1.3.2.11","level":"1.3.2","list_caption":"Figure: rancher_overlay","alt":"rancher_overlay","nro":11,"url":"imgs/rancher_overlay.png","index":11,"caption_template":"图片 - _CAPTION_","label":"rancher_overlay","attributes":{},"skip":false,"key":"1.3.2.11"},{"backlink":"docs/rancher_network.html#fig1.3.2.12","level":"1.3.2","list_caption":"Figure: rancher_flat","alt":"rancher_flat","nro":12,"url":"imgs/rancher_flat.png","index":12,"caption_template":"图片 - _CAPTION_","label":"rancher_flat","attributes":{},"skip":false,"key":"1.3.2.12"},{"backlink":"docs/rancher_network.html#fig1.3.2.13","level":"1.3.2","list_caption":"Figure: rancher_vm","alt":"rancher_vm","nro":13,"url":"imgs/rancher_vm.png","index":13,"caption_template":"图片 - _CAPTION_","label":"rancher_vm","attributes":{},"skip":false,"key":"1.3.2.13"},{"backlink":"docs/rancher_network.html#fig1.3.2.14","level":"1.3.2","list_caption":"Figure: rancher_cni_workflow","alt":"rancher_cni_workflow","nro":14,"url":"imgs/rancher_cni_workflow.png","index":14,"caption_template":"图片 - _CAPTION_","label":"rancher_cni_workflow","attributes":{},"skip":false,"key":"1.3.2.14"},{"backlink":"docs/rancher_network.html#fig1.3.2.15","level":"1.3.2","list_caption":"Figure: rancher_network_plugin","alt":"rancher_network_plugin","nro":15,"url":"imgs/rancher_network_plugin.png","index":15,"caption_template":"图片 - _CAPTION_","label":"rancher_network_plugin","attributes":{},"skip":false,"key":"1.3.2.15"},{"backlink":"docs/swarm_mode_routing_mesh.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: service ingress image","alt":"service ingress image","nro":16,"url":"https://docs.docker.com/engine/swarm/images/ingress-routing-mesh.png","index":1,"caption_template":"图片 - _CAPTION_","label":"service ingress image","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"docs/swarm_mode_routing_mesh.html#fig1.3.3.2","level":"1.3.3","list_caption":"Figure: ingress with external load balancer image","alt":"ingress with external load balancer image","nro":17,"url":"https://docs.docker.com/engine/swarm/images/ingress-lb.png","index":2,"caption_template":"图片 - _CAPTION_","label":"ingress with external load balancer image","attributes":{},"skip":false,"key":"1.3.3.2"},{"backlink":"docs/create_swarm_app.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: vote-app-diagram","alt":"vote-app-diagram","nro":18,"url":"imgs/vote-app-diagram.png","index":1,"caption_template":"图片 - _CAPTION_","label":"vote-app-diagram","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"docs/create_swarm_app.html#fig1.5.1.2","level":"1.5.1","list_caption":"Figure: visualizer.jpg","alt":"visualizer.jpg","nro":19,"url":"imgs/visualizer.jpg","index":2,"caption_template":"图片 - _CAPTION_","label":"visualizer.jpg","attributes":{},"skip":false,"key":"1.5.1.2"},{"backlink":"docs/create_swarm_app.html#fig1.5.1.3","level":"1.5.1","list_caption":"Figure: vote_web","alt":"vote_web","nro":20,"url":"imgs/vote_web.jpg","index":3,"caption_template":"图片 - _CAPTION_","label":"vote_web","attributes":{},"skip":false,"key":"1.5.1.3"},{"backlink":"docs/create_swarm_app.html#fig1.5.1.4","level":"1.5.1","list_caption":"Figure: vote_result","alt":"vote_result","nro":21,"url":"imgs/vote_result.jpg","index":4,"caption_template":"图片 - _CAPTION_","label":"vote_result","attributes":{},"skip":false,"key":"1.5.1.4"},{"backlink":"docs/rancher_usage.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: rancher_login","alt":"rancher_login","nro":22,"url":"../docs/imgs/rancher_login.jpg","index":1,"caption_template":"图片 - _CAPTION_","label":"rancher_login","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"docs/cpu_resource_limit.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: cpu test","alt":"cpu test","nro":23,"url":"http://blog.opskumu.com/images/cpu-test.png","index":1,"caption_template":"图片 - _CAPTION_","label":"cpu test","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"docs/io_resource_limit.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: io write bps","alt":"io write bps","nro":24,"url":"http://blog.opskumu.com/images/io-write-bps.png","index":1,"caption_template":"图片 - _CAPTION_","label":"io write bps","attributes":{},"skip":false,"key":"1.7.3.1"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.1","level":"1.11.1","list_caption":"Figure: jd_arch","alt":"jd_arch","nro":25,"url":"imgs/jd_arch.jpg","index":1,"caption_template":"图片 - _CAPTION_","label":"jd_arch","attributes":{},"skip":false,"key":"1.11.1.1"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.2","level":"1.11.1","list_caption":"Figure: jd_feature","alt":"jd_feature","nro":26,"url":"imgs/jd_feature.jpg","index":2,"caption_template":"图片 - _CAPTION_","label":"jd_feature","attributes":{},"skip":false,"key":"1.11.1.2"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.3","level":"1.11.1","list_caption":"Figure: jd_deploy","alt":"jd_deploy","nro":27,"url":"imgs/jd_deploy.jpg","index":3,"caption_template":"图片 - _CAPTION_","label":"jd_deploy","attributes":{},"skip":false,"key":"1.11.1.3"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.4","level":"1.11.1","list_caption":"Figure: jd_app","alt":"jd_app","nro":28,"url":"imgs/jd_app.jpg","index":4,"caption_template":"图片 - _CAPTION_","label":"jd_app","attributes":{},"skip":false,"key":"1.11.1.4"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.5","level":"1.11.1","list_caption":"Figure: jd_tor","alt":"jd_tor","nro":29,"url":"imgs/jd_tor.jpg","index":5,"caption_template":"图片 - _CAPTION_","label":"jd_tor","attributes":{},"skip":false,"key":"1.11.1.5"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.6","level":"1.11.1","list_caption":"Figure: jd_schedule","alt":"jd_schedule","nro":30,"url":"imgs/jd_schedule.jpg","index":6,"caption_template":"图片 - _CAPTION_","label":"jd_schedule","attributes":{},"skip":false,"key":"1.11.1.6"},{"backlink":"docs/ali_docker.html#fig1.11.3.1","level":"1.11.3","list_caption":"Figure: 图片描述","alt":"图片描述","nro":31,"url":"http://www.chinacloud.cn/upload/2016-12/161212140352661.png","index":1,"caption_template":"图片 - _CAPTION_","label":"图片描述","attributes":{},"skip":false,"key":"1.11.3.1"},{"backlink":"docs/letv_docker.html#fig1.11.5.1","level":"1.11.5","list_caption":"Figure: 关系.png","alt":"关系.png","nro":32,"url":"http://dockerone.com/uploads/article/20170215/b161c38bc139d5282acd1c8f3e039444.png","index":1,"caption_template":"图片 - _CAPTION_","label":"关系.png","attributes":{},"skip":false,"key":"1.11.5.1"},{"backlink":"docs/letv_docker.html#fig1.11.5.2","level":"1.11.5","list_caption":"Figure: 架构.png","alt":"架构.png","nro":33,"url":"http://dockerone.com/uploads/article/20170215/51ae1e2c3432f03e936630eefa411152.png","index":2,"caption_template":"图片 - _CAPTION_","label":"架构.png","attributes":{},"skip":false,"key":"1.11.5.2"},{"backlink":"docs/letv_docker.html#fig1.11.5.3","level":"1.11.5","list_caption":"Figure: 逻辑.png","alt":"逻辑.png","nro":34,"url":"http://dockerone.com/uploads/article/20170215/7055c11a130c988b68a34b3e0ee5d343.png","index":3,"caption_template":"图片 - _CAPTION_","label":"逻辑.png","attributes":{},"skip":false,"key":"1.11.5.3"},{"backlink":"docs/letv_docker.html#fig1.11.5.4","level":"1.11.5","list_caption":"Figure: Region.png","alt":"Region.png","nro":35,"url":"http://dockerone.com/uploads/article/20170215/eb7abcaec90313f5f54a09081acb5c53.png","index":4,"caption_template":"图片 - _CAPTION_","label":"Region.png","attributes":{},"skip":false,"key":"1.11.5.4"},{"backlink":"docs/letv_docker.html#fig1.11.5.5","level":"1.11.5","list_caption":"Figure: 单cell.png","alt":"单cell.png","nro":36,"url":"http://dockerone.com/uploads/article/20170215/39608b12c11b1be8a8f4bd16a9756348.png","index":5,"caption_template":"图片 - _CAPTION_","label":"单cell.png","attributes":{},"skip":false,"key":"1.11.5.5"},{"backlink":"docs/letv_docker.html#fig1.11.5.6","level":"1.11.5","list_caption":"Figure: 参与应用.png","alt":"参与应用.png","nro":37,"url":"http://dockerone.com/uploads/article/20170215/3e8895a01fdd8968fb262ebf2eab4099.png","index":6,"caption_template":"图片 - _CAPTION_","label":"参与应用.png","attributes":{},"skip":false,"key":"1.11.5.6"},{"backlink":"docs/letv_docker.html#fig1.11.5.7","level":"1.11.5","list_caption":"Figure: 参与镜像.png","alt":"参与镜像.png","nro":38,"url":"http://dockerone.com/uploads/article/20170215/6abcb0a147d2ab3d5cf9ac303a701370.png","index":7,"caption_template":"图片 - _CAPTION_","label":"参与镜像.png","attributes":{},"skip":false,"key":"1.11.5.7"},{"backlink":"docs/letv_docker.html#fig1.11.5.8","level":"1.11.5","list_caption":"Figure: 帮助.png","alt":"帮助.png","nro":39,"url":"http://dockerone.com/uploads/article/20170215/c4e503a90b7dc07df55f9c1343e03d95.png","index":8,"caption_template":"图片 - _CAPTION_","label":"帮助.png","attributes":{},"skip":false,"key":"1.11.5.8"},{"backlink":"docs/letv_docker.html#fig1.11.5.9","level":"1.11.5","list_caption":"Figure: 帮助2.png","alt":"帮助2.png","nro":40,"url":"http://dockerone.com/uploads/article/20170215/adcc568d05035599379bf5f2ba8acaec.png","index":9,"caption_template":"图片 - _CAPTION_","label":"帮助2.png","attributes":{},"skip":false,"key":"1.11.5.9"},{"backlink":"docs/letv_docker.html#fig1.11.5.10","level":"1.11.5","list_caption":"Figure: 操作频率.png","alt":"操作频率.png","nro":41,"url":"http://dockerone.com/uploads/article/20170215/463da22aa0b62bfe003090f7a02ab6eb.png","index":10,"caption_template":"图片 - _CAPTION_","label":"操作频率.png","attributes":{},"skip":false,"key":"1.11.5.10"},{"backlink":"docs/letv_docker.html#fig1.11.5.11","level":"1.11.5","list_caption":"Figure: 纵向访问.png","alt":"纵向访问.png","nro":42,"url":"http://dockerone.com/uploads/article/20170215/2017815e75eed5039c9876a450ef526a.png","index":11,"caption_template":"图片 - _CAPTION_","label":"纵向访问.png","attributes":{},"skip":false,"key":"1.11.5.11"},{"backlink":"docs/letv_docker.html#fig1.11.5.12","level":"1.11.5","list_caption":"Figure: 容器网络.png","alt":"容器网络.png","nro":43,"url":"http://dockerone.com/uploads/article/20170215/2d0f872b91af43a6fbe72eb959cc80b9.png","index":12,"caption_template":"图片 - _CAPTION_","label":"容器网络.png","attributes":{},"skip":false,"key":"1.11.5.12"},{"backlink":"docs/letv_docker.html#fig1.11.5.13","level":"1.11.5","list_caption":"Figure: 请求路径.png","alt":"请求路径.png","nro":44,"url":"http://dockerone.com/uploads/article/20170215/8d636130241f31d7968ecbb5d6fdf9ed.png","index":13,"caption_template":"图片 - _CAPTION_","label":"请求路径.png","attributes":{},"skip":false,"key":"1.11.5.13"},{"backlink":"docs/letv_docker.html#fig1.11.5.14","level":"1.11.5","list_caption":"Figure: slb-core.png","alt":"slb-core.png","nro":45,"url":"http://dockerone.com/uploads/article/20170215/e7f0474710a3f261cf0da2daed65e9ad.png","index":14,"caption_template":"图片 - _CAPTION_","label":"slb-core.png","attributes":{},"skip":false,"key":"1.11.5.14"},{"backlink":"docs/letv_docker.html#fig1.11.5.15","level":"1.11.5","list_caption":"Figure: 创建应用.png","alt":"创建应用.png","nro":46,"url":"http://dockerone.com/uploads/article/20170215/c211f9568db381b6d28b0d97afb8d0f2.png","index":15,"caption_template":"图片 - _CAPTION_","label":"创建应用.png","attributes":{},"skip":false,"key":"1.11.5.15"},{"backlink":"docs/letv_docker.html#fig1.11.5.16","level":"1.11.5","list_caption":"Figure: 负载均衡.png","alt":"负载均衡.png","nro":47,"url":"http://dockerone.com/uploads/article/20170215/d608cc162e93fcf67854b77beae2a000.png","index":16,"caption_template":"图片 - _CAPTION_","label":"负载均衡.png","attributes":{},"skip":false,"key":"1.11.5.16"},{"backlink":"docs/letv_docker.html#fig1.11.5.17","level":"1.11.5","list_caption":"Figure: 负载均衡配置.png","alt":"负载均衡配置.png","nro":48,"url":"http://dockerone.com/uploads/article/20170215/ba53fb39e11a46f4d69e3ad3d5c77c53.png","index":17,"caption_template":"图片 - _CAPTION_","label":"负载均衡配置.png","attributes":{},"skip":false,"key":"1.11.5.17"},{"backlink":"docs/letv_docker.html#fig1.11.5.18","level":"1.11.5","list_caption":"Figure: 镜像tag.png","alt":"镜像tag.png","nro":49,"url":"http://dockerone.com/uploads/article/20170215/66e492e3c836d85300f27626b22a399e.png","index":18,"caption_template":"图片 - _CAPTION_","label":"镜像tag.png","attributes":{},"skip":false,"key":"1.11.5.18"},{"backlink":"docs/letv_docker.html#fig1.11.5.19","level":"1.11.5","list_caption":"Figure: 成员.png","alt":"成员.png","nro":50,"url":"http://dockerone.com/uploads/article/20170215/31f25fecb49e1eca8c950e8edc572629.png","index":19,"caption_template":"图片 - _CAPTION_","label":"成员.png","attributes":{},"skip":false,"key":"1.11.5.19"},{"backlink":"docs/letv_docker.html#fig1.11.5.20","level":"1.11.5","list_caption":"Figure: 动态.png","alt":"动态.png","nro":51,"url":"http://dockerone.com/uploads/article/20170215/b5d3059446d17e0452781538d97e28b8.png","index":20,"caption_template":"图片 - _CAPTION_","label":"动态.png","attributes":{},"skip":false,"key":"1.11.5.20"},{"backlink":"docs/letv_docker.html#fig1.11.5.21","level":"1.11.5","list_caption":"Figure: 构建框架.png","alt":"构建框架.png","nro":52,"url":"http://dockerone.com/uploads/article/20170215/5413a7445a394985b826a2bc75a8cace.png","index":21,"caption_template":"图片 - _CAPTION_","label":"构建框架.png","attributes":{},"skip":false,"key":"1.11.5.21"},{"backlink":"docs/letv_docker.html#fig1.11.5.22","level":"1.11.5","list_caption":"Figure: 添加构建.png","alt":"添加构建.png","nro":53,"url":"http://dockerone.com/uploads/article/20170215/c360b0436674f1a6b36de60f1f048df3.png","index":22,"caption_template":"图片 - _CAPTION_","label":"添加构建.png","attributes":{},"skip":false,"key":"1.11.5.22"},{"backlink":"docs/letv_docker.html#fig1.11.5.23","level":"1.11.5","list_caption":"Figure: 手动构建.png","alt":"手动构建.png","nro":54,"url":"http://dockerone.com/uploads/article/20170215/b5fc6dab0c2be9d89316886cff7eedb3.png","index":23,"caption_template":"图片 - _CAPTION_","label":"手动构建.png","attributes":{},"skip":false,"key":"1.11.5.23"},{"backlink":"docs/letv_docker.html#fig1.11.5.24","level":"1.11.5","list_caption":"Figure: 构建结果.png","alt":"构建结果.png","nro":55,"url":"http://dockerone.com/uploads/article/20170215/b679bb805e1ed84b39edce32a1983880.png","index":24,"caption_template":"图片 - _CAPTION_","label":"构建结果.png","attributes":{},"skip":false,"key":"1.11.5.24"},{"backlink":"docs/letv_docker.html#fig1.11.5.25","level":"1.11.5","list_caption":"Figure: 构建日志.png","alt":"构建日志.png","nro":56,"url":"http://dockerone.com/uploads/article/20170215/2f578c3c9a7a2012f54cae5201a4e24a.png","index":25,"caption_template":"图片 - _CAPTION_","label":"构建日志.png","attributes":{},"skip":false,"key":"1.11.5.25"},{"backlink":"docs/letv_docker.html#fig1.11.5.26","level":"1.11.5","list_caption":"Figure: 应用服务.png","alt":"应用服务.png","nro":57,"url":"http://dockerone.com/uploads/article/20170215/19b5a95258ce6a7954a8575d9efdb6ef.png","index":26,"caption_template":"图片 - _CAPTION_","label":"应用服务.png","attributes":{},"skip":false,"key":"1.11.5.26"},{"backlink":"docs/letv_docker.html#fig1.11.5.27","level":"1.11.5","list_caption":"Figure: 创建新版本.png","alt":"创建新版本.png","nro":58,"url":"http://dockerone.com/uploads/article/20170215/88414ead04427180ad2515db003269f6.png","index":27,"caption_template":"图片 - _CAPTION_","label":"创建新版本.png","attributes":{},"skip":false,"key":"1.11.5.27"},{"backlink":"docs/letv_docker.html#fig1.11.5.28","level":"1.11.5","list_caption":"Figure: 应用事件.png","alt":"应用事件.png","nro":59,"url":"http://dockerone.com/uploads/article/20170215/7c7e2438d62cd7817ade92c54abb8047.png","index":28,"caption_template":"图片 - _CAPTION_","label":"应用事件.png","attributes":{},"skip":false,"key":"1.11.5.28"},{"backlink":"docs/letv_docker.html#fig1.11.5.29","level":"1.11.5","list_caption":"Figure: 网络监控.png","alt":"网络监控.png","nro":60,"url":"http://dockerone.com/uploads/article/20170215/4d234595aafecc01393be388e73d7b0f.png","index":29,"caption_template":"图片 - _CAPTION_","label":"网络监控.png","attributes":{},"skip":false,"key":"1.11.5.29"},{"backlink":"docs/letv_docker.html#fig1.11.5.30","level":"1.11.5","list_caption":"Figure: 容器监控列表.png","alt":"容器监控列表.png","nro":61,"url":"http://dockerone.com/uploads/article/20170215/99890c2c201dbf3a610af8bbda6fe5fa.png","index":30,"caption_template":"图片 - _CAPTION_","label":"容器监控列表.png","attributes":{},"skip":false,"key":"1.11.5.30"},{"backlink":"docs/letv_docker.html#fig1.11.5.31","level":"1.11.5","list_caption":"Figure: 单个容器监控.png","alt":"单个容器监控.png","nro":62,"url":"http://dockerone.com/uploads/article/20170215/dc7859311da37c17de45909e6b991e36.png","index":31,"caption_template":"图片 - _CAPTION_","label":"单个容器监控.png","attributes":{},"skip":false,"key":"1.11.5.31"},{"backlink":"docs/letv_docker.html#fig1.11.5.32","level":"1.11.5","list_caption":"Figure: 一站式解决方案.png","alt":"一站式解决方案.png","nro":63,"url":"http://dockerone.com/uploads/article/20170215/a03b22ea6f4d4db1b82ddbdaad748d63.png","index":32,"caption_template":"图片 - _CAPTION_","label":"一站式解决方案.png","attributes":{},"skip":false,"key":"1.11.5.32"}]},"title":"Docker Practice","language":"zh-hans","links":{"sidebar":{"Jimmy Song":"https://jimmysong.io"}},"gitbook":"*","description":"Docker最佳实践|jimmysong.io|宋净超"},"file":{"path":"docs/letv_docker.md","mtime":"2017-11-10T09:44:45.576Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-10T09:45:38.976Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-editlink/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

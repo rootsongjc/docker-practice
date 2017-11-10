@@ -5,10 +5,10 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 gitbook build . _book
 rm -f _book/gitbook/images/*
 cp images/favicon.ico _book/gitbook/images/
-cp -r _book/* ../hugo-handbook-gh-pages
+cp -r _book/* ../docker-practice-gh-pages
 
 # Go To github pages folder
-cd ../hugo-handbook-gh-pages
+cd ../docker-practice-gh-pages
 
 # Add changes to git.
 git add -A
@@ -21,4 +21,4 @@ git commit -m "$1"
 git push origin gh-pages
 
 # Come Back
-cd ../hugo-handbook
+cd ../docker-practice
