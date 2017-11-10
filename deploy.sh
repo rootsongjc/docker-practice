@@ -1,14 +1,14 @@
 #/bin/bash
 echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
-
-# Build the project. 
+name="docker-handbook"
+# Build the project.
 gitbook build . _book
 rm -f _book/gitbook/images/*
 cp images/favicon.ico _book/gitbook/images/
-cp -r _book/* ../docker-practice-gh-pages
+cp -r _book/* ../$name-gh-pages
 
 # Go To github pages folder
-cd ../docker-practice-gh-pages
+cd ../$name-gh-pages
 
 # Add changes to git.
 git add -A
@@ -21,4 +21,4 @@ git commit -m "$1"
 git push origin gh-pages
 
 # Come Back
-cd ../docker-practice
+cd ../$name
