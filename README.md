@@ -23,6 +23,6 @@ GitHub地址：https://github.com/rootsongjc/docker-handbook
 
 本书中引用了一些公开的分享与链接并加以整理。
 
-*本书作与2017年初*
+*本书作于2017年初*
 
 [Jimmy Song](https://jimmysong.io/about)
