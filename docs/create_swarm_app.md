@@ -194,7 +194,7 @@ ydxurw1jnft6  vote_vote.2        sz-pg-oam-docker-hub-001.tendcloud.com/library/
 
 ## 检查##
 
-当vote应用成功部署后，在浏览器中访问visualizer所部属到的主机的8080端口http://sz-pg-oam-docker-hub-001.tendcloud.com:8080可以看到如下画面：
+当vote应用成功部署后，在浏览器中访问visualizer所部属到的主机的8080端口<http://sz-pg-oam-docker-hub-001.tendcloud.com:8080>可以看到如下画面：
 
 ![visualizer.jpg](imgs/visualizer.jpg)
 
@@ -202,7 +202,7 @@ Visualizer用于显示服务和主机的状态。
 
 **投票界面**
 
-在浏览器中访问``examplevotingapp_vote``所部属到的主机的5000端口http://sz-pg-oam-docker-hub-001.tendcloud.com:5000可以看到如下画面：
+在浏览器中访问`examplevotingapp_vote`所部属到的主机的5000端口<http://sz-pg-oam-docker-hub-001.tendcloud.com:5000>可以看到如下画面：
 
 ![vote_web](imgs/vote_web.jpg)
 
@@ -210,7 +210,7 @@ Visualizer用于显示服务和主机的状态。
 
 **结果界面**
 
-在浏览器中访问``examplevotingapp_result``所部属到的主机的5001端口http://sz-pg-oam-docker-hub-001.tendcloud.com:5001可以看到如下画面.
+在浏览器中访问``examplevotingapp_result``所部属到的主机的5001端口<http://sz-pg-oam-docker-hub-001.tendcloud.com:5001>可以看到如下画面.
 
 ![vote_result](imgs/vote_result.jpg)
 
