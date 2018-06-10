@@ -25,7 +25,7 @@
 
 **Docker配置文件修改**
 
-修改docke让配置文件``/usr/lib/systemd/system/docker.service``
+修改docker配置文件``/usr/lib/systemd/system/docker.service``
 
 ```
 ExecStart=/usr/bin/dockerd --insecure-registry=sz-pg-oam-docker-hub-001.tendcloud.com -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
