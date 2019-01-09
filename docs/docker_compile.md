@@ -12,7 +12,7 @@ docker的编译实质上是在docker容器中运行docker。
 
 为了方便以后给docker提交更改，我们从docker官方fork一个分支。
 
-```shell
+```bash
 git clone https://github.com/rootsongjc/docker.git
 git config --local user.name "Jimmy Song"
 git config --local user.email "rootsongjc@gmail.com"
@@ -38,13 +38,13 @@ docker开发环境本质上是创建一个docker镜像，镜像里包含了docke
 
 在``dry-run-test``分支下执行
 
-```Shell
+```bash
 make BIND_DIR=. shell
 ```
 
 该命令会自动编译一个docker镜像，From debian:jessie。这一步会上网下载很多依赖包，速度比较慢。如果翻不了墙的话肯定都会失败。因为需要下载的软件和安装包都是在国外服务器上，不翻墙根本就下载不下来，为了不用这么麻烦，推荐直接使用docker官方的dockercore/docker镜像，也不用以前的docker-dev镜像，那个造就废弃了。这个镜像大小有2.31G。
 
-```
+```bash
 docker pull dockercore/docker
 ```
 
@@ -52,13 +52,13 @@ docker pull dockercore/docker
 
 然后就可以进入到容器里
 
-```Shell
+```bash
 docker run --rm -i --privileged -e BUILDFLAGS -e KEEPBUNDLE -e DOCKER_BUILD_GOGC -e DOCKER_BUILD_PKGS -e DOCKER_CLIENTONLY -e DOCKER_DEBUG -e DOCKER_EXPERIMENTAL -e DOCKER_GITCOMMIT -e DOCKER_GRAPHDRIVER=devicemapper -e DOCKER_INCREMENTAL_BINARY -e DOCKER_REMAP_ROOT -e DOCKER_STORAGE_OPTS -e DOCKER_USERLANDPROXY -e TESTDIRS -e TESTFLAGS -e TIMEOUT -v "/Users/jimmy/Workspace/github/rootsongjc/docker/bundles:/go/src/github.com/docker/docker/bundles" -t "dockercore/docker:latest" bash
 ```
 
 按照官网的说明make会报错
 
-```
+```bash
 root@f2753f78bb6d:/go/src/github.com/docker/docker# ./hack/make.sh binary                          
 
 error: .git directory missing and DOCKER_GITCOMMIT not specified
@@ -69,7 +69,7 @@ error: .git directory missing and DOCKER_GITCOMMIT not specified
 
 这是一个[issue-27581](https://github.com/docker/docker/issues/27581)，解决方式就是在make的时候手动指定``DOCKER_GITCOMMIT``。
 
-```
+```bash
 root@f2753f78bb6d:/go/src/github.com/docker/docker# DOCKER_GITCOMMIT=3385658 ./hack/make.sh binary
 
 ---> Making bundle: binary (in bundles/17.04.0-dev/binary)
@@ -83,7 +83,7 @@ Copying nested executables into bundles/17.04.0-dev/binary-daemon
 
 bundles目录下会生成如下文件结构
 
-```
+```bash
 .
 ├── 17.04.0-dev
 │   ├── binary-client
@@ -123,13 +123,13 @@ bundles目录下会生成如下文件结构
 
 启动docker deamon
 
-```Shell
+```bash
 docker daemon -D&
 ```
 
 检查下docker是否可用
 
-```
+```bash
 root@f2753f78bb6d:/go/src/github.com/docker/docker/bundles/17.04.0-dev# docker version
 DEBU[0048] Calling GET /_ping                           
 DEBU[0048] Calling GET /v1.27/version                   

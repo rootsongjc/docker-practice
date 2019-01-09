@@ -14,14 +14,13 @@
   - `--cpuset-mems=""`Memory nodes (MEMs) in which to allow execution (0-3, 0,1). Only effective on NUMA systems.
   - `--cpu-quota=0`Limit the CPU CFS (Completely Fair Scheduler) quota
 
-```
+```bash
 ➜  ~ docker help run | grep cpu
   --cpu-shares                    CPU shares (relative weight)
   --cpu-period                    Limit CPU CFS (Completely Fair Scheduler) period
   --cpu-quota                     Limit CPU CFS (Completely Fair Scheduler) quota
   --cpuset-cpus                   CPUs in which to allow execution (0-3, 0,1)
   --cpuset-mems                   MEMs in which to allow execution (0-3, 0,1)
-
 ```
 
 ### 2.1 CPU share constraint: `-c` or `--cpu-shares`
@@ -32,14 +31,13 @@
 
 测试主机「4core」当只有 1 个 container 时，可以使用任意的 CPU：
 
-```
+```bash
 ➜  ~ docker run -it --rm --cpu-shares 512 ubuntu-stress:latest /bin/bash
 root@4eb961147ba6:/# stress -c 4
 stress: info: [17] dispatching hogs: 4 cpu, 0 io, 0 vm, 0 hdd
 ➜  ~ docker stats 4eb961147ba6
 CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O
 4eb961147ba6        398.05%             741.4 kB / 8.297 GB   0.01%               4.88 kB / 648 B     0 B / 0 B
-
 ```
 
 测试两个 container，一个设置为 3072，一个设置 1024，CPU 占用如下：
@@ -52,14 +50,13 @@ CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %             
 
 设置 cpu-period 为 100ms，cpu-quota 为 200ms，表示最多可以使用 2 个 cpu，如下测试：
 
-```
+```bash
 ➜  ~ docker run -it --rm --cpu-period=100000 --cpu-quota=200000 ubuntu-stress:latest /bin/bash
 root@6b89f2bda5cd:/# stress -c 4    # stress 测试使用 4 个 cpu
 stress: info: [17] dispatching hogs: 4 cpu, 0 io, 0 vm, 0 hdd
 ➜  ~ docker stats 6b89f2bda5cd      # stats 显示当前容器 CPU 使用率不超过 200%
 CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O
 6b89f2bda5cd        200.68%             745.5 kB / 8.297 GB   0.01%               4.771 kB / 648 B    0 B / 0 B
-
 ```
 
 通过以上测试可以得知，`--cpu-period` 结合 `--cpu-quota` 配置是固定的，无论 CPU 是闲还是繁忙，如上配置，容器最多只能使用 2 个 CPU 到 100%。
@@ -74,7 +71,7 @@ CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %             
 
 设置测试容器只能使用 cpu1 和 cpu3，即最多使用 2 个 固定的 CPU 上：
 
-```
+```bash
 ➜  ~ docker run -it --rm --cpuset-cpus="1,3" ubuntu-stress:latest /bin/bash
 root@9f1fc0e11b6f:/# stress -c 4
 stress: info: [17] dispatching hogs: 4 cpu, 0 io, 0 vm, 0 hdd
@@ -89,14 +86,12 @@ Tasks: 211 total,   3 running, 207 sleeping,   1 stopped,   0 zombie
 %Cpu2  :  0.7 us,  0.3 sy,  0.0 ni, 99.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 %Cpu3  :100.0 us,  0.0 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 ... ...
-
 ```
 
 以下表示容器可以利用 CPU1、CPU2 和 CPU3：
 
-```
+```bash
 ➜  ~ docker run -it --rm --cpuset-cpus="1-3" ubuntu-stress:latest /bin/bash
-
 ```
 
 #### `--cpuset-mems`

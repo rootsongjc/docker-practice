@@ -1,4 +1,4 @@
-# Rancher网络探讨和扁平网络实现#
+# Rancher网络探讨和扁平网络实现
 
 Rancher 1.2之后的版本在很多地方都有更新，容器网络方面除提供IPsec支持之外Rancher增加了对VXLAN支持，同时提供CNI插件管理机制，让用户可以hacking接入其他第三方CNI插件。
 
@@ -9,15 +9,15 @@ Rancher 1.2之后的版本在很多地方都有更新，容器网络方面除提
 3. 容器网络基于CNI的实现---直接路由访问容器
 4. 容器网络介绍
 
-## 1.1 容器的网络类型##
+## 1.1 容器的网络类型
 
-### 1.1.1 原始容器网络###
+### 1.1.1 原始容器网络
 
 - Bridge模式
 - HOST模式
 - Container模式
 
-### 1.1.2 容器网络的进化###
+### 1.1.2 容器网络的进化
 
 - Container Networking Model (CNM) 
 - Container Networking Interface (CNI)
@@ -28,7 +28,7 @@ CNM和CNI并不是网络实现而是网络规范和网络体系，CNM和CNI关�
 
  这两个模型全都是插件化的，用户可以以插件的形式去插入具体的网络实现。其中CNM由Docker公司自己提出，而CNI则是Google 的Kubernetes主导。总体上说CNM比较不灵活，也不难么开放，但是确是Docker的原生网络实现。而CNI则更具通用性，而且也十分的灵活。目前主流的插件如：Calico、Weave、Mesos基本上是对CNI和CNM两种规范都提供支持。
 
-### 1.2.1 CNM接口：###
+### 1.2.1 CNM接口：
 
 CNM是一个被 Docker 提出的规范。现在已经被Cisco Contiv, Kuryr, Open Virtual Networking (OVN), Project Calico, VMware 和 Weave 这些公司和项目所采纳。
 
@@ -112,13 +112,13 @@ ipsec服务实际上有两个容器：一个是ipsec主容器，内部包含ranc
 
 ![rancher_overlay](imgs/rancher_overlay.png)
 
-## 3.Rancher的扁平网络实现##
+## 3.Rancher的扁平网络实现
 
 为什么需要扁平网络，因为容器目前主流的提供的都是Overlay网络，这个模式的好处是，灵活、容易部署、可以屏蔽网络对应用部署的阻碍，但是对很多用户而言，这样也带了了额外的网络开销，网络管理不可以控制，以及无法与现有SDN网络进行对接。
 
 在实现扁平网络后，容器可以直接分配业务IP，这样访问容器上的应用就类似访问VM里的应用一样，可以直接通过路由直达，不需要进行NAT映射。但偏平网络带来的问题是，会消耗大量的业务段IP地址，同时网络广播也会增多。
 
-## 3.1  扁平网络实现##
+## 3.1  扁平网络实现
 
 在Rancher环境中实现扁平网络需要使用自定义的bridge，同时这个bridge与docker0并没有直接关系。我们可以给容器添加新的网桥mybridge，并把容器通过veth对连接到网桥上mybridge上，如果要实现容器访问宿主机的VM上的服务可以将虚拟机配置的IP也配置到网桥上。进行如上配置后，容器就可以实现IP之间路由直接访问。此图中的vboxnet bridge可以看做是用户环境的上联交互机。
 
@@ -144,6 +144,7 @@ Rancher CNI网络环境实现扁平网络的工作流如下：
 
 具体转发规则对应的ebtables规则如下所示：
 
+```bash
 Drop All traffic from veth-cni except:
 
 1. IP response from [169.254.169.250](169.254.169.250)
@@ -158,6 +159,7 @@ ebtables -t broute -I BROUTING -i veth-cni -p arp --arp-opcode 2 --arp-ip-src [1
 Drop ARP request for [10.43.0.2](10.43.0.2) on eth1
 
 ebtables -t nat -D POSTROUTING -p arp --arp-opcode 1 --arp-ip-dst [10.43.0.2](10.43.0.2)  -o eth1 -j DROP
+```
 
 另外也可以在容器所在的主机上将Docker0的bridge和CNI的bridge做三层打通，并使用iptables来进行控制，目前这个方式还在测试中。
 

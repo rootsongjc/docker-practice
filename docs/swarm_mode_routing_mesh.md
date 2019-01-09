@@ -11,7 +11,7 @@ Swarm mode的``ingress``网络，分布于整个swarm集群，每台swarm node�
 
 命令格式
 
-```Shell
+```bash
 $ docker service create \
   --name <SERVICE-NAME> \
   --publish <PUBLISHED-PORT>:<TARGET-PORT> \
@@ -20,7 +20,7 @@ $ docker service create \
 
 示例
 
-```shell
+```bash
 $ docker service create \
   --name my-web \
   --publish 9999:80 \
@@ -36,13 +36,13 @@ $ docker service create \
 
 向已有的service添加publish port。
 
-```Shell
+```bash
 docker service update --publish-add 9998:80 my-web
 ```
 
 添加publish端口后似乎没有什么作用，同时
 
-```
+```bash
 #docker service update --publish-rm 9999:80 my-web
 Error response from daemon: rpc error: code = 2 desc = update out of sequence
 ```
@@ -58,7 +58,7 @@ Error response from daemon: rpc error: code = 2 desc = update out of sequence
 
 再``docker service inspect my-web``会发现
 
-```
+```json
        "UpdateStatus": {
             "State": "updating",
             "StartedAt": "2017-02-23T08:00:51.948871008Z",
@@ -69,15 +69,13 @@ Error response from daemon: rpc error: code = 2 desc = update out of sequence
 
 原来的9999端口依然可以访问。
 
-```
+```bash
 # docker service ps my-web
 ID            NAME          IMAGE                                                     NODE                                     DESIRED STATE  CURRENT STATE            ERROR  PORTS
 wbzzlq3ajyjq  my-web.1      sz-pg-oam-docker-hub-001.tendcloud.com/library/nginx:1.9  sz-pg-oam-docker-test-002.tendcloud.com  Running        Running 44 minutes ago          
 4h2tcxjtgumv  my-web.2      sz-pg-oam-docker-hub-001.tendcloud.com/library/nginx:1.9                                           Running        New 39 minutes ago              
 w0y1l3x94ox3   \_ my-web.2  sz-pg-oam-docker-hub-001.tendcloud.com/library/nginx:1.9  sz-pg-oam-docker-test-003.tendcloud.com  Shutdown       Shutdown 39 minutes ago     
 ```
-
-
 
 ## 使用外部Load Balancer
 
@@ -87,7 +85,7 @@ w0y1l3x94ox3   \_ my-web.2  sz-pg-oam-docker-hub-001.tendcloud.com/library/nginx
 
 修改HAProxy的配置文件/etc/haproxy/haproxy.cfg
 
-```
+```bash
 global
         log /dev/log    local0
         log /dev/log    local1 notice

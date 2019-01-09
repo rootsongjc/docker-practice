@@ -6,7 +6,7 @@
 
 加入我们更新了vote应用的result和vote镜像代码重新构建了新镜像，修改``docker-stack.yml``文件，将其中的``sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_vote:before``和``sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_result:before``分别修改为``sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_vote:after``和``sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_result:after``，相当于要上线新版本，可以进行如下操作：
 
-```
+```bash
 $docker stack deploy --compose-file docker-stack.yml vote
 Updating service vote_result (id: 5bte3o8e0ta98mpp80c51ro5z)
 Updating service vote_worker (id: h65a6zakqgq3dd2cfgco1t286)
@@ -24,7 +24,7 @@ Updating service vote_vote (id: pvvi5qqcsnaghadu0w6c82pd3)
 
 创建service的时候可以指定``—update-delay``参数，可以为10m23s这样写法，表示执行update的间隔是10分钟23秒。也可以用``--update-parallelism``参数指定并发update数量。
 
-```
+```bash
 $ docker service create \
   --replicas 3 \
   --name redis \
@@ -36,7 +36,7 @@ $ docker service create \
 
 update service的时候需要指定镜像名。
 
-```$ docker service update --image redis:3.0.7 redis
+```bash
 $ docker service update --image redis:3.0.7 redis
 redis
 ```

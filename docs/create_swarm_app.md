@@ -140,11 +140,11 @@ volumes:
   db-data:
 ```
 
-## 部署##
+## 部署
 
 使用docker stack deploy命令部署vote应用。
 
-```
+```bash
 $docker stack deploy -c docker-stack.yml vote
 Creating network vote_backend
 Creating network vote_frontend
@@ -161,7 +161,7 @@ Creating service vote_redis
 
 使用``docker stack service vote``查看应用状态
 
-```
+```bash
 $docker stack services vote
 ID            NAME             MODE        REPLICAS  IMAGE
 5bte3o8e0ta9  vote_result      replicated  2/2       sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_result:before
@@ -174,7 +174,7 @@ zgiuxazk4ssc  vote_visualizer  replicated  1/1       sz-pg-oam-docker-hub-001.te
 
 使用``docker stack ls``和``docker stack ps vote``查看stack的状态
 
-```
+```bash
 $docker stack ls
 NAME  SERVICES
 vote  6
@@ -192,7 +192,7 @@ pcrfnm20jf0r  vote_result.2      sz-pg-oam-docker-hub-001.tendcloud.com/library/
 ydxurw1jnft6  vote_vote.2        sz-pg-oam-docker-hub-001.tendcloud.com/library/examplevotingapp_vote:before    sz-pg-oam-docker-test-003.tendcloud.com  Running        Running 5 minutes ago   
 ```
 
-## 检查##
+## 检查
 
 当vote应用成功部署后，在浏览器中访问visualizer所部属到的主机的8080端口<http://sz-pg-oam-docker-hub-001.tendcloud.com:8080>可以看到如下画面：
 
@@ -216,7 +216,7 @@ Visualizer用于显示服务和主机的状态。
 
 
 
-##总结##
+##总结
 
 至此整个应用已经完整的部署在docker上了，并验证正常运行。
 

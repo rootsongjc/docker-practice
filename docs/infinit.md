@@ -14,11 +14,13 @@
 
 解压到/usr/local目录下，
 
+```bash
 ln -s Infinit-x86_64-linux_debian_oldstable-gcc4-0.7.2 /usr/local/infinit
 
 **172.20.0.113****:root****@****sz-pg-oam-docker-test-001**:/usr/local/infinit]# INFINIT_DATA_HOME=$PWD/share/infinit/filesystem/test/home/ INFINIT_STATE_HOME=/tmp/infinit-demo/ bin/infinit-volume --mount --as demo --name infinit/demo --mountpoint ~/mnt-demo --publish --cache
 
 bin/infinit-volume: /lib64/libc.so.6: version `**GLIBC_2.18**' not found (required by /usr/local/Infinit-x86_64-linux_debian_oldstable-gcc4-0.7.2/bin/../lib/libstdc++.so.6)
+```
 
 CentOS7.2.1511的使用源码安装的时候glibc版本太低，无法使用。
 
@@ -36,9 +38,9 @@ quick-start文档：[https://infinit.sh/get-started](https://infinit.sh/get-star
 
 slack地址：infinit-sh.slack.com
 
-设置环境变量
+**设置环境变量**
 
-**export** LC_ALL=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 **创建用户**
 
@@ -56,23 +58,23 @@ infinit-user --create --name "alice"
 
 infinit-network --create --as alice --storage local --name my-network 
 
-查看网络
+**查看网络**
 
 infinit-network --list --as alice
 
-启动网络
+**启动网络**
 
-**infinit**-network --run --daemon --as alice --name my-network --port 11928
+infinit-network --run --daemon --as alice --name my-network --port 11928
 
 必须制定用户，否则会查看root用户的网络，-~~as alice必须放在~~-list动作后面
 
 不要加上--push，否则会push到hub上，又需要连接到网络
 
-创建volume
+**创建volume**
 
 infinit-volume --create --as alice --network my-network --name my-volume
 
-挂载volume
+**挂载volume**
 
 infinit-volume --mount --as alice --name my-volume --mountpoint ~/mnt-alice-volume --allow-root-creation --async --cache --port 11928
 
@@ -98,15 +100,15 @@ infinit-network --import -i my-network
 
 infinit-volume --import -i my-volume
 
-link网络
+**link网络**
 
 infinit-network --link --name my-network --as alice
 
-查看网络信息
+**查看网络信息**
 
 infinit-journal --stat --network alice/my-network --as alice
 
-挂载volume
+**挂载volume**
 
 infinit-volume --mount --as alice --name my-volume --mountpoint ~/mnt-alice-volume --allow-root-creation --async --cache --peer server_ip:11928
 

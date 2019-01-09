@@ -4,9 +4,8 @@ Torus基于ServerSAN和容器生态的kv-store（etcd）打造的容器定义存
 
 开源docker-volume-plugin-torus
 
-[https://hub.docker.com/r/steigr/docker-volume-plugin-torus/~/dockerfile/](https://hub.docker.com/r/steigr/docker-volume-plugin-torus/~/dockerfile/)
+- [https://hub.docker.com/r/steigr/docker-volume-plugin-torus/~/dockerfile/](https://hub.docker.com/r/steigr/docker-volume-plugin-torus/~/dockerfile/)
 
-[https://github.com/steigr/docker-volume-plugin-torus](https://github.com/steigr/docker-volume-plugin-torus)
+- [https://github.com/steigr/docker-volume-plugin-torus](https://github.com/steigr/docker-volume-plugin-torus)
 
 目前还在POC阶段，暂时还没有验证可行性。
-

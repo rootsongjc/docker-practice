@@ -4,7 +4,7 @@
 
 官方以开发一个**sshfs**的volume plugin为例。
 
-```
+```bash
 $ git clone https://github.com/vieux/docker-volume-sshfs
 $ cd docker-volume-sshfs
 $ go get github.com/docker/go-plugins-helpers/volume
@@ -19,7 +19,7 @@ $ docker rmi rootfsimage
 
 我们可以看到**sshfs**的Dockerfile是这样的：
 
-```Dockerfile
+```docker
 FROM alpine
 
 RUN apk update && apk add sshfs
@@ -35,7 +35,7 @@ CMD ["docker-volume-sshfs"]
 
 编译rootfsimage镜像的过程。
 
-```
+```bash
 docker build -t rootfsimage .
 Sending build context to Docker daemon 11.71 MB
 Step 1/5 : FROM alpine
@@ -104,13 +104,13 @@ Successfully built 0fd2e3d94860
 
 具体到sshfs插件，在myplugin目录下使用如下命令创建插件：
 
-```shell
+```bash
 docker plugin create jimmysong/sshfs:latest .
 ```
 
 现在就可以看到刚创建的插件了
 
-```
+```bash
 docker plugin ls
 ID                  NAME                 DESCRIPTION               ENABLED
 8aa1f6098fca        vieux/sshfs:latest   sshFS plugin for Docker   true
@@ -122,7 +122,7 @@ ID                  NAME                 DESCRIPTION               ENABLED
 
 目前推送到**harbor**镜像仓库有问题，报错信息：
 
-```
+```bash
 c08c951b53b7: Preparing 
 denied: requested access to the resource is denied
 ```

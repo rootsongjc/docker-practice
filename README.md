@@ -2,11 +2,11 @@
 
 此书是[kubernetes-handbook](https://jimmysong.io/kubernetes-handbook/)的前传，本书中主要介绍docker1.13新特性和帮助大家了解docker集群的管理和使用。
 
-GitHub地址：https://github.com/rootsongjc/docker-handbook
+- GitHub地址：https://github.com/rootsongjc/docker-handbook
 
-在线访问地址：https://jimmysong.io/docker-handbook
+- 在线访问地址：https://jimmysong.io/docker-handbook
 
-容器是微服务的最佳载体，kubernetes是微服务的最佳运行平台，istio是kubernetes上最佳的service mesh。
+容器是微服务的最佳载体，kubernetes是微服务的最佳运行平台，[istio](https://istio.io/zh)是kubernetes上最佳的service mesh。
 
 下图是容器生态圈图：
 
@@ -16,13 +16,11 @@ GitHub地址：https://github.com/rootsongjc/docker-handbook
 
 ## 相关资源
 
-- [kubernetes-handbook中文指南/最佳实践 - jimmysong.io](https://jimmysong.io/kubernetes-handbook)
-- [istio官方文档中文版](http://istio.doczh.cn)
+- [Kubernetes Handbook——Kubernetes中文指南/云原生应用架构实践手册 - jimmysong.io](https://jimmysong.io/kubernetes-handbook)
+- [istio官方中文文档 - istio.io](https://istio.io/zh)
 
 ## 关于
 
 本书中引用了一些公开的分享与链接并加以整理。
 
-*本书作于2017年初*
-
-[Jimmy Song](https://jimmysong.io/about)
+**本书作于2017年初，现已停止更新。**

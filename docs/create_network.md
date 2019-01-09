@@ -2,7 +2,7 @@
 
 容器的跨主机网络访问是docker容器集群的基础，我们之前使用的[Shrike](https://github.com/talkingdata/shrike)实现二层网络，能够使不同主机中的容器和主机的网络互联互通，使容器看上去就像是虚拟机一样，这样做的好处是可以不变动已有的服务，将原有的应用直接封装成一个image启动即可，但这也无法利用上docker1.12+后的service、stack等服务编排、负载均衡、服务发现等功能。我们在此讨论容器的网络模式，暂且忽略自定义网络，会在后面单独谈论它。
 
-## Swarm中已有的network##
+## Swarm中已有的network
 
 安装好docker并启动swarm集群后，会在集群的每个node中找到如下network：
 
@@ -22,7 +22,7 @@
 - 使用docker network create命令来创建，只能创建docker内建的网络模式
 - 使用docker plugin，创建自定义网络
 
-## 使用docker命令创建网络##
+## 使用docker命令创建网络
 
 **Docker中内置的网络模式包括如下几种:**
 
@@ -34,7 +34,7 @@
 
 **docker create network命令包含以下参数：**
 
-```
+```bash
 Flag shorthand -h has been deprecated, please use --help
 
 Usage:	docker network create [OPTIONS] NETWORK
@@ -106,7 +106,7 @@ Error response from daemon: Cannot create a multi-host network from a worker nod
 
 如果不使用-d指定driver将默认创建本地bridge网络。
 
-## 自定义网络##
+## 自定义网络
 
 创建自定义网络需要设置网络的driver和ipam。
 

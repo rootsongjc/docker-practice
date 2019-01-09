@@ -27,16 +27,13 @@
 
 修改docker配置文件``/usr/lib/systemd/system/docker.service``
 
-```
+```bash
 ExecStart=/usr/bin/dockerd --insecure-registry=sz-pg-oam-docker-hub-001.tendcloud.com -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
 ```
 
 修改好后
 
-```
+```bash
 systemctl daemon-reload
 systemctl restart docker
 ```
-
-
-

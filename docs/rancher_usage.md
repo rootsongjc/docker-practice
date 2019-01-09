@@ -8,19 +8,19 @@ Rancher可以直接使用容器部署，部署起来非常简单。
 
 运行ranche server
 
-```shell
+```bash
 sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
 ```
 
 运行rancher agent
 
-```
+```bash
 sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/agent
 ```
 
 对于无法联网的主机先将镜像下载到本地然后上传到服务器上。
 
-```Shell
+```bash
 docker pull rancher/server
 docker pull rancher/agent
 docker image save rancher/server:latest>rancher.tar
@@ -31,7 +31,7 @@ docker image save rancher/agent:latest>rancher.tar
 
 默认下载和使用的是latest版本的的rancher镜像，想查看具体的镜像版本，可以使用``docker inspect rancher/server|grep VERSION``命令查看server的版本，使用``docker inspect rancher/agent|grep IMAGE``查看agent版本，版本信息是做为镜像的ENV保存的，如：
 
-```
+```bash
 docker inspect rancher/server|grep VERSION
 "CATTLE_RANCHER_SERVER_VERSION=v1.4.1",
 "CATTLE_RANCHER_COMPOSE_VERSION=v0.12.2",
@@ -43,7 +43,7 @@ docker inspect rancher/server|grep VERSION
 "CATTLE_CATTLE_VERSION=v0.176.9",
 ```
 
-```
+```bash
 docker inspect rancher/agent|grep IMAGE  
 "RANCHER_AGENT_IMAGE=rancher/agent:v1.1.0"
 "ENV RANCHER_AGENT_IMAGE=rancher/agent:v1.1.0"
@@ -58,7 +58,7 @@ docker inspect rancher/agent|grep IMAGE
 
 在主机sz-pg-oam-docker-test-001.tendcloud.com上执行以下命令启动Rancher server
 
-```Shell
+```bash
 $ sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
 ```
 

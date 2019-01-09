@@ -20,7 +20,7 @@ build命令在docker swarm mode下使用docker stack deploy命令时是无效的
 
 假如Dockerfile中有如下两个变量``$buildno``和``$password``
 
-```dockerfile
+```docker
 ARG buildno
 ARG password
 
@@ -48,7 +48,7 @@ build:
 
 也可以忽略这两个变量。
 
-```
+```yaml
 args:
   - buildno
   - password
@@ -56,7 +56,7 @@ args:
 
 ### command
 
-```
+```bash
 command: bundle exec thin -p 3000
 ```
 

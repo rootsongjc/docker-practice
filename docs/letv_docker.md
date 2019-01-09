@@ -2,11 +2,7 @@
 
 ### 背景
 
-2014年乐视云开始尝试Docker的推广和使用，我们的团队开始开发第一代容器云平台Harbor （分享网址：
-
-http://dockone.io/article/1091
-
- ）。（在这里提醒一下，这与VMware公司中国团队为企业用户设计的Docker Registry erver开源项目Harbor 重名）。
+2014年乐视云开始尝试Docker的推广和使用，我们的团队开始开发第一代容器云平台Harbor （分享网址：http://dockone.io/article/1091 ）。（在这里提醒一下，这与VMware公司中国团队为企业用户设计的Docker Registry erver开源项目Harbor 重名）。
 
 第一代容器云平台可以认为是一个开放的托管平台。开发者可以将自己从公司申请的虚拟机或者物理机添加到Harbor系统中进行托管管理，平台基本包含：镜像自动构建（CI），应用快速扩容、缩容、灰度升级，资源权限管理，多集群主机管理等功能。 
 
