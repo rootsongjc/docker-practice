@@ -4,11 +4,11 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>7.1 内存资源限制 · Docker Handbook</title>
+        <title>内存资源限制 · Docker Handbook - Docker 实践指南 by Jimmy Song(宋净超)</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
-        <meta name="author" content="Jimmy Song">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Jimmy Song（宋净超）">
         
         
     
@@ -25,10 +25,6 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
-                
-            
-                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
                 
             
@@ -41,7 +37,11 @@
                 
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-ghcolors.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-lightbox/lightbox.min.css">
                 
             
                 
@@ -81,6 +81,8 @@
     
     <link rel="next" href="cpu_resource_limit.html" />
     
+    
+    <link rel="prev" href="rancher_usage.html" />
     
 
     
@@ -125,7 +127,52 @@
     
         
         <li>
+            <a href="https://jimmysong.io/istio-handbook" target="_blank" class="custom-link">Istio Handbook - Istio 中文指南/服务网格实践手册</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://jimmysong.io/posts/cloud-native-python" target="_blank" class="custom-link">Cloud Native Python（Python云原生） - 使用Python和React构建云原生应用</a>
+        </li>
+    
+        
+        <li>
+            <a href="http://www.servicemesher.com" target="_blank" class="custom-link">ServiceMesher社区</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/alipay/sofa-mesh" target="_blank" class="custom-link">SOFAMesh - 基于Istio的大规模服务网格解决方案</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://jimmysong.io/posts/cloud-native-java" target="_blank" class="custom-link">Cloud Native Java（云原生Java）-  Spring Boot、Spring Cloud与Cloud Foundry弹性系统设计</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/alipay/sofa-mosn" target="_blank" class="custom-link">SOFAMosn - Golang版的高性能Service Mesh Sidecar代理</a>
+        </li>
+    
+        
+        <li>
+            <a href="http://www.servicemesher.com/awesome-servicemesh" target="_blank" class="custom-link">Awesome Service Mesh</a>
+        </li>
+    
+        
+        <li>
             <a href="https://jimmysong.io" target="_blank" class="custom-link">Jimmy Song</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://jimmysong.io/awesome-cloud-native" target="_blank" class="custom-link">Awesome Cloud Native</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://jimmysong.io/posts/cloud-native-go" target="_blank" class="custom-link">Cloud Native Go - 基于Go和React的web云原生应用构建指南</a>
         </li>
     
     
@@ -136,6 +183,8 @@
 
     
         
+        <li class="header">序言</li>
+        
         
     
         <li class="chapter " data-level="1.1" data-path="../">
@@ -143,7 +192,9 @@
                 <a href="../">
             
                     
-                    1. 前言
+                        <b>1.1.</b>
+                    
+                    前言
             
                 </a>
             
@@ -151,26 +202,21 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" >
-            
-                <span>
-            
-                    
-                    2. 环境配置
-            
-                </span>
-            
 
-            
-            <ul class="articles">
-                
     
-        <li class="chapter " data-level="1.2.1" data-path="docker_env.html">
+        
+        <li class="header">环境配置</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="docker_env.html">
             
                 <a href="docker_env.html">
             
                     
-                    2.1 Docker1.13环境配置
+                        <b>2.1.</b>
+                    
+                    Docker1.13环境配置
             
                 </a>
             
@@ -178,12 +224,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="docker_compile.html">
+        <li class="chapter " data-level="2.2" data-path="docker_compile.html">
             
                 <a href="docker_compile.html">
             
                     
-                    2.2 Docker源码编译
+                        <b>2.2.</b>
+                    
+                    Docker源码编译
             
                 </a>
             
@@ -192,30 +240,20 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.3" >
-            
-                <span>
-            
-                    
-                    3. 网络管理
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">网络管理</li>
+        
+        
     
-        <li class="chapter " data-level="1.3.1" data-path="create_network.html">
+        <li class="chapter " data-level="3.1" data-path="create_network.html">
             
                 <a href="create_network.html">
             
                     
-                    3.1 如何创建docker network
+                        <b>3.1.</b>
+                    
+                    如何创建docker network
             
                 </a>
             
@@ -223,12 +261,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="rancher_network.html">
+        <li class="chapter " data-level="3.2" data-path="rancher_network.html">
             
                 <a href="rancher_network.html">
             
                     
-                    3.2 Rancher网络探讨和扁平网络实现
+                        <b>3.2.</b>
+                    
+                    Rancher网络探讨和扁平网络实现
             
                 </a>
             
@@ -236,12 +276,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="swarm_mode_routing_mesh.html">
+        <li class="chapter " data-level="3.3" data-path="swarm_mode_routing_mesh.html">
             
                 <a href="swarm_mode_routing_mesh.html">
             
                     
-                    3.3 swarm mode的路由网络
+                        <b>3.3.</b>
+                    
+                    swarm mode的路由网络
             
                 </a>
             
@@ -249,12 +291,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" >
+        <li class="chapter " data-level="3.4" >
             
                 <a target="_blank" href="https://github.com/TalkingData/shrike">
             
                     
-                    3.4 docker扁平化网络插件Shrike（基于docker1.11）
+                        <b>3.4.</b>
+                    
+                    docker扁平化网络插件Shrike（基于docker1.11）
             
                 </a>
             
@@ -263,30 +307,20 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.4" >
-            
-                <span>
-            
-                    
-                    4. 存储管理
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">存储管理</li>
+        
+        
     
-        <li class="chapter " data-level="1.4.1" data-path="docker_storage_plugin.html">
+        <li class="chapter " data-level="4.1" data-path="docker_storage_plugin.html">
             
                 <a href="docker_storage_plugin.html">
             
                     
-                    4.1 Docker存储插件
+                        <b>4.1.</b>
+                    
+                    Docker存储插件
             
                 </a>
             
@@ -294,12 +328,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="infinit.html">
+        <li class="chapter " data-level="4.2" data-path="infinit.html">
             
                 <a href="infinit.html">
             
                     
-                    4.2 infinit
+                        <b>4.2.</b>
+                    
+                    infinit
             
                 </a>
             
@@ -307,12 +343,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="convoy.html">
+        <li class="chapter " data-level="4.3" data-path="convoy.html">
             
                 <a href="convoy.html">
             
                     
-                    4.3 convoy
+                        <b>4.3.</b>
+                    
+                    convoy
             
                 </a>
             
@@ -320,12 +358,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="torus.html">
+        <li class="chapter " data-level="4.4" data-path="torus.html">
             
                 <a href="torus.html">
             
                     
-                    4.4 torus
+                        <b>4.4.</b>
+                    
+                    torus
             
                 </a>
             
@@ -333,12 +373,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="flocker.html">
+        <li class="chapter " data-level="4.5" data-path="flocker.html">
             
                 <a href="flocker.html">
             
                     
-                    4.5 flocker
+                        <b>4.5.</b>
+                    
+                    flocker
             
                 </a>
             
@@ -347,30 +389,20 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.5" >
-            
-                <span>
-            
-                    
-                    5. 创建应用
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">创建应用</li>
+        
+        
     
-        <li class="chapter " data-level="1.5.1" data-path="create_swarm_app.html">
+        <li class="chapter " data-level="5.1" data-path="create_swarm_app.html">
             
                 <a href="create_swarm_app.html">
             
                     
-                    5.1 基于docker1.13手把手教你创建swarm app
+                        <b>5.1.</b>
+                    
+                    基于docker1.13手把手教你创建swarm app
             
                 </a>
             
@@ -378,12 +410,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="swarm_app_manage.html">
+        <li class="chapter " data-level="5.2" data-path="swarm_app_manage.html">
             
                 <a href="swarm_app_manage.html">
             
                     
-                    5.2 swarm集群应用管理
+                        <b>5.2.</b>
+                    
+                    swarm集群应用管理
             
                 </a>
             
@@ -391,12 +425,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="docker_compose.html">
+        <li class="chapter " data-level="5.3" data-path="docker_compose.html">
             
                 <a href="docker_compose.html">
             
                     
-                    5.3 使用docker-compose创建应用
+                        <b>5.3.</b>
+                    
+                    使用docker-compose创建应用
             
                 </a>
             
@@ -405,30 +441,20 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.6" >
-            
-                <span>
-            
-                    
-                    6. 集群管理
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">集群管理</li>
+        
+        
     
-        <li class="chapter " data-level="1.6.1" data-path="crane_usage.html">
+        <li class="chapter " data-level="6.1" data-path="crane_usage.html">
             
                 <a href="crane_usage.html">
             
                     
-                    6.1 Crane的部署和使用
+                        <b>6.1.</b>
+                    
+                    Crane的部署和使用
             
                 </a>
             
@@ -436,12 +462,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="rancher_usage.html">
+        <li class="chapter " data-level="6.2" data-path="rancher_usage.html">
             
                 <a href="rancher_usage.html">
             
                     
-                    6.2Rancher的部署和使用
+                        <b>6.2.</b>
+                    
+                    Rancher的部署和使用
             
                 </a>
             
@@ -450,30 +478,20 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.7" >
-            
-                <span>
-            
-                    
-                    7. 资源限制
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">资源限制</li>
+        
+        
     
-        <li class="chapter active" data-level="1.7.1" data-path="memory_resource_limit.html">
+        <li class="chapter active" data-level="7.1" data-path="memory_resource_limit.html">
             
                 <a href="memory_resource_limit.html">
             
                     
-                    7.1 内存资源限制
+                        <b>7.1.</b>
+                    
+                    内存资源限制
             
                 </a>
             
@@ -481,12 +499,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.2" data-path="cpu_resource_limit.html">
+        <li class="chapter " data-level="7.2" data-path="cpu_resource_limit.html">
             
                 <a href="cpu_resource_limit.html">
             
                     
-                    7.2 CPU资源限制
+                        <b>7.2.</b>
+                    
+                    CPU资源限制
             
                 </a>
             
@@ -494,12 +514,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="io_resource_limit.html">
+        <li class="chapter " data-level="7.3" data-path="io_resource_limit.html">
             
                 <a href="io_resource_limit.html">
             
                     
-                    7.3IO资源限制
+                        <b>7.3.</b>
+                    
+                    IO资源限制
             
                 </a>
             
@@ -508,16 +530,20 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.8" data-path="service-discovery.html">
+        
+        <li class="header">服务发现</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="service-discovery.html">
             
                 <a href="service-discovery.html">
             
                     
-                    8. 服务发现
+                        <b>8.1.</b>
+                    
+                    服务发现详解
             
                 </a>
             
@@ -525,26 +551,21 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" >
-            
-                <span>
-            
-                    
-                    9. 插件开发
-            
-                </span>
-            
 
-            
-            <ul class="articles">
-                
     
-        <li class="chapter " data-level="1.9.1" data-path="plugin_developing.html">
+        
+        <li class="header">插件开发</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="plugin_developing.html">
             
                 <a href="plugin_developing.html">
             
                     
-                    9.1 插件开发示例-sshfs
+                        <b>9.1.</b>
+                    
+                    插件开发示例-sshfs
             
                 </a>
             
@@ -552,12 +573,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" >
+        <li class="chapter " data-level="9.2" >
             
                 <a target="_blank" href="https://jimmysong.io/posts/docker-plugin-develop/">
             
                     
-                    9.2 我的docker插件开发文章
+                        <b>9.2.</b>
+                    
+                    我的docker插件开发文章
             
                 </a>
             
@@ -565,12 +588,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3" >
+        <li class="chapter " data-level="9.3" >
             
                 <a target="_blank" href="https://jimmysong.io/posts/docker-plugin-develop/">
             
                     
-                    9.3 Docker17.03-CE插件开发举例
+                        <b>9.3.</b>
+                    
+                    Docker17.03-CE插件开发举例
             
                 </a>
             
@@ -579,28 +604,18 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.10" >
-            
-                <span>
-            
-                    
-                    10. 网络插件
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">网络插件</li>
+        
+        
     
-        <li class="chapter " data-level="1.10.1" >
+        <li class="chapter " data-level="10.1" >
             
                 <a target="_blank" href="https://jimmysong.io/tags/contiv/">
             
+                    
+                        <b>10.1.</b>
                     
                     Contiv
             
@@ -610,10 +625,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.2" >
+        <li class="chapter " data-level="10.2" >
             
                 <a target="_blank" href="https://github.com/calico">
             
+                    
+                        <b>10.2.</b>
                     
                     Calico
             
@@ -624,30 +641,20 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.11" >
-            
-                <span>
-            
-                    
-                    11. 业界使用案例
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">业界使用案例</li>
+        
+        
     
-        <li class="chapter " data-level="1.11.1" data-path="jd_transform_to_kubernetes.html">
+        <li class="chapter " data-level="11.1" data-path="jd_transform_to_kubernetes.html">
             
                 <a href="jd_transform_to_kubernetes.html">
             
                     
-                    11.1 京东从OpenStack切换到Kubernetes的经验之谈
+                        <b>11.1.</b>
+                    
+                    京东从OpenStack切换到Kubernetes的经验之谈
             
                 </a>
             
@@ -655,12 +662,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.2" data-path="meituan_docker_platform.html">
+        <li class="chapter " data-level="11.2" data-path="meituan_docker_platform.html">
             
                 <a href="meituan_docker_platform.html">
             
                     
-                    11.2 美团点评容器平台介绍
+                        <b>11.2.</b>
+                    
+                    美团点评容器平台介绍
             
                 </a>
             
@@ -668,12 +677,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.3" data-path="ali_docker.html">
+        <li class="chapter " data-level="11.3" data-path="ali_docker.html">
             
                 <a href="ali_docker.html">
             
                     
-                    11.3 阿里超大规模docker化之路
+                        <b>11.3.</b>
+                    
+                    阿里超大规模docker化之路
             
                 </a>
             
@@ -681,12 +692,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.4" >
+        <li class="chapter " data-level="11.4" >
             
                 <a target="_blank" href="https://jimmysong.io/posts/yarn-on-docker/">
             
                     
-                    11.4 Yarn on Docker
+                        <b>11.4.</b>
+                    
+                    Yarn on Docker
             
                 </a>
             
@@ -694,12 +707,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.5" data-path="letv_docker.html">
+        <li class="chapter " data-level="11.5" data-path="letv_docker.html">
             
                 <a href="letv_docker.html">
             
                     
-                    11.5 乐视云基于Kubernetes的PaaS平台建设
+                        <b>11.5.</b>
+                    
+                    乐视云基于Kubernetes的PaaS平台建设
             
                 </a>
             
@@ -708,30 +723,20 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.12" >
-            
-                <span>
-            
-                    
-                    12. 未来
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">未来</li>
+        
+        
     
-        <li class="chapter " data-level="1.12.1" >
+        <li class="chapter " data-level="12.1" >
             
                 <a target="_blank" href="https://jimmysong.io/tags/kubernetes/">
             
                     
-                    12.1 我的kubernetes探险之旅
+                        <b>12.1.</b>
+                    
+                    我的kubernetes探险之旅
             
                 </a>
             
@@ -739,12 +744,29 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.2" >
+        <li class="chapter " data-level="12.2" >
             
                 <a target="_blank" href="https://jimmysong.io/kubernetes-handbook">
             
                     
-                    12.2 Kubernetes handbook
+                        <b>12.2.</b>
+                    
+                    Kubernetes Handbook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" >
+            
+                <a target="_blank" href="https://jimmysong.io/istio-handbook">
+            
+                    
+                        <b>12.3.</b>
+                    
+                    Istio Handbook
             
                 </a>
             
@@ -753,30 +775,20 @@
         </li>
     
 
-            </ul>
-            
-        </li>
     
-        <li class="chapter " data-level="1.13" >
-            
-                <span>
-            
-                    
-                    13. 相关资源
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
+        
+        <li class="header">相关资源</li>
+        
+        
     
-        <li class="chapter " data-level="1.13.1" data-path="tech_resource.html">
+        <li class="chapter " data-level="13.1" data-path="tech_resource.html">
             
                 <a href="tech_resource.html">
             
                     
-                    13.1 容器技术工具与资源
+                        <b>13.1.</b>
+                    
+                    容器技术工具与资源
             
                 </a>
             
@@ -784,21 +796,18 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.2" data-path="container_2016.html">
+        <li class="chapter " data-level="13.2" data-path="container_2016.html">
             
                 <a href="container_2016.html">
             
                     
-                    13.2 容器技术2016年总结
+                        <b>13.2.</b>
+                    
+                    容器技术2016年总结
             
                 </a>
             
 
-            
-        </li>
-    
-
-            </ul>
             
         </li>
     
@@ -832,7 +841,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >7.1 内存资源限制</a>
+        <a href=".." >内存资源限制</a>
     </h1>
 </div>
 
@@ -847,71 +856,77 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="docker&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x9650;&#x5236;">Docker&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x9650;&#x5236;</h1>
+                                <html><head></head><body><h1 id="docker&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x9650;&#x5236;">Docker&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x9650;&#x5236;</h1>
 <h2 id="&#x4E00;&#x3001;&#x538B;&#x6D4B;&#x5DE5;&#x5177;">&#x4E00;&#x3001;&#x538B;&#x6D4B;&#x5DE5;&#x5177;</h2>
 <ul>
 <li><a href="http://people.seas.harvard.edu/~apw/stress/" target="_blank">stress</a></li>
 </ul>
 <p>&#x901A;&#x8FC7;&#x5982;&#x4E0B; Dockerfile &#x6784;&#x5EFA;&#x7B80;&#x5355;&#x7684;&#x6D4B;&#x8BD5;&#x955C;&#x50CF;</p>
-<pre><code>&#x279C;  cat Dockerfile
+<pre class="language-"><code class="lang-bash">&#x279C;  <span class="token function">cat</span> Dockerfile
 FROM ubuntu:latest
 
-RUN apt-get update &amp;&amp; \
-    apt-get install stress
-&#x279C;   docker build -t ubuntu-stress:latest .
-</code></pre><h2 id="&#x4E8C;&#x3001;&#x5185;&#x5B58;&#x6D4B;&#x8BD5;">&#x4E8C;&#x3001;&#x5185;&#x5B58;&#x6D4B;&#x8BD5;</h2>
+RUN <span class="token function">apt-get</span> update <span class="token operator">&amp;&amp;</span> \
+    <span class="token function">apt-get</span> <span class="token function">install</span> stress
+&#x279C;   docker build -t ubuntu-stress:latest <span class="token keyword">.</span>
+</code></pre>
+<h2 id="&#x4E8C;&#x3001;&#x5185;&#x5B58;&#x6D4B;&#x8BD5;">&#x4E8C;&#x3001;&#x5185;&#x5B58;&#x6D4B;&#x8BD5;</h2>
 <ul>
 <li><a href="https://docs.docker.com/engine/reference/run/#runtime-constraints-on-resources" target="_blank">Runtime constraints on resources</a></li>
 <li>&#x76EE;&#x524D; Docker &#x652F;&#x6301;&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x9650;&#x5236;&#x9009;&#x9879;<ul>
-<li><code>-m</code>, <code>--memory=&quot;&quot;</code>Memory limit (format: <code>&lt;number&gt;[&lt;unit&gt;]</code>). Number is a positive integer. Unit can be one of <code>b</code>, <code>k</code>, <code>m</code>, or <code>g</code>. Minimum is 4M.</li>
-<li><code>--memory-swap=&quot;&quot;</code>Total memory limit (memory + swap, format: <code>&lt;number&gt;[&lt;unit&gt;]</code>). Number is a positive integer. Unit can be one of <code>b</code>, <code>k</code>, <code>m</code>, or <code>g</code>.</li>
+<li><code>-m</code>, <code>--memory=&quot;&quot;</code>Memory limit (format: <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>number</span><span class="token punctuation">&gt;</span></span>[<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>unit</span><span class="token punctuation">&gt;</span></span>]</code>). Number is a positive integer. Unit can be one of <code>b</code>, <code>k</code>, <code>m</code>, or <code>g</code>. Minimum is 4M.</li>
+<li><code>--memory-swap=&quot;&quot;</code>Total memory limit (memory + swap, format: <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>number</span><span class="token punctuation">&gt;</span></span>[<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>unit</span><span class="token punctuation">&gt;</span></span>]</code>). Number is a positive integer. Unit can be one of <code>b</code>, <code>k</code>, <code>m</code>, or <code>g</code>.</li>
 <li><code>--memory-swappiness=&quot;&quot;</code>Tune a container&#x2019;s memory swappiness behavior. Accepts an integer between 0 and 100.</li>
-<li><code>--shm-size=&quot;&quot;</code>Size of <code>/dev/shm</code>. The format is <code>&lt;number&gt;&lt;unit&gt;</code>. number must be greater than 0. Unit is optional and can be <code>b</code> (bytes), <code>k</code> (kilobytes), <code>m</code> (megabytes), or <code>g</code>(gigabytes). If you omit the unit, the system uses bytes. If you omit the size entirely, the system uses <code>64m</code>.&#x6839;&#x636E;&#x5B9E;&#x9645;&#x9700;&#x6C42;&#x8BBE;&#x7F6E;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x4F5C;&#x8FC7;&#x591A;&#x7684;&#x4ECB;&#x7ECD;</li>
-<li><code>--memory-reservation=&quot;&quot;</code>Memory soft limit (format: <code>&lt;number&gt;[&lt;unit&gt;]</code>). Number is a positive integer. Unit can be one of <code>b</code>, <code>k</code>, <code>m</code>, or <code>g</code>.</li>
-<li><code>--kernel-memory=&quot;&quot;</code>Kernel memory limit (format: <code>&lt;number&gt;[&lt;unit&gt;]</code>). Number is a positive integer. Unit can be one of <code>b</code>, <code>k</code>, <code>m</code>, or <code>g</code>. Minimum is 4M.kernel memory &#x6CA1;&#x6709;&#x7279;&#x6B8A;&#x9700;&#x6C42;&#xFF0C;&#x5219;&#x65E0;&#x9700;&#x989D;&#x5916;&#x8BBE;&#x7F6E;</li>
+<li><code>--shm-size=&quot;&quot;</code>Size of <code>/dev/shm</code>. The format is <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>number</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>unit</span><span class="token punctuation">&gt;</span></span></code>. number must be greater than 0. Unit is optional and can be <code>b</code> (bytes), <code>k</code> (kilobytes), <code>m</code> (megabytes), or <code>g</code>(gigabytes). If you omit the unit, the system uses bytes. If you omit the size entirely, the system uses <code>64m</code>.&#x6839;&#x636E;&#x5B9E;&#x9645;&#x9700;&#x6C42;&#x8BBE;&#x7F6E;&#xFF0C;&#x8FD9;&#x91CC;&#x4E0D;&#x4F5C;&#x8FC7;&#x591A;&#x7684;&#x4ECB;&#x7ECD;</li>
+<li><code>--memory-reservation=&quot;&quot;</code>Memory soft limit (format: <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>number</span><span class="token punctuation">&gt;</span></span>[<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>unit</span><span class="token punctuation">&gt;</span></span>]</code>). Number is a positive integer. Unit can be one of <code>b</code>, <code>k</code>, <code>m</code>, or <code>g</code>.</li>
+<li><code>--kernel-memory=&quot;&quot;</code>Kernel memory limit (format: <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>number</span><span class="token punctuation">&gt;</span></span>[<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>unit</span><span class="token punctuation">&gt;</span></span>]</code>). Number is a positive integer. Unit can be one of <code>b</code>, <code>k</code>, <code>m</code>, or <code>g</code>. Minimum is 4M.kernel memory &#x6CA1;&#x6709;&#x7279;&#x6B8A;&#x9700;&#x6C42;&#xFF0C;&#x5219;&#x65E0;&#x9700;&#x989D;&#x5916;&#x8BBE;&#x7F6E;</li>
 <li><code>--oom-kill-disable=false</code>Whether to disable OOM Killer for the container or not.</li>
 </ul>
 </li>
 </ul>
 <p>&#x9ED8;&#x8BA4;&#x542F;&#x52A8;&#x4E00;&#x4E2A; container&#xFF0C;&#x5BF9;&#x4E8E;&#x5BB9;&#x5668;&#x7684;&#x5185;&#x5B58;&#x662F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x9650;&#x5236;&#x7684;&#x3002;</p>
-<pre><code>&#x279C;  ~ docker help run | grep memory  # &#x6D4B;&#x8BD5; docker &#x7248;&#x672C; 1.10.2&#xFF0C;&#x5BBF;&#x4E3B;&#x7CFB;&#x7EDF; Ubuntu 14.04.1
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker <span class="token function">help</span> run <span class="token operator">|</span> <span class="token function">grep</span> memory  <span class="token comment"># &#x6D4B;&#x8BD5; docker &#x7248;&#x672C; 1.10.2&#xFF0C;&#x5BBF;&#x4E3B;&#x7CFB;&#x7EDF; Ubuntu 14.04.1</span>
   --kernel-memory                 Kernel memory limit
   -m, --memory                    Memory limit
   --memory-reservation            Memory soft limit
-  --memory-swap                   Swap limit equal to memory plus swap: &apos;-1&apos; to enable unlimited swap
-  --memory-swappiness=-1          Tune container memory swappiness (0 to 100)
+  --memory-swap                   Swap limit equal to memory plus swap: <span class="token string">&apos;-1&apos;</span> to <span class="token function">enable</span> unlimited swap
+  --memory-swappiness<span class="token operator">=</span>-1          Tune container memory swappiness <span class="token punctuation">(</span>0 to 100<span class="token punctuation">)</span>
 &#x279C;  ~
-</code></pre><h3 id="21--m----memory-swap-">2.1 <code>-m ... --memory-swap ...</code></h3>
+</code></pre>
+<h3 id="21--m----memory-swap-">2.1 <code>-m ... --memory-swap ...</code></h3>
 <ul>
 <li><code>docker run -it --rm -m 100M --memory-swap -1 ubuntu-stress:latest /bin/bash</code></li>
 </ul>
 <p>&#x6307;&#x5B9A;&#x9650;&#x5236;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x5E76;&#x4E14;&#x8BBE;&#x7F6E; memory-swap &#x503C;&#x4E3A; -1&#xFF0C;&#x8868;&#x793A;&#x5BB9;&#x5668;&#x7A0B;&#x5E8F;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x53D7;&#x9650;&#xFF0C;&#x800C; swap &#x7A7A;&#x95F4;&#x4F7F;&#x7528;&#x4E0D;&#x53D7;&#x9650;&#x5236;&#xFF08;&#x5BBF;&#x4E3B; swap &#x652F;&#x6301;&#x4F7F;&#x7528;&#x591A;&#x5C11;&#x5219;&#x5BB9;&#x5668;&#x5373;&#x53EF;&#x4F7F;&#x7528;&#x591A;&#x5C11;&#x3002;&#x5982;&#x679C; <code>--memory-swap</code> &#x8BBE;&#x7F6E;&#x5C0F;&#x4E8E; <code>--memory</code>&#x5219;&#x8BBE;&#x7F6E;&#x4E0D;&#x751F;&#x6548;&#xFF0C;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#xFF09;&#x3002;</p>
-<pre><code>&#x279C;  ~ docker run -it --rm -m 100M --memory-swap -1 ubuntu-stress:latest /bin/bash
-root@4b61f98e787d:/# stress --vm 1 --vm-bytes 1000M  # &#x901A;&#x8FC7; stress &#x5DE5;&#x5177;&#x5BF9;&#x5BB9;&#x5668;&#x5185;&#x5B58;&#x505A;&#x538B;&#x6D4B;
-stress: info: [14] dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
-</code></pre><p>&#x4F7F;&#x7528; <code>docker stats</code> &#x67E5;&#x770B;&#x5F53;&#x524D;&#x5BB9;&#x5668;&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x4F7F;&#x7528;&#xFF1A;</p>
-<pre><code>&#x279C;  ~ docker stats 4b61f98e787d
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker run -it --rm -m 100M --memory-swap -1 ubuntu-stress:latest /bin/bash
+root@4b61f98e787d:/<span class="token comment"># stress --vm 1 --vm-bytes 1000M  # &#x901A;&#x8FC7; stress &#x5DE5;&#x5177;&#x5BF9;&#x5BB9;&#x5668;&#x5185;&#x5B58;&#x505A;&#x538B;&#x6D4B;</span>
+stress: info: <span class="token punctuation">[</span>14<span class="token punctuation">]</span> dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
+</code></pre>
+<p>&#x4F7F;&#x7528; <code>docker stats</code> &#x67E5;&#x770B;&#x5F53;&#x524D;&#x5BB9;&#x5668;&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker stats 4b61f98e787d
 CONTAINER           CPU %               MEM USAGE/LIMIT     MEM %               NET I/O
 4b61f98e787d        6.74%               104.8 MB/104.9 MB   99.94%              4.625 kB/648 B
-</code></pre><p>&#x901A;&#x8FC7; <code>top</code> &#x5B9E;&#x65F6;&#x76D1;&#x63A7; stress &#x8FDB;&#x7A0B;&#x5185;&#x5B58;&#x5360;&#x7528;&#xFF1A;</p>
-<pre><code>&#x279C;  ~ pgrep stress
+</code></pre>
+<p>&#x901A;&#x8FC7; <code>top</code> &#x5B9E;&#x65F6;&#x76D1;&#x63A7; stress &#x8FDB;&#x7A0B;&#x5185;&#x5B58;&#x5360;&#x7528;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ pgrep stress
 8209
-8210    # &#x9700;&#x67E5;&#x770B; stress &#x5B50;&#x8FDB;&#x7A0B;&#x5360;&#x7528;&#xFF0C;
-&#x279C;  ~ top -p 8210    # &#x663E;&#x793A;&#x53EF;&#x4EE5;&#x5F97;&#x77E5; stress &#x7684; RES &#x5360;&#x7528;&#x4E3A; 100m&#xFF0C;&#x800C; VIRT &#x5360;&#x7528;&#x4E3A; 1007m
-top - 17:51:31 up 35 min,  2 users,  load average: 1.14, 1.11, 1.06
+8210    <span class="token comment"># &#x9700;&#x67E5;&#x770B; stress &#x5B50;&#x8FDB;&#x7A0B;&#x5360;&#x7528;&#xFF0C;</span>
+&#x279C;  ~ <span class="token function">top</span> -p 8210    <span class="token comment"># &#x663E;&#x793A;&#x53EF;&#x4EE5;&#x5F97;&#x77E5; stress &#x7684; RES &#x5360;&#x7528;&#x4E3A; 100m&#xFF0C;&#x800C; VIRT &#x5360;&#x7528;&#x4E3A; 1007m</span>
+<span class="token function">top</span> - 17:51:31 up 35 min,  2 users,  load average: 1.14, 1.11, 1.06
 Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
-%Cpu(s):  0.2 us,  3.1 sy,  0.0 ni, 74.8 id, 21.9 wa,  0.0 hi,  0.0 si,  0.0 st
+%Cpu<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:  0.2 us,  3.1 sy,  0.0 ni, 74.8 id, 21.9 wa,  0.0 hi,  0.0 si,  0.0 st
 KiB Mem:   8102564 total,  6397064 used,  1705500 free,   182864 buffers
 KiB Swap: 15625212 total,  1030028 used, 14595184 free.  4113952 cached Mem
 
   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
  8210 root      20   0 1007.1m 100.3m   0.6m D  13.1  1.3   0:22.59 stress
-</code></pre><p>&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x83B7;&#x53D6; stress &#x8FDB;&#x7A0B;&#x7684; swap &#x5360;&#x7528;&#xFF1A;</p>
-<pre><code>&#x279C;  ~ for file in /proc/*/status ; do awk &apos;/VmSwap|Name/{printf $2 &quot; &quot; $3}END{ print &quot;&quot;}&apos; $file; done | sort -k 2 -n -r | grep stress
+</code></pre>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x83B7;&#x53D6; stress &#x8FDB;&#x7A0B;&#x7684; swap &#x5360;&#x7528;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ <span class="token keyword">for</span> <span class="token function">file</span> <span class="token keyword">in</span> /proc/*/status <span class="token punctuation">;</span> <span class="token keyword">do</span> <span class="token function">awk</span> <span class="token string">&apos;/VmSwap|Name/{printf <span class="token variable">$2</span> &quot; &quot; <span class="token variable">$3</span>}END{ print &quot;&quot;}&apos;</span> <span class="token variable">$file</span><span class="token punctuation">;</span> <span class="token keyword">done</span> <span class="token operator">|</span> <span class="token function">sort</span> -k 2 -n -r <span class="token operator">|</span> <span class="token function">grep</span> stress
 stress 921716 kB
 stress 96 kB
 &#x279C;  ~
-</code></pre><ul>
+</code></pre>
+<ul>
 <li><code>docker run -it --rm -m 100M ubuntu-stress:latest /bin/bash</code></li>
 </ul>
 <p>&#x6309;&#x7167;&#x5B98;&#x65B9;&#x6587;&#x6863;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x5982;&#x679C;&#x6307;&#x5B9A; <code>-m</code> &#x5185;&#x5B58;&#x9650;&#x5236;&#x65F6;&#x4E0D;&#x6DFB;&#x52A0; <code>--memory-swap</code> &#x9009;&#x9879;&#xFF0C;&#x5219;&#x8868;&#x793A;&#x5BB9;&#x5668;&#x4E2D;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; 100M &#x5185;&#x5B58;&#x548C; 100M swap &#x5185;&#x5B58;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>--memory-swap</code> &#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x6210; memory &#x7684; 2&#x500D;&#x3002;</p>
@@ -919,8 +934,10 @@ stress 96 kB
 <p>We set memory limit(300M) only, this means the processes in the container can use 300M memory and 300M swap memory, by default, the total virtual memory size <code>--memory-swap</code>will be set as double of memory, in this case, memory + swap would be 2*300M, so processes can use 300M swap memory as well.</p>
 </blockquote>
 <p>&#x5982;&#x679C;&#x6309;&#x7167;&#x4EE5;&#x4E0A;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x5BB9;&#x5668;&#x63D0;&#x793A;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF1A;</p>
-<pre><code>WARNING: Your kernel does not support swap limit capabilities, memory limited without swap.
-</code></pre><p>&#x53EF;&#x53C2;&#x8003; <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/" target="_blank">Adjust memory and swap accounting</a> &#x83B7;&#x53D6;&#x89E3;&#x51B3;&#x65B9;&#x6848;:</p>
+<blockquote>
+<p>WARNING: Your kernel does not support swap limit capabilities, memory limited without swap.</p>
+</blockquote>
+<p>&#x53EF;&#x53C2;&#x8003; <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/" target="_blank">Adjust memory and swap accounting</a> &#x83B7;&#x53D6;&#x89E3;&#x51B3;&#x65B9;&#x6848;:</p>
 <ul>
 <li>To enable memory and swap on system using GNU GRUB (GNU GRand Unified Bootloader), do the following:<ul>
 <li>Log into Ubuntu as a user with sudo privileges.</li>
@@ -938,56 +955,60 @@ stress 96 kB
 </ul>
 </li>
 </ul>
-<pre><code>&#x279C;  ~ docker run -it --rm -m 100M ubuntu-stress:latest /bin/bash
-root@ed670cdcb472:/# stress --vm 1 --vm-bytes 200M # &#x538B;&#x6D4B; 200M&#xFF0C;stress &#x8FDB;&#x7A0B;&#x4F1A;&#x88AB;&#x7ACB;&#x5373; kill &#x6389;
-stress: info: [17] dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
-stress: FAIL: [17] (416) &lt;-- worker 18 got signal 9
-stress: WARN: [17] (418) now reaping child worker processes
-stress: FAIL: [17] (452) failed run completed in 2s
-root@ed670cdcb472:/# stress --vm 1 --vm-bytes 199M
-</code></pre><p><code>docker stats</code> &#x548C; top &#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x5360;&#x7528;&#x60C5;&#x51B5;&#xFF1A;</p>
-<pre><code>&#x279C;  ~ docker stats ed670cdcb472
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker run -it --rm -m 100M ubuntu-stress:latest /bin/bash
+root@ed670cdcb472:/<span class="token comment"># stress --vm 1 --vm-bytes 200M # &#x538B;&#x6D4B; 200M&#xFF0C;stress &#x8FDB;&#x7A0B;&#x4F1A;&#x88AB;&#x7ACB;&#x5373; kill &#x6389;</span>
+stress: info: <span class="token punctuation">[</span>17<span class="token punctuation">]</span> dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
+stress: FAIL: <span class="token punctuation">[</span>17<span class="token punctuation">]</span> <span class="token punctuation">(</span>416<span class="token punctuation">)</span> <span class="token operator">&lt;</span>-- worker 18 got signal 9
+stress: WARN: <span class="token punctuation">[</span>17<span class="token punctuation">]</span> <span class="token punctuation">(</span>418<span class="token punctuation">)</span> now reaping child worker processes
+stress: FAIL: <span class="token punctuation">[</span>17<span class="token punctuation">]</span> <span class="token punctuation">(</span>452<span class="token punctuation">)</span> failed run completed <span class="token keyword">in</span> 2s
+root@ed670cdcb472:/<span class="token comment"># stress --vm 1 --vm-bytes 199M</span>
+</code></pre>
+<p><code>docker stats</code> &#x548C; top &#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x5360;&#x7528;&#x60C5;&#x51B5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker stats ed670cdcb472
 CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O
 ed670cdcb472        13.35%              104.3 MB / 104.9 MB   99.48%              6.163 kB / 648 B    26.23 GB / 29.21 GB
 &#x279C;  ~ pgrep stress
 16322
 16323
-&#x279C;  ~ top -p 16323
-top - 18:12:31 up 56 min,  2 users,  load average: 1.07, 1.07, 1.05
+&#x279C;  ~ <span class="token function">top</span> -p 16323
+<span class="token function">top</span> - 18:12:31 up 56 min,  2 users,  load average: 1.07, 1.07, 1.05
 Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
-%Cpu(s):  4.8 us,  4.0 sy,  0.0 ni, 69.6 id, 21.4 wa,  0.0 hi,  0.2 si,  0.0 st
+%Cpu<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:  4.8 us,  4.0 sy,  0.0 ni, 69.6 id, 21.4 wa,  0.0 hi,  0.2 si,  0.0 st
 KiB Mem:   8102564 total,  6403040 used,  1699524 free,   184124 buffers
 KiB Swap: 15625212 total,   149996 used, 15475216 free.  4110440 cached Mem
 
   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 16323 root      20   0  206.1m  91.5m   0.6m D   9.9  1.2   0:52.58 stress
-</code></pre><ul>
+</code></pre>
+<ul>
 <li><code>docker run -it -m 100M --memory-swap 400M ubuntu-stress:latest /bin/bash</code></li>
 </ul>
-<pre><code>&#x279C;  ~ docker run -it --rm -m 100M --memory-swap 400M ubuntu-stress:latest /bin/bash
-root@5ed1fd88a1aa:/# stress --vm 1 --vm-bytes 400M  # &#x538B;&#x6D4B;&#x5230; 400M &#x7A0B;&#x5E8F;&#x4F1A;&#x88AB; kill
-stress: info: [24] dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
-stress: FAIL: [24] (416) &lt;-- worker 25 got signal 9
-stress: WARN: [24] (418) now reaping child worker processes
-stress: FAIL: [24] (452) failed run completed in 3s
-root@5ed1fd88a1aa:/# stress --vm 1 --vm-bytes 399M  # &#x538B;&#x6D4B;&#x5230; 399M &#x7A0B;&#x5E8F;&#x521A;&#x597D;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#xFF08;&#x8FD9;&#x4E2A;&#x503C;&#x5DF2;&#x7ECF;&#x5904;&#x4E8E;&#x4E34;&#x754C;&#x4E86;&#xFF0C;&#x4E0D;&#x4FDD;&#x8BC1;&#x4E0D;&#x88AB; kill&#xFF09;
-</code></pre><p><code>docker stats</code> &#x548C; top &#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x5360;&#x7528;&#x60C5;&#x51B5;&#xFF1A;</p>
-<pre><code>&#x279C;  ~ docker stats 5ed1fd88a1aa
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker run -it --rm -m 100M --memory-swap 400M ubuntu-stress:latest /bin/bash
+root@5ed1fd88a1aa:/<span class="token comment"># stress --vm 1 --vm-bytes 400M  # &#x538B;&#x6D4B;&#x5230; 400M &#x7A0B;&#x5E8F;&#x4F1A;&#x88AB; kill</span>
+stress: info: <span class="token punctuation">[</span>24<span class="token punctuation">]</span> dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
+stress: FAIL: <span class="token punctuation">[</span>24<span class="token punctuation">]</span> <span class="token punctuation">(</span>416<span class="token punctuation">)</span> <span class="token operator">&lt;</span>-- worker 25 got signal 9
+stress: WARN: <span class="token punctuation">[</span>24<span class="token punctuation">]</span> <span class="token punctuation">(</span>418<span class="token punctuation">)</span> now reaping child worker processes
+stress: FAIL: <span class="token punctuation">[</span>24<span class="token punctuation">]</span> <span class="token punctuation">(</span>452<span class="token punctuation">)</span> failed run completed <span class="token keyword">in</span> 3s
+root@5ed1fd88a1aa:/<span class="token comment"># stress --vm 1 --vm-bytes 399M  # &#x538B;&#x6D4B;&#x5230; 399M &#x7A0B;&#x5E8F;&#x521A;&#x597D;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#xFF08;&#x8FD9;&#x4E2A;&#x503C;&#x5DF2;&#x7ECF;&#x5904;&#x4E8E;&#x4E34;&#x754C;&#x4E86;&#xFF0C;&#x4E0D;&#x4FDD;&#x8BC1;&#x4E0D;&#x88AB; kill&#xFF09;</span>
+</code></pre>
+<p><code>docker stats</code> &#x548C; top &#x83B7;&#x53D6;&#x8D44;&#x6E90;&#x5360;&#x7528;&#x60C5;&#x51B5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker stats 5ed1fd88a1aa
 CONTAINER           CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O
 5ed                 12.44%              104.8 MB / 104.9 MB   99.92%              4.861 kB / 648 B    9.138 GB / 10.16 GB
 &#x279C;  ~ pgrep stress
 22721
 22722
-&#x279C;  ~ top -p 22722
-top - 18:18:58 up  1:02,  2 users,  load average: 1.04, 1.04, 1.05
+&#x279C;  ~ <span class="token function">top</span> -p 22722
+<span class="token function">top</span> - 18:18:58 up  1:02,  2 users,  load average: 1.04, 1.04, 1.05
 Tasks:   1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
-%Cpu(s):  1.4 us,  3.3 sy,  0.0 ni, 73.7 id, 21.6 wa,  0.0 hi,  0.1 si,  0.0 st
+%Cpu<span class="token punctuation">(</span>s<span class="token punctuation">)</span>:  1.4 us,  3.3 sy,  0.0 ni, 73.7 id, 21.6 wa,  0.0 hi,  0.1 si,  0.0 st
 KiB Mem:   8102564 total,  6397416 used,  1705148 free,   184608 buffers
 KiB Swap: 15625212 total,   366160 used, 15259052 free.  4102076 cached Mem
 
   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
 22722 root      20   0  406.1m  84.1m   0.7m D  11.7  1.1   0:08.82 stress
-</code></pre><p>&#x6839;&#x636E;&#x5B9E;&#x9645;&#x6D4B;&#x8BD5;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#xFF0C;<code>-m</code> &#x4E3A;&#x7269;&#x7406;&#x5185;&#x5B58;&#x4E0A;&#x9650;&#xFF0C;&#x800C; <code>--memory-swap</code> &#x5219;&#x662F; memory + swap &#x4E4B;&#x548C;&#xFF0C;&#x5F53;&#x538B;&#x6D4B;&#x503C;&#x662F; <code>--memory-swap</code> &#x4E0A;&#x9650;&#x65F6;&#xFF0C;&#x5219;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x8FDB;&#x7A0B;&#x4F1A;&#x88AB;&#x76F4;&#x63A5; OOM kill&#x3002;</p>
+</code></pre>
+<p>&#x6839;&#x636E;&#x5B9E;&#x9645;&#x6D4B;&#x8BD5;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#xFF0C;<code>-m</code> &#x4E3A;&#x7269;&#x7406;&#x5185;&#x5B58;&#x4E0A;&#x9650;&#xFF0C;&#x800C; <code>--memory-swap</code> &#x5219;&#x662F; memory + swap &#x4E4B;&#x548C;&#xFF0C;&#x5F53;&#x538B;&#x6D4B;&#x503C;&#x662F; <code>--memory-swap</code> &#x4E0A;&#x9650;&#x65F6;&#xFF0C;&#x5219;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x8FDB;&#x7A0B;&#x4F1A;&#x88AB;&#x76F4;&#x63A5; OOM kill&#x3002;</p>
 <h3 id="22--m----memory-swappiness-">2.2 <code>-m ... --memory-swappiness ...</code></h3>
 <p>swappiness &#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x662F;&#x5BBF;&#x4E3B; <code>/proc/sys/vm/swappiness</code> &#x8BBE;&#x5B9A;&#xFF1A;</p>
 <blockquote>
@@ -997,22 +1018,25 @@ KiB Swap: 15625212 total,   366160 used, 15259052 free.  4102076 cached Mem
 <ul>
 <li><code>docker run -it --rm -m 100M --memory-swappiness=0 ubuntu-stress:latest /bin/bash</code></li>
 </ul>
-<pre><code>&#x279C;  ~ docker run -it --rm -m 100M --memory-swappiness=0 ubuntu-stress:latest /bin/bash
-root@e3fd6cc73849:/# stress --vm 1 --vm-bytes 100M  # &#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5546;&#x91CF;&#x7684;&#x4F59;&#x5730;&#xFF0C;&#x5230;&#x8FBE; 100M &#x76F4;&#x63A5;&#x88AB; kill
-stress: info: [18] dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
-stress: FAIL: [18] (416) &lt;-- worker 19 got signal 9
-stress: WARN: [18] (418) now reaping child worker processes
-stress: FAIL: [18] (452) failed run completed in 0s
-root@e3fd6cc73849:/#
-</code></pre><h3 id="23---memory-reservation-">2.3 <code>--memory-reservation ...</code></h3>
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker run -it --rm -m 100M --memory-swappiness<span class="token operator">=</span>0 ubuntu-stress:latest /bin/bash
+root@e3fd6cc73849:/<span class="token comment"># stress --vm 1 --vm-bytes 100M  # &#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5546;&#x91CF;&#x7684;&#x4F59;&#x5730;&#xFF0C;&#x5230;&#x8FBE; 100M &#x76F4;&#x63A5;&#x88AB; kill</span>
+stress: info: <span class="token punctuation">[</span>18<span class="token punctuation">]</span> dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
+stress: FAIL: <span class="token punctuation">[</span>18<span class="token punctuation">]</span> <span class="token punctuation">(</span>416<span class="token punctuation">)</span> <span class="token operator">&lt;</span>-- worker 19 got signal 9
+stress: WARN: <span class="token punctuation">[</span>18<span class="token punctuation">]</span> <span class="token punctuation">(</span>418<span class="token punctuation">)</span> now reaping child worker processes
+stress: FAIL: <span class="token punctuation">[</span>18<span class="token punctuation">]</span> <span class="token punctuation">(</span>452<span class="token punctuation">)</span> failed run completed <span class="token keyword">in</span> 0s
+root@e3fd6cc73849:/<span class="token comment">#</span>
+</code></pre>
+<h3 id="23---memory-reservation-">2.3 <code>--memory-reservation ...</code></h3>
 <p><code>--memory-reservation ...</code> &#x9009;&#x9879;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x5185;&#x5B58;&#x7684;&#x8F6F;&#x9650;&#x5236;&#x3002;&#x5982;&#x679C;&#x4E0D;&#x8BBE;&#x7F6E; <code>-m</code> &#x9009;&#x9879;&#xFF0C;&#x90A3;&#x4E48;&#x5BB9;&#x5668;&#x4F7F;&#x7528;&#x5185;&#x5B58;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x662F;&#x4E0D;&#x53D7;&#x9650;&#x7684;&#x3002;&#x6309;&#x7167;&#x5B98;&#x65B9;&#x7684;&#x8BF4;&#x6CD5;&#xFF0C;memory reservation &#x8BBE;&#x7F6E;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x5BB9;&#x5668;&#x4E0D;&#x4F1A;&#x957F;&#x65F6;&#x95F4;&#x5360;&#x7528;&#x5927;&#x91CF;&#x5185;&#x5B58;&#x3002;</p>
 <h3 id="24---oom-kill-disable">2.4 <code>--oom-kill-disable</code></h3>
-<pre><code>&#x279C;  ~ docker run -it --rm -m 100M --memory-swappiness=0 --oom-kill-disable ubuntu-stress:latest /bin/bash
-root@f54f93440a04:/# stress --vm 1 --vm-bytes 200M  # &#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0D;&#x6DFB;&#x52A0; --oom-kill-disable &#x5219;&#x4F1A;&#x76F4;&#x63A5; OOM kill&#xFF0C;&#x52A0;&#x4E0A;&#x4E4B;&#x540E;&#x5219;&#x8FBE;&#x5230;&#x9650;&#x5236;&#x5185;&#x5B58;&#x4E4B;&#x540E;&#x4E5F;&#x4E0D;&#x4F1A;&#x88AB; kill
-stress: info: [17] dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
-</code></pre><p>&#x4F46;&#x662F;&#x5982;&#x679C;&#x662F;&#x4EE5;&#x4E0B;&#x7684;&#x8FD9;&#x79CD;&#x6CA1;&#x6709;&#x5BF9;&#x5BB9;&#x5668;&#x4F5C;&#x4EFB;&#x4F55;&#x8D44;&#x6E90;&#x9650;&#x5236;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6DFB;&#x52A0; <code>--oom-kill-disable</code> &#x9009;&#x9879;&#x5C31;&#x6BD4;&#x8F83; <strong>&#x5371;&#x9669;</strong> &#x4E86;&#xFF1A;</p>
-<pre><code>$ docker run -it --oom-kill-disable ubuntu:14.04 /bin/bash
-</code></pre><p>&#x56E0;&#x4E3A;&#x6B64;&#x65F6;&#x5BB9;&#x5668;&#x5185;&#x5B58;&#x6CA1;&#x6709;&#x9650;&#x5236;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x88AB; oom kill&#xFF0C;&#x6B64;&#x65F6;&#x7CFB;&#x7EDF;&#x5219;&#x4F1A; kill &#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x7528;&#x4E8E;&#x91CA;&#x653E;&#x5185;&#x5B58;&#x3002;</p>
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker run -it --rm -m 100M --memory-swappiness<span class="token operator">=</span>0 --oom-kill-disable ubuntu-stress:latest /bin/bash
+root@f54f93440a04:/<span class="token comment"># stress --vm 1 --vm-bytes 200M  # &#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0D;&#x6DFB;&#x52A0; --oom-kill-disable &#x5219;&#x4F1A;&#x76F4;&#x63A5; OOM kill&#xFF0C;&#x52A0;&#x4E0A;&#x4E4B;&#x540E;&#x5219;&#x8FBE;&#x5230;&#x9650;&#x5236;&#x5185;&#x5B58;&#x4E4B;&#x540E;&#x4E5F;&#x4E0D;&#x4F1A;&#x88AB; kill</span>
+stress: info: <span class="token punctuation">[</span>17<span class="token punctuation">]</span> dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
+</code></pre>
+<p>&#x4F46;&#x662F;&#x5982;&#x679C;&#x662F;&#x4EE5;&#x4E0B;&#x7684;&#x8FD9;&#x79CD;&#x6CA1;&#x6709;&#x5BF9;&#x5BB9;&#x5668;&#x4F5C;&#x4EFB;&#x4F55;&#x8D44;&#x6E90;&#x9650;&#x5236;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6DFB;&#x52A0; <code>--oom-kill-disable</code> &#x9009;&#x9879;&#x5C31;&#x6BD4;&#x8F83; <strong>&#x5371;&#x9669;</strong> &#x4E86;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">$ docker run -it --oom-kill-disable ubuntu:14.04 /bin/bash
+</code></pre>
+<p>&#x56E0;&#x4E3A;&#x6B64;&#x65F6;&#x5BB9;&#x5668;&#x5185;&#x5B58;&#x6CA1;&#x6709;&#x9650;&#x5236;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x88AB; oom kill&#xFF0C;&#x6B64;&#x65F6;&#x7CFB;&#x7EDF;&#x5219;&#x4F1A; kill &#x7CFB;&#x7EDF;&#x8FDB;&#x7A0B;&#x7528;&#x4E8E;&#x91CA;&#x653E;&#x5185;&#x5B58;&#x3002;</p>
 <h3 id="25---kernel-memory">2.5 <code>--kernel-memory</code></h3>
 <blockquote>
 <p>Kernel memory is fundamentally different than user memory as kernel memory can&#x2019;t be swapped out. The inability to swap makes it possible for the container to block system services by consuming too much kernel memory. Kernel memory includes:</p>
@@ -1029,53 +1053,59 @@ stress: info: [17] dispatching hogs: 0 cpu, 0 io, 1 vm, 0 hdd
 <ul>
 <li><code>github.com/opencontainers/runc/libcontainer/cgroups/fs/memory.go</code></li>
 </ul>
-<pre><code>68 func (s *MemoryGroup) Set(path string, cgroup *configs.Cgroup) error {
-69     if cgroup.Resources.Memory != 0 {
-70         if err := writeFile(path, &quot;memory.limit_in_bytes&quot;, strconv.FormatInt(cgroup.Resources.Memory, 10)); err != nil {
-71             return err
-72         }
-73     }
-74     if cgroup.Resources.MemoryReservation != 0 {
-75         if err := writeFile(path, &quot;memory.soft_limit_in_bytes&quot;, strconv.FormatInt(cgroup.Resources.MemoryReservation, 10)); err != nil {
-76             return err
-77         }
-78     }
-79     if cgroup.Resources.MemorySwap &gt; 0 {
-80         if err := writeFile(path, &quot;memory.memsw.limit_in_bytes&quot;, strconv.FormatInt(cgroup.Resources.MemorySwap, 10)); err != nil {
-81             return err   // &#x5982;&#x679C; MemorySwap &#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219; cgroup &#x9ED8;&#x8BA4;&#x8BBE;&#x5B9A;&#x503C;&#x662F; Memory 2 &#x500D;&#xFF0C;&#x8BE6;&#x89C1;&#x540E;&#x6587;&#x6D4B;&#x8BD5;
-82         }
-83     }
-84     if cgroup.Resources.OomKillDisable {
-85         if err := writeFile(path, &quot;memory.oom_control&quot;, &quot;1&quot;); err != nil {
-86             return err
-87         }
-88     }
-89     if cgroup.Resources.MemorySwappiness &gt;= 0 &amp;&amp; cgroup.Resources.MemorySwappiness &lt;= 100 {
-90         if err := writeFile(path, &quot;memory.swappiness&quot;, strconv.FormatInt(cgroup.Resources.MemorySwappiness, 10)); err != nil {
-91             return err
-92         }
-93     } else if cgroup.Resources.MemorySwappiness == -1 {
-94         return nil  // &#x5982;&#x679C; MemorySwappiness &#x8BBE;&#x7F6E;&#x4E3A; -1&#xFF0C;&#x5219;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#xFF0C;&#x7ECF;&#x6D4B;&#x8BD5;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; 60&#xFF0C;&#x540E;&#x6587;&#x9644;&#x6D4B;&#x8BD5;
-95     } else {
-96         return fmt.Errorf(&quot;invalid value:%d. valid memory swappiness range is 0-100&quot;, cgroup.Resources.MemorySwappiness)
-97     }
-98
-99     return nil
-100 }
-</code></pre><p>&#x9644;&#x6D4B;&#x8BD5;&#xFF1A;</p>
-<pre><code>&#x279C;  ~ docker run -it --rm -m 100M --memory-swappiness=-1 ubuntu-stress:latest /bin/bash
-root@fbe9b0abf665:/#
-</code></pre><p>&#x67E5;&#x770B;&#x5BBF;&#x4E3B;&#x5BF9;&#x5E94; container cgroup &#x5BF9;&#x5E94;&#x503C;&#xFF1A;</p>
-<pre><code>&#x279C;  ~ cd /sys/fs/cgroup/memory/docker/fbe9b0abf665b77fff985fd04f85402eae83eb7eb7162a30070b5920d50c5356
-&#x279C;  fbe9b0abf665b77fff985fd04f85402eae83eb7eb7162a30070b5920d50c5356 cat memory.swappiness           # swappiness &#x5982;&#x679C;&#x8BBE;&#x7F6E; -1 &#x5219;&#x8BE5;&#x503C;&#x9ED8;&#x8BA4;&#x4E3A; 60
+<pre class="language-"><code class="lang-go"><span class="token number">68</span> <span class="token keyword">func</span> <span class="token punctuation">(</span>s <span class="token operator">*</span>MemoryGroup<span class="token punctuation">)</span> <span class="token function">Set</span><span class="token punctuation">(</span>path <span class="token builtin">string</span><span class="token punctuation">,</span> cgroup <span class="token operator">*</span>configs<span class="token punctuation">.</span>Cgroup<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+<span class="token number">69</span>     <span class="token keyword">if</span> cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>Memory <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+<span class="token number">70</span>         <span class="token keyword">if</span> err <span class="token operator">:=</span> <span class="token function">writeFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token string">&quot;memory.limit_in_bytes&quot;</span><span class="token punctuation">,</span> strconv<span class="token punctuation">.</span><span class="token function">FormatInt</span><span class="token punctuation">(</span>cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>Memory<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+<span class="token number">71</span>             <span class="token keyword">return</span> err
+<span class="token number">72</span>         <span class="token punctuation">}</span>
+<span class="token number">73</span>     <span class="token punctuation">}</span>
+<span class="token number">74</span>     <span class="token keyword">if</span> cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>MemoryReservation <span class="token operator">!=</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+<span class="token number">75</span>         <span class="token keyword">if</span> err <span class="token operator">:=</span> <span class="token function">writeFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token string">&quot;memory.soft_limit_in_bytes&quot;</span><span class="token punctuation">,</span> strconv<span class="token punctuation">.</span><span class="token function">FormatInt</span><span class="token punctuation">(</span>cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>MemoryReservation<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+<span class="token number">76</span>             <span class="token keyword">return</span> err
+<span class="token number">77</span>         <span class="token punctuation">}</span>
+<span class="token number">78</span>     <span class="token punctuation">}</span>
+<span class="token number">79</span>     <span class="token keyword">if</span> cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>MemorySwap <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+<span class="token number">80</span>         <span class="token keyword">if</span> err <span class="token operator">:=</span> <span class="token function">writeFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token string">&quot;memory.memsw.limit_in_bytes&quot;</span><span class="token punctuation">,</span> strconv<span class="token punctuation">.</span><span class="token function">FormatInt</span><span class="token punctuation">(</span>cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>MemorySwap<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+<span class="token number">81</span>             <span class="token keyword">return</span> err   <span class="token comment">// &#x5982;&#x679C; MemorySwap &#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219; cgroup &#x9ED8;&#x8BA4;&#x8BBE;&#x5B9A;&#x503C;&#x662F; Memory 2 &#x500D;&#xFF0C;&#x8BE6;&#x89C1;&#x540E;&#x6587;&#x6D4B;&#x8BD5;</span>
+<span class="token number">82</span>         <span class="token punctuation">}</span>
+<span class="token number">83</span>     <span class="token punctuation">}</span>
+<span class="token number">84</span>     <span class="token keyword">if</span> cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>OomKillDisable <span class="token punctuation">{</span>
+<span class="token number">85</span>         <span class="token keyword">if</span> err <span class="token operator">:=</span> <span class="token function">writeFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token string">&quot;memory.oom_control&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;1&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+<span class="token number">86</span>             <span class="token keyword">return</span> err
+<span class="token number">87</span>         <span class="token punctuation">}</span>
+<span class="token number">88</span>     <span class="token punctuation">}</span>
+<span class="token number">89</span>     <span class="token keyword">if</span> cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>MemorySwappiness <span class="token operator">&gt;=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>MemorySwappiness <span class="token operator">&lt;=</span> <span class="token number">100</span> <span class="token punctuation">{</span>
+<span class="token number">90</span>         <span class="token keyword">if</span> err <span class="token operator">:=</span> <span class="token function">writeFile</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token string">&quot;memory.swappiness&quot;</span><span class="token punctuation">,</span> strconv<span class="token punctuation">.</span><span class="token function">FormatInt</span><span class="token punctuation">(</span>cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>MemorySwappiness<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+<span class="token number">91</span>             <span class="token keyword">return</span> err
+<span class="token number">92</span>         <span class="token punctuation">}</span>
+<span class="token number">93</span>     <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>MemorySwappiness <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">{</span>
+<span class="token number">94</span>         <span class="token keyword">return</span> <span class="token boolean">nil</span>  <span class="token comment">// &#x5982;&#x679C; MemorySwappiness &#x8BBE;&#x7F6E;&#x4E3A; -1&#xFF0C;&#x5219;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#xFF0C;&#x7ECF;&#x6D4B;&#x8BD5;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; 60&#xFF0C;&#x540E;&#x6587;&#x9644;&#x6D4B;&#x8BD5;</span>
+<span class="token number">95</span>     <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+<span class="token number">96</span>         <span class="token keyword">return</span> fmt<span class="token punctuation">.</span><span class="token function">Errorf</span><span class="token punctuation">(</span><span class="token string">&quot;invalid value:%d. valid memory swappiness range is 0-100&quot;</span><span class="token punctuation">,</span> cgroup<span class="token punctuation">.</span>Resources<span class="token punctuation">.</span>MemorySwappiness<span class="token punctuation">)</span>
+<span class="token number">97</span>     <span class="token punctuation">}</span>
+<span class="token number">98</span>
+<span class="token number">99</span>     <span class="token keyword">return</span> <span class="token boolean">nil</span>
+<span class="token number">100</span> <span class="token punctuation">}</span>
+</code></pre>
+<p>&#x9644;&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ docker run -it --rm -m 100M --memory-swappiness<span class="token operator">=</span>-1 ubuntu-stress:latest /bin/bash
+root@fbe9b0abf665:/<span class="token comment">#</span>
+</code></pre>
+<p>&#x67E5;&#x770B;&#x5BBF;&#x4E3B;&#x5BF9;&#x5E94; container cgroup &#x5BF9;&#x5E94;&#x503C;&#xFF1A;</p>
+<pre class="language-"><code class="lang-bash">&#x279C;  ~ <span class="token function">cd</span> /sys/fs/cgroup/memory/docker/fbe9b0abf665b77fff985fd04f85402eae83eb7eb7162a30070b5920d50c5356
+&#x279C;  fbe9b0abf665b77fff985fd04f85402eae83eb7eb7162a30070b5920d50c5356 <span class="token function">cat</span> memory.swappiness           <span class="token comment"># swappiness &#x5982;&#x679C;&#x8BBE;&#x7F6E; -1 &#x5219;&#x8BE5;&#x503C;&#x9ED8;&#x8BA4;&#x4E3A; 60</span>
 60
-&#x279C;  fbe9b0abf665b77fff985fd04f85402eae83eb7eb7162a30070b5920d50c5356 cat memory.memsw.limit_in_bytes # &#x4E3A;&#x8BBE;&#x7F6E;&#x7684; memory 2 &#x500D;
+&#x279C;  fbe9b0abf665b77fff985fd04f85402eae83eb7eb7162a30070b5920d50c5356 <span class="token function">cat</span> memory.memsw.limit_in_bytes <span class="token comment"># &#x4E3A;&#x8BBE;&#x7F6E;&#x7684; memory 2 &#x500D;</span>
 209715200
 &#x279C;  fbe9b0abf665b77fff985fd04f85402eae83eb7eb7162a30070b5920d50c5356
-</code></pre><p>from&#xFF1A;<a href="http://blog.opskumu.com/docker-memory-limit.html" target="_blank">http://blog.opskumu.com/docker-memory-limit.html</a> </p>
-<footer class="page-footer"><span class="copyright">Copyright &#xA9; jimmysong.io 2017 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">Updated:
-2017-03-03 16:13:48
-</span></footer>
+</code></pre>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
+<ul>
+<li><a href="http://blog.opskumu.com/docker-memory-limit.html" target="_blank">http://blog.opskumu.com/docker-memory-limit.html</a> </li>
+</ul>
+<footer class="page-footer"><span class="copyright"><p><a href="https://github.com/alipay/sofa-mesh" target="_blank">SOFAMesh - &#x57FA;&#x4E8E; Istio &#x7684;&#x5927;&#x89C4;&#x6A21;&#x670D;&#x52A1;&#x7F51;&#x683C;&#x89E3;&#x51B3;&#x65B9;&#x6848;</a> | <a href="https://github.com/alipay/sofa-mosn" target="_blank">SOFAMosn - Golang &#x7248;&#x7684;&#x9AD8;&#x6027;&#x80FD; Service Mesh Sidecar &#x4EE3;&#x7406;</a></p><p><a href="https://ws4.sinaimg.cn/large/006tNbRwly1fw3ku0cwuhj304g056dgk.jpg" data-lightbox="2fd927ee-fa64-4eca-8ed5-6bd72b573a3c" target="_blank">&#x70B9;&#x51FB;&#x5173;&#x6CE8;&#x3010;&#x4E91;&#x539F;&#x751F;&#x5E94;&#x7528;&#x67B6;&#x6784;&#x3011;&#x516C;&#x4F17;&#x53F7;&#x56DE;&#x590D;&#x3010;&#x52A0;&#x7FA4;&#x3011;&#x52A0;&#x5165;&#x5B66;&#x4E60;&#x7FA4;</a> | <a href="https://ws1.sinaimg.cn/large/006tNbRwly1fw3fzx37obj30yi1pdk1r.jpg" data-lightbox="2fd927ee-fa64-4eca-8ed5-6bd72b573a33" target="_blank">&#x6DF1;&#x5165;&#x5256;&#x6790; Kubernetes by &#x5F20;&#x78CA;</a></p>Copyright &#xA9; <a href="https://jimmysong.io" target="_blank">jimmysong.io</a> 2017-2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"> Updated at 
+2019-01-09 20:09:51
+</span></footer></body></html>
                                 
                                 </section>
                             
@@ -1102,8 +1132,12 @@ root@fbe9b0abf665:/#
 
             
                 
+                <a href="rancher_usage.html" class="navigation navigation-prev " aria-label="Previous page: Rancher的部署和使用">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="cpu_resource_limit.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 7.2 CPU资源限制">
+                
+                <a href="cpu_resource_limit.html" class="navigation navigation-next " aria-label="Next page: CPU资源限制">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1114,7 +1148,7 @@ root@fbe9b0abf665:/#
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7.1 内存资源限制","level":"1.7.1","depth":2,"next":{"title":"7.2 CPU资源限制","level":"1.7.2","depth":2,"path":"docs/cpu_resource_limit.md","ref":"docs/cpu_resource_limit.md","articles":[]},"previous":{"title":"7. 资源限制","level":"1.7","depth":1,"ref":"","articles":[{"title":"7.1 内存资源限制","level":"1.7.1","depth":2,"path":"docs/memory_resource_limit.md","ref":"docs/memory_resource_limit.md","articles":[]},{"title":"7.2 CPU资源限制","level":"1.7.2","depth":2,"path":"docs/cpu_resource_limit.md","ref":"docs/cpu_resource_limit.md","articles":[]},{"title":"7.3IO资源限制","level":"1.7.3","depth":2,"path":"docs/io_resource_limit.md","ref":"docs/io_resource_limit.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","codesnippet","splitter","page-toc-button","image-captions","editlink","back-to-top-button","-lunr","-search","search-plus","github-buttons@2.1.0","favicon@^0.0.2","tbfed-pagefooter@^0.0.1","3-ba"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © jimmysong.io 2017","modify_label":"Updated:","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/rootsongjc/docker-handbook"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/rootsongjc/docker-handbook/blob/master/"},"splitter":{},"codesnippet":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"page-toc-button":{},"back-to-top-button":{},"github-buttons":{"repo":"rootsongjc/docker-handbook","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"11f7d254cfa4e0ca44b175c66d379ecc"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{},"image-captions":{"caption":"图片 - _CAPTION_","variable_name":"_pictures"}},"theme":"default","author":"Jimmy Song","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"index.html#fig1.1.1","level":"1.1","list_caption":"Figure: 容器生态","alt":"容器生态","nro":1,"url":"images/container-ecosystem.png","index":1,"caption_template":"图片 - _CAPTION_","label":"容器生态","attributes":{},"skip":false,"key":"1.1.1"},{"backlink":"docs/rancher_network.html#fig1.3.2.1","level":"1.3.2","list_caption":"Figure: rancher_cnm","alt":"rancher_cnm","nro":2,"url":"imgs/rancher_cnm.png","index":1,"caption_template":"图片 - _CAPTION_","label":"rancher_cnm","attributes":{},"skip":false,"key":"1.3.2.1"},{"backlink":"docs/rancher_network.html#fig1.3.2.2","level":"1.3.2","list_caption":"Figure: rancher_cnm_interface","alt":"rancher_cnm_interface","nro":3,"url":"imgs/rancher_cnm_interface.png","index":2,"caption_template":"图片 - _CAPTION_","label":"rancher_cnm_interface","attributes":{},"skip":false,"key":"1.3.2.2"},{"backlink":"docs/rancher_network.html#fig1.3.2.3","level":"1.3.2","list_caption":"Figure: rancher_cni_driver","alt":"rancher_cni_driver","nro":4,"url":"imgs/rancher_cni_driver.png","index":3,"caption_template":"图片 - _CAPTION_","label":"rancher_cni_driver","attributes":{},"skip":false,"key":"1.3.2.3"},{"backlink":"docs/rancher_network.html#fig1.3.2.4","level":"1.3.2","list_caption":"Figure: rancher_verson","alt":"rancher_verson","nro":5,"url":"imgs/rancher_version.jpg","index":4,"caption_template":"图片 - _CAPTION_","label":"rancher_verson","attributes":{},"skip":false,"key":"1.3.2.4"},{"backlink":"docs/rancher_network.html#fig1.3.2.5","level":"1.3.2","list_caption":"Figure: rancher_net","alt":"rancher_net","nro":6,"url":"imgs/rancher_net.png","index":5,"caption_template":"图片 - _CAPTION_","label":"rancher_net","attributes":{},"skip":false,"key":"1.3.2.5"},{"backlink":"docs/rancher_network.html#fig1.3.2.6","level":"1.3.2","list_caption":"Figure: rancher_bridge","alt":"rancher_bridge","nro":7,"url":"imgs/rancher_bridge.png","index":6,"caption_template":"图片 - _CAPTION_","label":"rancher_bridge","attributes":{},"skip":false,"key":"1.3.2.6"},{"backlink":"docs/rancher_network.html#fig1.3.2.7","level":"1.3.2","list_caption":"Figure: rancher_compose","alt":"rancher_compose","nro":8,"url":"imgs/rancher_compose.png","index":7,"caption_template":"图片 - _CAPTION_","label":"rancher_compose","attributes":{},"skip":false,"key":"1.3.2.7"},{"backlink":"docs/rancher_network.html#fig1.3.2.8","level":"1.3.2","list_caption":"Figure: rancher_ipec","alt":"rancher_ipec","nro":9,"url":"imgs/rancher_ipec.png","index":8,"caption_template":"图片 - _CAPTION_","label":"rancher_ipec","attributes":{},"skip":false,"key":"1.3.2.8"},{"backlink":"docs/rancher_network.html#fig1.3.2.9","level":"1.3.2","list_caption":"Figure: rancher_template","alt":"rancher_template","nro":10,"url":"imgs/rancher_template.png","index":9,"caption_template":"图片 - _CAPTION_","label":"rancher_template","attributes":{},"skip":false,"key":"1.3.2.9"},{"backlink":"docs/rancher_network.html#fig1.3.2.10","level":"1.3.2","list_caption":"Figure: rancher_cattle","alt":"rancher_cattle","nro":11,"url":"imgs/rancher_cattle.png","index":10,"caption_template":"图片 - _CAPTION_","label":"rancher_cattle","attributes":{},"skip":false,"key":"1.3.2.10"},{"backlink":"docs/rancher_network.html#fig1.3.2.11","level":"1.3.2","list_caption":"Figure: rancher_overlay","alt":"rancher_overlay","nro":12,"url":"imgs/rancher_overlay.png","index":11,"caption_template":"图片 - _CAPTION_","label":"rancher_overlay","attributes":{},"skip":false,"key":"1.3.2.11"},{"backlink":"docs/rancher_network.html#fig1.3.2.12","level":"1.3.2","list_caption":"Figure: rancher_flat","alt":"rancher_flat","nro":13,"url":"imgs/rancher_flat.png","index":12,"caption_template":"图片 - _CAPTION_","label":"rancher_flat","attributes":{},"skip":false,"key":"1.3.2.12"},{"backlink":"docs/rancher_network.html#fig1.3.2.13","level":"1.3.2","list_caption":"Figure: rancher_vm","alt":"rancher_vm","nro":14,"url":"imgs/rancher_vm.png","index":13,"caption_template":"图片 - _CAPTION_","label":"rancher_vm","attributes":{},"skip":false,"key":"1.3.2.13"},{"backlink":"docs/rancher_network.html#fig1.3.2.14","level":"1.3.2","list_caption":"Figure: rancher_cni_workflow","alt":"rancher_cni_workflow","nro":15,"url":"imgs/rancher_cni_workflow.png","index":14,"caption_template":"图片 - _CAPTION_","label":"rancher_cni_workflow","attributes":{},"skip":false,"key":"1.3.2.14"},{"backlink":"docs/rancher_network.html#fig1.3.2.15","level":"1.3.2","list_caption":"Figure: rancher_network_plugin","alt":"rancher_network_plugin","nro":16,"url":"imgs/rancher_network_plugin.png","index":15,"caption_template":"图片 - _CAPTION_","label":"rancher_network_plugin","attributes":{},"skip":false,"key":"1.3.2.15"},{"backlink":"docs/swarm_mode_routing_mesh.html#fig1.3.3.1","level":"1.3.3","list_caption":"Figure: service ingress image","alt":"service ingress image","nro":17,"url":"https://docs.docker.com/engine/swarm/images/ingress-routing-mesh.png","index":1,"caption_template":"图片 - _CAPTION_","label":"service ingress image","attributes":{},"skip":false,"key":"1.3.3.1"},{"backlink":"docs/swarm_mode_routing_mesh.html#fig1.3.3.2","level":"1.3.3","list_caption":"Figure: ingress with external load balancer image","alt":"ingress with external load balancer image","nro":18,"url":"https://docs.docker.com/engine/swarm/images/ingress-lb.png","index":2,"caption_template":"图片 - _CAPTION_","label":"ingress with external load balancer image","attributes":{},"skip":false,"key":"1.3.3.2"},{"backlink":"docs/create_swarm_app.html#fig1.5.1.1","level":"1.5.1","list_caption":"Figure: vote-app-diagram","alt":"vote-app-diagram","nro":19,"url":"imgs/vote-app-diagram.png","index":1,"caption_template":"图片 - _CAPTION_","label":"vote-app-diagram","attributes":{},"skip":false,"key":"1.5.1.1"},{"backlink":"docs/create_swarm_app.html#fig1.5.1.2","level":"1.5.1","list_caption":"Figure: visualizer.jpg","alt":"visualizer.jpg","nro":20,"url":"imgs/visualizer.jpg","index":2,"caption_template":"图片 - _CAPTION_","label":"visualizer.jpg","attributes":{},"skip":false,"key":"1.5.1.2"},{"backlink":"docs/create_swarm_app.html#fig1.5.1.3","level":"1.5.1","list_caption":"Figure: vote_web","alt":"vote_web","nro":21,"url":"imgs/vote_web.jpg","index":3,"caption_template":"图片 - _CAPTION_","label":"vote_web","attributes":{},"skip":false,"key":"1.5.1.3"},{"backlink":"docs/create_swarm_app.html#fig1.5.1.4","level":"1.5.1","list_caption":"Figure: vote_result","alt":"vote_result","nro":22,"url":"imgs/vote_result.jpg","index":4,"caption_template":"图片 - _CAPTION_","label":"vote_result","attributes":{},"skip":false,"key":"1.5.1.4"},{"backlink":"docs/rancher_usage.html#fig1.6.2.1","level":"1.6.2","list_caption":"Figure: rancher_login","alt":"rancher_login","nro":23,"url":"../docs/imgs/rancher_login.jpg","index":1,"caption_template":"图片 - _CAPTION_","label":"rancher_login","attributes":{},"skip":false,"key":"1.6.2.1"},{"backlink":"docs/cpu_resource_limit.html#fig1.7.2.1","level":"1.7.2","list_caption":"Figure: cpu test","alt":"cpu test","nro":24,"url":"http://blog.opskumu.com/images/cpu-test.png","index":1,"caption_template":"图片 - _CAPTION_","label":"cpu test","attributes":{},"skip":false,"key":"1.7.2.1"},{"backlink":"docs/io_resource_limit.html#fig1.7.3.1","level":"1.7.3","list_caption":"Figure: io write bps","alt":"io write bps","nro":25,"url":"http://blog.opskumu.com/images/io-write-bps.png","index":1,"caption_template":"图片 - _CAPTION_","label":"io write bps","attributes":{},"skip":false,"key":"1.7.3.1"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.1","level":"1.11.1","list_caption":"Figure: jd_arch","alt":"jd_arch","nro":26,"url":"imgs/jd_arch.jpg","index":1,"caption_template":"图片 - _CAPTION_","label":"jd_arch","attributes":{},"skip":false,"key":"1.11.1.1"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.2","level":"1.11.1","list_caption":"Figure: jd_feature","alt":"jd_feature","nro":27,"url":"imgs/jd_feature.jpg","index":2,"caption_template":"图片 - _CAPTION_","label":"jd_feature","attributes":{},"skip":false,"key":"1.11.1.2"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.3","level":"1.11.1","list_caption":"Figure: jd_deploy","alt":"jd_deploy","nro":28,"url":"imgs/jd_deploy.jpg","index":3,"caption_template":"图片 - _CAPTION_","label":"jd_deploy","attributes":{},"skip":false,"key":"1.11.1.3"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.4","level":"1.11.1","list_caption":"Figure: jd_app","alt":"jd_app","nro":29,"url":"imgs/jd_app.jpg","index":4,"caption_template":"图片 - _CAPTION_","label":"jd_app","attributes":{},"skip":false,"key":"1.11.1.4"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.5","level":"1.11.1","list_caption":"Figure: jd_tor","alt":"jd_tor","nro":30,"url":"imgs/jd_tor.jpg","index":5,"caption_template":"图片 - _CAPTION_","label":"jd_tor","attributes":{},"skip":false,"key":"1.11.1.5"},{"backlink":"docs/jd_transform_to_kubernetes.html#fig1.11.1.6","level":"1.11.1","list_caption":"Figure: jd_schedule","alt":"jd_schedule","nro":31,"url":"imgs/jd_schedule.jpg","index":6,"caption_template":"图片 - _CAPTION_","label":"jd_schedule","attributes":{},"skip":false,"key":"1.11.1.6"},{"backlink":"docs/ali_docker.html#fig1.11.3.1","level":"1.11.3","list_caption":"Figure: 图片描述","alt":"图片描述","nro":32,"url":"http://www.chinacloud.cn/upload/2016-12/161212140352661.png","index":1,"caption_template":"图片 - _CAPTION_","label":"图片描述","attributes":{},"skip":false,"key":"1.11.3.1"},{"backlink":"docs/letv_docker.html#fig1.11.5.1","level":"1.11.5","list_caption":"Figure: 关系.png","alt":"关系.png","nro":33,"url":"http://dockerone.com/uploads/article/20170215/b161c38bc139d5282acd1c8f3e039444.png","index":1,"caption_template":"图片 - _CAPTION_","label":"关系.png","attributes":{},"skip":false,"key":"1.11.5.1"},{"backlink":"docs/letv_docker.html#fig1.11.5.2","level":"1.11.5","list_caption":"Figure: 架构.png","alt":"架构.png","nro":34,"url":"http://dockerone.com/uploads/article/20170215/51ae1e2c3432f03e936630eefa411152.png","index":2,"caption_template":"图片 - _CAPTION_","label":"架构.png","attributes":{},"skip":false,"key":"1.11.5.2"},{"backlink":"docs/letv_docker.html#fig1.11.5.3","level":"1.11.5","list_caption":"Figure: 逻辑.png","alt":"逻辑.png","nro":35,"url":"http://dockerone.com/uploads/article/20170215/7055c11a130c988b68a34b3e0ee5d343.png","index":3,"caption_template":"图片 - _CAPTION_","label":"逻辑.png","attributes":{},"skip":false,"key":"1.11.5.3"},{"backlink":"docs/letv_docker.html#fig1.11.5.4","level":"1.11.5","list_caption":"Figure: Region.png","alt":"Region.png","nro":36,"url":"http://dockerone.com/uploads/article/20170215/eb7abcaec90313f5f54a09081acb5c53.png","index":4,"caption_template":"图片 - _CAPTION_","label":"Region.png","attributes":{},"skip":false,"key":"1.11.5.4"},{"backlink":"docs/letv_docker.html#fig1.11.5.5","level":"1.11.5","list_caption":"Figure: 单cell.png","alt":"单cell.png","nro":37,"url":"http://dockerone.com/uploads/article/20170215/39608b12c11b1be8a8f4bd16a9756348.png","index":5,"caption_template":"图片 - _CAPTION_","label":"单cell.png","attributes":{},"skip":false,"key":"1.11.5.5"},{"backlink":"docs/letv_docker.html#fig1.11.5.6","level":"1.11.5","list_caption":"Figure: 参与应用.png","alt":"参与应用.png","nro":38,"url":"http://dockerone.com/uploads/article/20170215/3e8895a01fdd8968fb262ebf2eab4099.png","index":6,"caption_template":"图片 - _CAPTION_","label":"参与应用.png","attributes":{},"skip":false,"key":"1.11.5.6"},{"backlink":"docs/letv_docker.html#fig1.11.5.7","level":"1.11.5","list_caption":"Figure: 参与镜像.png","alt":"参与镜像.png","nro":39,"url":"http://dockerone.com/uploads/article/20170215/6abcb0a147d2ab3d5cf9ac303a701370.png","index":7,"caption_template":"图片 - _CAPTION_","label":"参与镜像.png","attributes":{},"skip":false,"key":"1.11.5.7"},{"backlink":"docs/letv_docker.html#fig1.11.5.8","level":"1.11.5","list_caption":"Figure: 帮助.png","alt":"帮助.png","nro":40,"url":"http://dockerone.com/uploads/article/20170215/c4e503a90b7dc07df55f9c1343e03d95.png","index":8,"caption_template":"图片 - _CAPTION_","label":"帮助.png","attributes":{},"skip":false,"key":"1.11.5.8"},{"backlink":"docs/letv_docker.html#fig1.11.5.9","level":"1.11.5","list_caption":"Figure: 帮助2.png","alt":"帮助2.png","nro":41,"url":"http://dockerone.com/uploads/article/20170215/adcc568d05035599379bf5f2ba8acaec.png","index":9,"caption_template":"图片 - _CAPTION_","label":"帮助2.png","attributes":{},"skip":false,"key":"1.11.5.9"},{"backlink":"docs/letv_docker.html#fig1.11.5.10","level":"1.11.5","list_caption":"Figure: 操作频率.png","alt":"操作频率.png","nro":42,"url":"http://dockerone.com/uploads/article/20170215/463da22aa0b62bfe003090f7a02ab6eb.png","index":10,"caption_template":"图片 - _CAPTION_","label":"操作频率.png","attributes":{},"skip":false,"key":"1.11.5.10"},{"backlink":"docs/letv_docker.html#fig1.11.5.11","level":"1.11.5","list_caption":"Figure: 纵向访问.png","alt":"纵向访问.png","nro":43,"url":"http://dockerone.com/uploads/article/20170215/2017815e75eed5039c9876a450ef526a.png","index":11,"caption_template":"图片 - _CAPTION_","label":"纵向访问.png","attributes":{},"skip":false,"key":"1.11.5.11"},{"backlink":"docs/letv_docker.html#fig1.11.5.12","level":"1.11.5","list_caption":"Figure: 容器网络.png","alt":"容器网络.png","nro":44,"url":"http://dockerone.com/uploads/article/20170215/2d0f872b91af43a6fbe72eb959cc80b9.png","index":12,"caption_template":"图片 - _CAPTION_","label":"容器网络.png","attributes":{},"skip":false,"key":"1.11.5.12"},{"backlink":"docs/letv_docker.html#fig1.11.5.13","level":"1.11.5","list_caption":"Figure: 请求路径.png","alt":"请求路径.png","nro":45,"url":"http://dockerone.com/uploads/article/20170215/8d636130241f31d7968ecbb5d6fdf9ed.png","index":13,"caption_template":"图片 - _CAPTION_","label":"请求路径.png","attributes":{},"skip":false,"key":"1.11.5.13"},{"backlink":"docs/letv_docker.html#fig1.11.5.14","level":"1.11.5","list_caption":"Figure: slb-core.png","alt":"slb-core.png","nro":46,"url":"http://dockerone.com/uploads/article/20170215/e7f0474710a3f261cf0da2daed65e9ad.png","index":14,"caption_template":"图片 - _CAPTION_","label":"slb-core.png","attributes":{},"skip":false,"key":"1.11.5.14"},{"backlink":"docs/letv_docker.html#fig1.11.5.15","level":"1.11.5","list_caption":"Figure: 创建应用.png","alt":"创建应用.png","nro":47,"url":"http://dockerone.com/uploads/article/20170215/c211f9568db381b6d28b0d97afb8d0f2.png","index":15,"caption_template":"图片 - _CAPTION_","label":"创建应用.png","attributes":{},"skip":false,"key":"1.11.5.15"},{"backlink":"docs/letv_docker.html#fig1.11.5.16","level":"1.11.5","list_caption":"Figure: 负载均衡.png","alt":"负载均衡.png","nro":48,"url":"http://dockerone.com/uploads/article/20170215/d608cc162e93fcf67854b77beae2a000.png","index":16,"caption_template":"图片 - _CAPTION_","label":"负载均衡.png","attributes":{},"skip":false,"key":"1.11.5.16"},{"backlink":"docs/letv_docker.html#fig1.11.5.17","level":"1.11.5","list_caption":"Figure: 负载均衡配置.png","alt":"负载均衡配置.png","nro":49,"url":"http://dockerone.com/uploads/article/20170215/ba53fb39e11a46f4d69e3ad3d5c77c53.png","index":17,"caption_template":"图片 - _CAPTION_","label":"负载均衡配置.png","attributes":{},"skip":false,"key":"1.11.5.17"},{"backlink":"docs/letv_docker.html#fig1.11.5.18","level":"1.11.5","list_caption":"Figure: 镜像tag.png","alt":"镜像tag.png","nro":50,"url":"http://dockerone.com/uploads/article/20170215/66e492e3c836d85300f27626b22a399e.png","index":18,"caption_template":"图片 - _CAPTION_","label":"镜像tag.png","attributes":{},"skip":false,"key":"1.11.5.18"},{"backlink":"docs/letv_docker.html#fig1.11.5.19","level":"1.11.5","list_caption":"Figure: 成员.png","alt":"成员.png","nro":51,"url":"http://dockerone.com/uploads/article/20170215/31f25fecb49e1eca8c950e8edc572629.png","index":19,"caption_template":"图片 - _CAPTION_","label":"成员.png","attributes":{},"skip":false,"key":"1.11.5.19"},{"backlink":"docs/letv_docker.html#fig1.11.5.20","level":"1.11.5","list_caption":"Figure: 动态.png","alt":"动态.png","nro":52,"url":"http://dockerone.com/uploads/article/20170215/b5d3059446d17e0452781538d97e28b8.png","index":20,"caption_template":"图片 - _CAPTION_","label":"动态.png","attributes":{},"skip":false,"key":"1.11.5.20"},{"backlink":"docs/letv_docker.html#fig1.11.5.21","level":"1.11.5","list_caption":"Figure: 构建框架.png","alt":"构建框架.png","nro":53,"url":"http://dockerone.com/uploads/article/20170215/5413a7445a394985b826a2bc75a8cace.png","index":21,"caption_template":"图片 - _CAPTION_","label":"构建框架.png","attributes":{},"skip":false,"key":"1.11.5.21"},{"backlink":"docs/letv_docker.html#fig1.11.5.22","level":"1.11.5","list_caption":"Figure: 添加构建.png","alt":"添加构建.png","nro":54,"url":"http://dockerone.com/uploads/article/20170215/c360b0436674f1a6b36de60f1f048df3.png","index":22,"caption_template":"图片 - _CAPTION_","label":"添加构建.png","attributes":{},"skip":false,"key":"1.11.5.22"},{"backlink":"docs/letv_docker.html#fig1.11.5.23","level":"1.11.5","list_caption":"Figure: 手动构建.png","alt":"手动构建.png","nro":55,"url":"http://dockerone.com/uploads/article/20170215/b5fc6dab0c2be9d89316886cff7eedb3.png","index":23,"caption_template":"图片 - _CAPTION_","label":"手动构建.png","attributes":{},"skip":false,"key":"1.11.5.23"},{"backlink":"docs/letv_docker.html#fig1.11.5.24","level":"1.11.5","list_caption":"Figure: 构建结果.png","alt":"构建结果.png","nro":56,"url":"http://dockerone.com/uploads/article/20170215/b679bb805e1ed84b39edce32a1983880.png","index":24,"caption_template":"图片 - _CAPTION_","label":"构建结果.png","attributes":{},"skip":false,"key":"1.11.5.24"},{"backlink":"docs/letv_docker.html#fig1.11.5.25","level":"1.11.5","list_caption":"Figure: 构建日志.png","alt":"构建日志.png","nro":57,"url":"http://dockerone.com/uploads/article/20170215/2f578c3c9a7a2012f54cae5201a4e24a.png","index":25,"caption_template":"图片 - _CAPTION_","label":"构建日志.png","attributes":{},"skip":false,"key":"1.11.5.25"},{"backlink":"docs/letv_docker.html#fig1.11.5.26","level":"1.11.5","list_caption":"Figure: 应用服务.png","alt":"应用服务.png","nro":58,"url":"http://dockerone.com/uploads/article/20170215/19b5a95258ce6a7954a8575d9efdb6ef.png","index":26,"caption_template":"图片 - _CAPTION_","label":"应用服务.png","attributes":{},"skip":false,"key":"1.11.5.26"},{"backlink":"docs/letv_docker.html#fig1.11.5.27","level":"1.11.5","list_caption":"Figure: 创建新版本.png","alt":"创建新版本.png","nro":59,"url":"http://dockerone.com/uploads/article/20170215/88414ead04427180ad2515db003269f6.png","index":27,"caption_template":"图片 - _CAPTION_","label":"创建新版本.png","attributes":{},"skip":false,"key":"1.11.5.27"},{"backlink":"docs/letv_docker.html#fig1.11.5.28","level":"1.11.5","list_caption":"Figure: 应用事件.png","alt":"应用事件.png","nro":60,"url":"http://dockerone.com/uploads/article/20170215/7c7e2438d62cd7817ade92c54abb8047.png","index":28,"caption_template":"图片 - _CAPTION_","label":"应用事件.png","attributes":{},"skip":false,"key":"1.11.5.28"},{"backlink":"docs/letv_docker.html#fig1.11.5.29","level":"1.11.5","list_caption":"Figure: 网络监控.png","alt":"网络监控.png","nro":61,"url":"http://dockerone.com/uploads/article/20170215/4d234595aafecc01393be388e73d7b0f.png","index":29,"caption_template":"图片 - _CAPTION_","label":"网络监控.png","attributes":{},"skip":false,"key":"1.11.5.29"},{"backlink":"docs/letv_docker.html#fig1.11.5.30","level":"1.11.5","list_caption":"Figure: 容器监控列表.png","alt":"容器监控列表.png","nro":62,"url":"http://dockerone.com/uploads/article/20170215/99890c2c201dbf3a610af8bbda6fe5fa.png","index":30,"caption_template":"图片 - _CAPTION_","label":"容器监控列表.png","attributes":{},"skip":false,"key":"1.11.5.30"},{"backlink":"docs/letv_docker.html#fig1.11.5.31","level":"1.11.5","list_caption":"Figure: 单个容器监控.png","alt":"单个容器监控.png","nro":63,"url":"http://dockerone.com/uploads/article/20170215/dc7859311da37c17de45909e6b991e36.png","index":31,"caption_template":"图片 - _CAPTION_","label":"单个容器监控.png","attributes":{},"skip":false,"key":"1.11.5.31"},{"backlink":"docs/letv_docker.html#fig1.11.5.32","level":"1.11.5","list_caption":"Figure: 一站式解决方案.png","alt":"一站式解决方案.png","nro":64,"url":"http://dockerone.com/uploads/article/20170215/a03b22ea6f4d4db1b82ddbdaad748d63.png","index":32,"caption_template":"图片 - _CAPTION_","label":"一站式解决方案.png","attributes":{},"skip":false,"key":"1.11.5.32"}]},"title":"Docker Handbook","language":"zh-hans","links":{"sidebar":{"Jimmy Song":"https://jimmysong.io"}},"gitbook":"*","description":"Docker Handbook|jimmysong.io|宋净超"},"file":{"path":"docs/memory_resource_limit.md","mtime":"2017-03-03T08:13:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-10T08:57:31.131Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"内存资源限制","level":"7.1","depth":1,"next":{"title":"CPU资源限制","level":"7.2","depth":1,"path":"docs/cpu_resource_limit.md","ref":"docs/cpu_resource_limit.md","articles":[]},"previous":{"title":"Rancher的部署和使用","level":"6.2","depth":1,"path":"docs/rancher_usage.md","ref":"docs/rancher_usage.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","codesnippet","splitter","page-toc-button","editlink","back-to-top-button","-lunr","-search","search-plus","github-buttons@2.1.0","favicon@^0.0.2","tbfed-pagefooter@^0.0.1","3-ba","theme-default","-highlight","prism","prism-themes","sitemap-general","lightbox","adsense","ga"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"<p><a href=https://github.com/alipay/sofa-mesh>SOFAMesh - 基于 Istio 的大规模服务网格解决方案</a> | <a href=https://github.com/alipay/sofa-mosn>SOFAMosn - Golang 版的高性能 Service Mesh Sidecar 代理</a></p><p><a href=https://ws4.sinaimg.cn/large/006tNbRwly1fw3ku0cwuhj304g056dgk.jpg data-lightbox=2fd927ee-fa64-4eca-8ed5-6bd72b573a3c>点击关注【云原生应用架构】公众号回复【加群】加入学习群</a> | <a href=https://ws1.sinaimg.cn/large/006tNbRwly1fw3fzx37obj30yi1pdk1r.jpg data-lightbox=2fd927ee-fa64-4eca-8ed5-6bd72b573a33>深入剖析 Kubernetes by 张磊</a></p>Copyright © <a href=https://jimmysong.io>jimmysong.io</a> 2017-2019","modify_label":" Updated at ","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prism-themes/themes/prism-ghcolors.css"]},"github":{"url":"https://github.com/rootsongjc/docker-handbook"},"editlink":{"label":"编辑本页","multilingual":false,"base":"https://github.com/rootsongjc/docker-handbook/blob/master/"},"splitter":{},"adsense":{"client":"ca-pub-4029167986768912","slot":"2445941692","format":"auto","element":".page-inner section","position":"bottom"},"codesnippet":{},"sitemap-general":{"prefix":"https://jimmysong.io/docker-handbook/"},"fontsettings":{"theme":"white","family":"sans","size":2},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"lightbox":{"jquery":true},"page-toc-button":{},"back-to-top-button":{},"prism-themes":{},"github-buttons":{"repo":"rootsongjc/docker-handbook","types":["star"],"size":"small"},"3-ba":{"configuration":"auto","token":"11f7d254cfa4e0ca44b175c66d379ecc"},"ga":{"configuration":"auto","token":"UA-93485976-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"search-plus":{}},"theme":"default","author":"Jimmy Song（宋净超）","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Docker Handbook - Docker 实践指南 by Jimmy Song(宋净超)","language":"zh-hans","links":{"sidebar":{"Istio Handbook - Istio 中文指南/服务网格实践手册":"https://jimmysong.io/istio-handbook","Cloud Native Python（Python云原生） - 使用Python和React构建云原生应用":"https://jimmysong.io/posts/cloud-native-python","ServiceMesher社区":"http://www.servicemesher.com","SOFAMesh - 基于Istio的大规模服务网格解决方案":"https://github.com/alipay/sofa-mesh","Cloud Native Java（云原生Java）-  Spring Boot、Spring Cloud与Cloud Foundry弹性系统设计":"https://jimmysong.io/posts/cloud-native-java","SOFAMosn - Golang版的高性能Service Mesh Sidecar代理":"https://github.com/alipay/sofa-mosn","Awesome Service Mesh":"http://www.servicemesher.com/awesome-servicemesh","Jimmy Song":"https://jimmysong.io","Awesome Cloud Native":"https://jimmysong.io/awesome-cloud-native","Cloud Native Go - 基于Go和React的web云原生应用构建指南":"https://jimmysong.io/posts/cloud-native-go"}},"gitbook":"*","description":"Docker Handbook - Docker 实践指南 2017年 by 宋净超"},"file":{"path":"docs/memory_resource_limit.md","mtime":"2019-01-09T12:09:51.486Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-09T12:32:22.549Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1157,6 +1191,22 @@ root@fbe9b0abf665:/#
     
         
         <script src="../gitbook/gitbook-plugin-3-ba/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/jquery.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lightbox/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-adsense/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
         
     
         
